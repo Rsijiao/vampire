@@ -187,7 +187,7 @@ private:
 
   struct DerefTask
   {
-    DerefTask(TermList var) : var(var) { trm.t.makeEmpty(); }
+    explicit DerefTask(TermList var) : var(var) { trm.t.makeEmpty(); }
     DerefTask(TermList var, TermSpec trm) : var(var), trm(trm) {}
     TermList var;
     TermSpec trm;

@@ -116,7 +116,7 @@ struct SubstitutionTree::GenMatcher::Binder
    * this object.
    */
   inline
-  Binder(GenMatcher* parent)
+  explicit Binder(GenMatcher* parent)
   : _parent(parent), _maxVar(parent->_maxVar) {}
   /**
    * Ensure variable @b var is bound to @b term. Return false iff

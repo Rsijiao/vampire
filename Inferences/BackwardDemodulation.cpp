@@ -84,7 +84,7 @@ struct BackwardDemodulation::RemovedIsNonzeroFn
 
 struct BackwardDemodulation::RewritableClausesFn
 {
-  RewritableClausesFn(DemodulationSubtermIndex* index) : _index(index) {}
+  explicit RewritableClausesFn(DemodulationSubtermIndex* index) : _index(index) {}
   DECL_RETURN_TYPE(VirtualIterator<pair<TermList,TermQueryResult> >);
   OWN_RETURN_TYPE operator() (TermList lhs)
   {

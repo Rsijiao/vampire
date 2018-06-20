@@ -45,7 +45,7 @@ public:
   inline
   UListLeaf() : _children(0), _size(0) {}
   inline
-  UListLeaf(TermList ts) : Leaf(ts), _children(0), _size(0) {}
+  explicit UListLeaf(TermList ts) : Leaf(ts), _children(0), _size(0) {}
   ~UListLeaf()
   {
     LDList::destroy(_children);

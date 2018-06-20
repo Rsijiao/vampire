@@ -157,7 +157,7 @@ private:
 
 struct LiteralSubstitutionTree::UnifyingContext
 {
-  UnifyingContext(Literal* queryLit)
+  explicit UnifyingContext(Literal* queryLit)
   : _queryLit(queryLit) {}
   bool enter(SLQueryResult qr)
   {
@@ -265,7 +265,7 @@ struct LiteralSubstitutionTree::EqualitySortFilter
 {
   DECL_RETURN_TYPE(bool);
 
-  EqualitySortFilter(Literal* queryLit)
+  explicit EqualitySortFilter(Literal* queryLit)
   : _queryEqSort(SortHelper::getEqualityArgumentSort(queryLit)) {}
 
   bool operator()(const SLQueryResult& res)
