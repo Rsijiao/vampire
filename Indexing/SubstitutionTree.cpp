@@ -24,7 +24,7 @@
  */
 
 #include <utility>
-
+#include <iostream>
 #include "Shell/Options.hpp"
 
 #include "Kernel/Matcher.hpp"
