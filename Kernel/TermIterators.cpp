@@ -400,4 +400,4 @@ unsigned TermVarIterator::next ()
 
 
 
-}
+}// namespace Kernel

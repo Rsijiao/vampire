@@ -22,6 +22,7 @@
  */
 
 #include <algorithm>
+#include <utility>
 
 #include "Lib/List.hpp"
 
@@ -29,6 +30,7 @@
 #include "Clause.hpp"
 
 #include "MaximalLiteralSelector.hpp"
+
 
 using namespace std;
 using namespace Lib;
@@ -41,14 +43,14 @@ void MaximalLiteralSelector::doSelection(Clause* c, unsigned eligible)
   LiteralList* sel=0;
   bool anyNegative=false;
 
-  for(int li=((int)eligible)-1; li>=0; li--) {
+  for(int li=(<int>eligible)-1; li>=0; li--) {
     Literal* lit=(*c)[li];
     if(isNegativeForSelection(lit)) {
       anyNegative=true;
       break;
     }
   }
-  for(int li=((int)eligible)-1; li>=0; li--) {
+  for(int li=(<int>eligible)-1; li>=0; li--) {
     Literal* lit=(*c)[li];
     if(!anyNegative || isNegativeForSelection(lit)) {
       LiteralList::push(lit,sel);

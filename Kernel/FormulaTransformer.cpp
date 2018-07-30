@@ -33,6 +33,7 @@
 #include "TermTransformer.hpp"
 
 #include "FormulaTransformer.hpp"
+#include "algorithm"
 
 namespace Kernel
 {
@@ -272,7 +273,7 @@ PolarityAwareFormulaTransformer::~PolarityAwareFormulaTransformer()
 
 unsigned PolarityAwareFormulaTransformer::getVarSort(unsigned var) const
 {
-  CALL("PolarityAwareFormulaTransformer::getVarSort");
+   CALL("PolarityAwareFormulaTransformer::getVarSort");
 
   return _varSorts->get(var, Sorts::SRT_DEFAULT);
 }

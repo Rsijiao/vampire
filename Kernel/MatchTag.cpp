@@ -25,6 +25,7 @@
 #include "Term.hpp"
 
 #include "MatchTag.hpp"
+#include "algorithm"
 
 namespace Kernel
 {
@@ -145,4 +146,4 @@ unsigned MatchTag::getContent(Term* t)
 
 #endif
 
-}
+}// namespace Kernel

@@ -238,7 +238,8 @@ private:
   static OperatorKey* setupKeyUniformRange(unsigned arity, unsigned argsSort);
 
   typedef Map<OperatorKey*,OperatorType*,PointerDereferencingHash> OperatorTypes;
-  static OperatorTypes& operatorTypes(); // just a wrapper around a static OperatorTypes object, to ensure a correct initialization order
+  // we should delete all the stored OperatorTypes inside at the end of the world, when this get destroyed
+  static OperatorTypes _operatorTypes;
 
   static OperatorType* getTypeFromKey(OperatorKey* key);
 

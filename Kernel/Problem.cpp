@@ -21,6 +21,9 @@
  * Implements class Problem.
  */
 
+#include <algorithm>
+
+
 #include "Lib/Environment.hpp"
 #include "Lib/List.hpp"
 #include "Lib/Metaiterators.hpp"

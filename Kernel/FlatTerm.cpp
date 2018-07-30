@@ -31,6 +31,7 @@
 #include "TermIterators.hpp"
 
 #include "FlatTerm.hpp"
+#include "algorithm"
 
 namespace Kernel
 {

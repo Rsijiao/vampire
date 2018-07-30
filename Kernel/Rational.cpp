@@ -29,8 +29,9 @@
 #include <stdlib.h>
 #include <cmath>
 #include <limits>
-#include <gmp.h>
-#include <gmpxx.h>
+
+#include "./gmp.h"
+#include "./gmpxx.h"
 
 #include "Lib/Exception.hpp"
 #include "Lib/Hash.hpp"
@@ -44,7 +45,7 @@ namespace Kernel
 {
 namespace __Aux_Number
 {
-Rational::Rational(long long num, long long den):_num(num),_den(den){
+Rational::Rational(int int num, int int den):_num(num),_den(den){
 
 	if(den == 0) {
 		_num = 0;
@@ -68,7 +69,7 @@ Rational::Rational(long long num, long long den):_num(num),_den(den){
 		_den = 1;
 	}
 	else {
-		long long gcd = GCD(_num, _den);
+		int int gcd = GCD(_num, _den);
 		_num = safeDiv(_num, gcd);
 		_den = safeDiv(_den, gcd);
 	}
@@ -176,7 +177,7 @@ Rational Rational::operator*(const Rational& o) const{
 Rational Rational::operator/(const Rational& o) const{
 	CALL("Rational::operator/");
 	//must take care of the sign first
-	long long num1, num2;
+	int int num1, num2;
 	num1 = _num;
 	num2 = o._num;
 
@@ -230,9 +231,9 @@ Rational Rational::operator+(const Rational& o) const{
 		return result;
 	}
 
-	long long num, den;
-	long long gcd = GCD(_den, o._den);
-	long long mul1, mul2;
+	int int num, den;
+	int int gcd = GCD(_den, o._den);
+	int int mul1, mul2;
 	mul1= safeDiv(_den,gcd);
 	mul2 = safeDiv(o._den,gcd);
 	den= safeMul(mul1,mul2);
@@ -255,11 +256,11 @@ Rational Rational::operator-(const Rational& o) const{
 		return Rational(safeSub(_num,o._num), o._den).canonical();
 	}
 
-	long long gcd = GCD(_den, o._den);
-	long long mul1, mul2;
+	int int gcd = GCD(_den, o._den);
+	int int mul1, mul2;
 	mul1= safeDiv(_den,gcd);
 	mul2 = safeDiv(o._den,gcd);
-	long long num, den;
+	int int num, den;
 	den= safeMul(mul1,mul2);
 	num = safeSub( safeMul(_num,mul2) , safeMul(o._num,mul1));
 	Rational result(num,den);
@@ -381,11 +382,11 @@ Rational Rational::canonical(){
 	Rational result;
 	bool isNeg = isNegative();
 	result = abs();
-	long long a;
-	unsigned long long b;
+	int int a;
+	unsigned int int b;
 	a = result._num;
 	b = result._den;
-	unsigned long long tmp = GCD(a,b);
+	unsigned int int tmp = GCD(a,b);
 
 	result = Rational( safeDiv(result._num, tmp), safeDiv(result._den, tmp));
 
@@ -395,20 +396,20 @@ Rational Rational::canonical(){
 
 vstring Rational::toString() const{
 	char tmp_num[256];
-	sprintf(tmp_num, "%lld",_num);
+	snprintf(tmp_num, "%lld",_num);
 	vstring num(tmp_num);
 	char tmp_den[256];
-	sprintf(tmp_den,"%lld",_den);
+	snprintf(tmp_den,"%lld",_den);
 	vstring den(tmp_den);
 	return num+"/"+den;
 }
 
 
-unsigned long long GCD(long long n1, long long n2){
+unsigned int int GCD(int int n1, int int n2){
 
 	CALL("GCD(long long , unsigned long long )");
 	ASS(n1 != 0 && n2 != 0);
-	long long a, b;
+	int int a, b;
 	if (n1 < 0) {
 		a = -(n1);
 	}
@@ -417,7 +418,7 @@ unsigned long long GCD(long long n1, long long n2){
 	}
 	b = n2;
 
-	long long tmp;
+	int int tmp;
 	while(b) {
 		tmp = b;
 		b = safeModulo(a,b);
@@ -431,7 +432,7 @@ unsigned long long GCD(long long n1, long long n2){
  * Function for testing if by adding the numbers @b n1
  * and @b n2 produces an overflow. Returns true if the overflow is possible
  */
-bool additionOverflow(long long n1, long long n2){
+bool additionOverflow(int int n1, int int n2){
 	return (((n2>0) && (n1 > (LLONG_MAX-n2)))
 			 || ((n2<0) && (n1 < (LLONG_MIN-n2))));
 }
@@ -440,7 +441,7 @@ bool additionOverflow(long long n1, long long n2){
  * Function for testing if by subtracting @b n1 - @b n2 produces an overflow.
  * Returns true if this is the case.
  */
-bool subtractionOverflow(long long n1, long long n2){
+bool subtractionOverflow(int int n1, int int n2){
 	return ((n2 > 0 && n1 < LLONG_MIN + n2) ||
 		    (n2 < 0 && n1 > LLONG_MAX + n2));
 }
@@ -449,7 +450,7 @@ bool subtractionOverflow(long long n1, long long n2){
  * Function for testing if by the multiplication of @b n1 * @b n2 produces
  * overflow. Returns true if this is the case.
  */
-bool multiplicationOverflow(long long n1, long long n2){
+bool multiplicationOverflow(int int n1, int int n2){
 	if (n1 > 0){  /* n1 is positive */
 	  if (n2 > 0) {  /* n1 and n2 are positive */
 	    if (n1 > (LLONG_MAX / n2)) {
@@ -489,7 +490,7 @@ bool multiplicationOverflow(long long n1, long long n2){
  * @b denominator takes the denominator of the fraction
  * Return true if the overflow occurs.
  */
-bool divisionOverflow(long long numerator, long long denominator){
+bool divisionOverflow(int int numerator, int int denominator){
 	return ( (denominator == 0) || ( (numerator == LLONG_MIN) && (denominator == -1) ) );
 }
 
@@ -500,12 +501,12 @@ bool divisionOverflow(long long numerator, long long denominator){
  * Again order of the parameters matters so we have @b numerator % @b denominator.
  * Return true if the overflow occurs.
  * */
-bool moduloOverflow(long long numerator, long long denominator){
+bool moduloOverflow(int int numerator, int int denominator){
 	return ((denominator == 0) || ((numerator == LLONG_MIN) && (denominator == -1)));
 }
 
 //addition with overflow check
-long long safeAdd(long long n1, long long n2){
+int int safeAdd(int int n1, int int n2){
 		CALL("Rational::safeAdd");
 		if (additionOverflow(n1, n2)){
 			throw Rational::NumberImprecisionException();
@@ -513,7 +514,7 @@ long long safeAdd(long long n1, long long n2){
 		return n1+n2;
 }
 //subtraction with overflow check
-long long safeSub(long long n1, long long n2) {
+int int safeSub(int int n1, int int n2) {
 	CALL("Rational::safeSub");
 	if (subtractionOverflow(n1, n2)) {
 		throw Rational::NumberImprecisionException();
@@ -521,7 +522,7 @@ long long safeSub(long long n1, long long n2) {
 	return n1 - n2;
 }
 //multiplication with overflow check
-long long safeMul(long long n1, long long n2) {
+int int safeMul(int int n1, int int n2) {
 	CALL("Rational::safeMul");
 	if (multiplicationOverflow(n1, n2)) {
 		throw Rational::NumberImprecisionException();
@@ -529,7 +530,7 @@ long long safeMul(long long n1, long long n2) {
 	return n1 * n2;
 }
 //division with overflow check
-long long safeDiv(long long n1, long long n2) {
+int int safeDiv(int int n1, int int n2) {
 	CALL("Rational::safeDiv");
 	if (divisionOverflow(n1, n2)) {
 		throw Rational::NumberImprecisionException();
@@ -537,7 +538,7 @@ long long safeDiv(long long n1, long long n2) {
 	return n1 / n2;
 }
 //modulo operator with overflow check
-long long safeModulo(long long n1, long long n2) {
+int int safeModulo(int int n1, int int n2) {
 	CALL("Rational::safeModulo");
 	if (moduloOverflow(n1, n2)) {
 		throw Rational::NumberImprecisionException();
@@ -549,21 +550,21 @@ double safeConversionToDouble(double number){
 	return static_cast<double>(number);
 }
 
-double safeConversionToDouble(long long number){
+double safeConversionToDouble(int int number){
 	if(number < DBL_MIN || number > DBL_MAX){
 		throw Rational::NumberImprecisionException();
 	}
 	return static_cast<double>(number);
 }
-float safeConversionToFloat(long long number){
+float safeConversionToFloat(int int number){
 	if(number < FLT_MIN || number > FLT_MAX){
 		throw Rational::NumberImprecisionException();
 	}
-	return float(number);
+	return <float>(number);
 }
 
-}//__AUX_NUMBER
-}//Kernel
+}// namespace __Aux_Number
+}// namespace Kernel
 
 #endif //GNUMP
 

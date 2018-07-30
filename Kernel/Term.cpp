@@ -76,7 +76,7 @@ void* Term::operator new(size_t,unsigned arity, size_t preData)
   size_t sz = sizeof(Term)+arity*sizeof(TermList)+preData;
   void* mem = ALLOC_KNOWN(sz,"Term");
   mem = reinterpret_cast<void*>(reinterpret_cast<char*>(mem)+preData);
-  return (Term*)mem;
+  return <Term*>mem;
 } // Term::operator new
 
 

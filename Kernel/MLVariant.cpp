@@ -22,6 +22,7 @@
  */
 
 #include <algorithm>
+#include <utility>
 
 #include "Lib/Backtrackable.hpp"
 #include "Lib/BacktrackIterators.hpp"
@@ -401,7 +402,7 @@ MatchingData* getMatchingData(Literal* const * baseLits0, unsigned baseLen, Clau
   return &res;
 }
 
-} // MLVariant_AUX
+} // namespace MLVariant_AUX
 
 using namespace MLVariant_AUX;
 
@@ -519,4 +520,4 @@ fin:
   return !fail;
 }
 
-}
+}// namespace Kernel

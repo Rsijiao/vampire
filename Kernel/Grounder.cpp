@@ -41,6 +41,7 @@
 #include "SAT/SATSolver.hpp"
 
 #include "Grounder.hpp"
+#include "utility"
 
 using namespace Kernel;
 
@@ -187,7 +188,7 @@ LiteralIterator Grounder::groundedLits()
 struct GlobalSubsumptionGrounder::OrderNormalizingComparator
 {
   Literal** _lits;
-  OrderNormalizingComparator(Literal** lits) : _lits(lits) {}
+  explicit OrderNormalizingComparator(Literal** lits) : _lits(lits) {}
 
   bool operator()(unsigned a, unsigned b) {
     Literal* la = _lits[a];
@@ -273,7 +274,7 @@ class IGGrounder::CollapsingApplicator
 {
   TermList _tgtTerm;
 public:
-  CollapsingApplicator(TermList tgtTerm) : _tgtTerm(tgtTerm) {}
+  explicit CollapsingApplicator(TermList tgtTerm) : _tgtTerm(tgtTerm) {}
   TermList apply(unsigned var)
   {
 //    return TermList(0, false);

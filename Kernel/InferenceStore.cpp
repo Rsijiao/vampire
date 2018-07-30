@@ -29,7 +29,6 @@
 #include "Lib/SharedSet.hpp"
 #include "Lib/Stack.hpp"
 #include "Lib/StringUtils.hpp"
-#include "Lib/ScopedPtr.hpp"
 #include "Lib/Sort.hpp"
 
 #include "Shell/LaTeX.hpp"
@@ -52,6 +51,7 @@
 #include "SortHelper.hpp"
 
 #include "InferenceStore.hpp"
+#include "algorithm"
 
 //TODO: when we delete clause, we should also delete all its records from the inference store
 

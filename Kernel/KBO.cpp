@@ -51,7 +51,7 @@ class KBO::State
 {
 public:
   /** Initialise the state */
-  State(KBO* kbo)
+  explicit State(KBO* kbo)
     : _kbo(*kbo)
   {}
 

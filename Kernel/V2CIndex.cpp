@@ -86,6 +86,6 @@ V2CIndex::Iterator V2CIndex::getConsraintsWithComplementary(const BoundId& b) co
 }
 
 
-}
+}// namespace Kernel
 #endif
 

@@ -36,7 +36,7 @@ public:
   CLASS_NAME(EqCmp);
   USE_ALLOCATOR(EqCmp);
 
-  EqCmp(Ordering* ordering) : _ordering(ordering)
+  explicit EqCmp(Ordering* ordering) : _ordering(ordering)
   {
 #if VDEBUG
   inUse=false;
@@ -614,4 +614,4 @@ Ordering::Result Ordering::EqCmp::compare_s1GEt1_s1GEt2_s2LEt1(TermList s1,TermL
 }
 
 
-}
+}// namespace Kernel

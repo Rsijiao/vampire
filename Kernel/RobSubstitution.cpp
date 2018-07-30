@@ -21,6 +21,8 @@
  * Implements polynomial modification of the Robinson unification algorithm.
  */
 
+#include <iostream>
+
 #include "Lib/Environment.hpp"
 
 #include "Lib/Hash.hpp"
@@ -43,9 +45,9 @@
 #include "RobSubstitution.hpp"
 
 #if VDEBUG
-#include "Lib/Int.hpp"
+
 #include "Debug/Tracer.hpp"
-#include <iostream>
+
 using namespace Debug;
 #endif
 
@@ -1084,4 +1086,4 @@ unsigned RobSubstitution::VarSpec::Hash2::hash(VarSpec& o)
 //  return o.var+o.index;
 }
 
-}
+}// namespace Kernel

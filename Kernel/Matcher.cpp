@@ -27,6 +27,7 @@
 #include "SubstHelper.hpp"
 
 #include "Matcher.hpp"
+#include "utility"
 
 namespace Kernel
 {
@@ -57,7 +58,7 @@ private:
   DHMap<unsigned, TermList> _map;
 };
 
-};
+};// namespace __MU_Aux
 
 /**
  * Obtain a substitution by matching @b matchedInstance onto @b matchedBase
@@ -599,4 +600,4 @@ bool Matcher::matchReversedArgs(Literal* base, Literal* instance)
 }
 
 
-}
+}// namespace Kernel

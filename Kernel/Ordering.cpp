@@ -308,7 +308,7 @@ int PrecedenceOrdering::predicateLevel (unsigned pred) const
  */
 int PrecedenceOrdering::predicatePrecedence (unsigned pred) const
 {
-  int res=pred >= _predicates ? (int)pred : _predicatePrecedences[pred];
+  int res=pred >= _predicates ? <int>pred : _predicatePrecedences[pred];
   if(NONINTERPRETED_PRECEDENCE_BOOST) {
     ASS_EQ(NONINTERPRETED_PRECEDENCE_BOOST & 1, 0); // an even number
 
@@ -377,8 +377,8 @@ Ordering::Result PrecedenceOrdering::compareFunctionPrecedences(unsigned fun1, u
     }
     //two non-interpreted functions
     return fromComparison(Int::compare(
-        fun1 >= _functions ? (int)fun1 : _functionPrecedences[fun1],
-        fun2 >= _functions ? (int)fun2 : _functionPrecedences[fun2] ));
+        fun1 >= _functions ? <int>fun1 : _functionPrecedences[fun1],
+        fun2 >= _functions ? <int>fun2 : _functionPrecedences[fun2] ));
   }
   if(!s2->interpreted()) {
     return LESS;
@@ -435,7 +435,7 @@ Ordering::Result PrecedenceOrdering::compareFunctionPrecedences(unsigned fun1, u
 template<typename Comparator>
 struct FnBoostWrapper
 {
-  FnBoostWrapper(Comparator comp) : _comp(comp) {}
+  explicit FnBoostWrapper(Comparator comp) : _comp(comp) {}
   Comparator _comp;
 
   Comparison compare(unsigned f1, unsigned f2)
@@ -474,7 +474,7 @@ struct FnBoostWrapper
 template<typename Comparator>
 struct PredBoostWrapper
 {
-  PredBoostWrapper(Comparator comp) : _comp(comp) {}
+  explicit PredBoostWrapper(Comparator comp) : _comp(comp) {}
   Comparator _comp;
 
   Comparison compare(unsigned p1, unsigned p2)

@@ -27,7 +27,6 @@
 
 #include "Lib/Environment.hpp"
 #include "Lib/Exception.hpp"
-#include "Lib/Environment.hpp"
 #include "Lib/MultiCounter.hpp"
 #include "Lib/VString.hpp"
 #include "Lib/Set.hpp"
@@ -42,6 +41,7 @@
 #include "Formula.hpp"
 #include "SubformulaIterator.hpp"
 #include "FormulaVarIterator.hpp"
+#include "algorithm"
 
 using namespace Lib;
 
@@ -253,7 +253,7 @@ vstring Formula::toString (Connective c)
     { "", "&", "|", "=>", "<=>", "<~>", "~", "!", "?", "$var", "$false", "$true", "",""};
   ASS_EQ(sizeof(names)/sizeof(vstring), NOCONN+1);
 
-  return names[(int)c];
+  return names[<int>c];
 } // Formula::toString (Connective c)
 
 /**

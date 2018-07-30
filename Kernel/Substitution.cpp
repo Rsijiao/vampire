@@ -27,6 +27,8 @@
 #  include "Term.hpp"
 #endif
 
+#include <utility>
+
 #include "Substitution.hpp"
 
 namespace Kernel
@@ -130,5 +132,5 @@ bool Substitution::findBinding(int var, TermList& res) const
  } // Substitution::toString()
 #endif
 
-}
+}// namespace Kernel
 

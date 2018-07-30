@@ -22,6 +22,7 @@
  */
 
 #include <math.h>
+#include <limits>
 
 #include "Debug/Assertion.hpp"
 #include "Debug/Tracer.hpp"
@@ -499,7 +500,7 @@ vstring RealConstantType::toNiceString() const
   if (denominator().toInner()==1) {
     return numerator().toString()+".0";
   }
-  float frep = (float) numerator().toInner() /(float) denominator().toInner();
+  float frep = <float> numerator().toInner() /<float> denominator().toInner();
   return Int::toString(frep);
   //return toString();
 }
@@ -1877,7 +1878,7 @@ vstring Theory::tryGetInterpretedLaTeXName(unsigned func, bool pred,bool polarit
 
 }
 
-}
+}// namespace Kernel
 
 
 

@@ -503,7 +503,7 @@ MatchingData* getMatchingData(Literal** baseLits0, unsigned baseLen, Clause* ins
   return &s_matchingData;
 }
 
-}
+}// namespace MLMatcher_AUX
 
 using namespace MLMatcher_AUX;
 
@@ -665,4 +665,4 @@ void MLMatcher::orderLiterals(T& base, U& alts,
   len2lits.reset();
 }
 
-}
+}// namespace Kernel

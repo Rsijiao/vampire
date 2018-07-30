@@ -23,6 +23,8 @@
  * @since 09/05/2007 Manchester
  */
 
+#include <algorithm>
+
 #include "Forwards.hpp"
 
 #include "Debug/Tracer.hpp"

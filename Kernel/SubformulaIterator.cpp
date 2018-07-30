@@ -333,4 +333,4 @@ SubformulaIterator::~SubformulaIterator ()
   }
 } // SubformulaIterator::~SubformulaIterator
 
-}
+}// namespace Kernel

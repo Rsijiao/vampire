@@ -39,6 +39,7 @@
 #include "ELiteralSelector.hpp"
 
 #include "LiteralComparators.hpp"
+#include "utility"
 
 #undef LOGGING
 #define LOGGING 0

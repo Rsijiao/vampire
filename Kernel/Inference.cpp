@@ -27,6 +27,7 @@
 #include "Kernel/Term.hpp"
 
 #include "Inference.hpp"
+#include "algorithm"
 
 using namespace Kernel;
 

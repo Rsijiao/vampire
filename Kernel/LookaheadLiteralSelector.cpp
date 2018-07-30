@@ -39,6 +39,7 @@
 #include "RobSubstitution.hpp"
 
 #include "LookaheadLiteralSelector.hpp"
+#include "utility"
 
 namespace Kernel
 {
@@ -157,7 +158,7 @@ private:
 
   struct TermUnificationRetriever
   {
-    TermUnificationRetriever(TermIndex* index) : _index(index) {}
+    explicit TermUnificationRetriever(TermIndex* index) : _index(index) {}
     DECL_RETURN_TYPE(VirtualIterator<void>);
     OWN_RETURN_TYPE operator()(TermList trm)
     {
@@ -286,7 +287,7 @@ void LookaheadLiteralSelector::doSelection(Clause* c, unsigned eligible)
   selectable.reset();
 
   if(_completeSelection) {
-    for(int li=((int)eligible)-1; li>=0; li--) {
+    for(int li=(<int>eligible)-1; li>=0; li--) {
       Literal* lit=(*c)[li];
       if(isNegativeForSelection(lit)) {
 	selectable.push(lit);
@@ -294,7 +295,7 @@ void LookaheadLiteralSelector::doSelection(Clause* c, unsigned eligible)
     }
 
     //figure out which are the maximal literals
-    for(int li=((int)eligible)-1; li>=0; li--) {
+    for(int li=(<int>eligible)-1; li>=0; li--) {
       Literal* lit=(*c)[li];
       LiteralList::push(lit,maximals);
     }

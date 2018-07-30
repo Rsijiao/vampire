@@ -178,4 +178,4 @@ vstring Renaming::toString() const
 
 #endif
 
-}
+}// namespace Kernel

@@ -21,6 +21,8 @@
  * Implements class TermTransformer.
  */
 
+#include <algorithm>
+
 #include "SortHelper.hpp"
 #include "Term.hpp"
 
@@ -398,4 +400,4 @@ Formula* TermTransformerTransformTransformed::transform(Formula* f)
   return ttft.transform(f);
 }
 
-}
+}// namespace Kernel

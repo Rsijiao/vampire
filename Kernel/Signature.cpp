@@ -57,8 +57,8 @@ Signature::Symbol::Symbol(const vstring& nm,unsigned arity, bool interpreted, bo
     _type(0),
     _distinctGroups(0),
     _usageCount(0),
-    _inGoal(0),
     _inUnit(0),
+    _inGoal(0),
     _inductionSkolem(0),
     _skolem(0)
 {
@@ -179,7 +179,7 @@ OperatorType* Signature::Symbol::fnType() const
   CALL("Signature::Symbol::fnType");
 
   if (!_type) {
-    _type = OperatorType::getFunctionType(arity(), (unsigned*)0, Sorts::SRT_DEFAULT);
+    _type = OperatorType::getFunctionType(arity(), <unsigned*>0, Sorts::SRT_DEFAULT);
   }
   return _type;
 }
@@ -195,7 +195,7 @@ OperatorType* Signature::Symbol::predType() const
   CALL("Signature::Symbol::predType");
 
   if (!_type) {
-    _type = OperatorType::getPredicateType(arity(), (unsigned*)0);
+    _type = OperatorType::getPredicateType(arity(), <unsigned*>0);
   }
   return _type;
 }
@@ -721,7 +721,7 @@ unsigned Signature::addFreshFunction(unsigned arity, const char* prefix, const c
     do {
       result = addFunction(pref+Int::toString(_nextFreshSymbolNumber++)+suf,arity,added);
     }
-    while (!added);
+	while (!added) {};
 //  }
   Symbol* sym = getFunction(result);
   sym->markIntroduced();
@@ -753,7 +753,7 @@ unsigned Signature::addFreshPredicate(unsigned arity, const char* prefix, const 
     do {
       result = addPredicate(pref+Int::toString(_nextFreshSymbolNumber++)+suf,arity,added);
     }
-    while (!added);
+	while (!added) {};
 //  }
   Symbol* sym = getPredicate(result);
   sym->markIntroduced();

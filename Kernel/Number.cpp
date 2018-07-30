@@ -25,8 +25,8 @@
 #include <stdlib.h>
 #include <cmath>
 #include <limits>
-#include <gmp.h>
 
+#include "./gmp.h"
 #include "Lib/Exception.hpp"
 #include "Lib/Hash.hpp"
 #include "Lib/Int.hpp"
@@ -102,9 +102,9 @@ void reduceNumbers(size_t cnt, NativeNumber** vals)
   }
 }
 
-long long intGcd(long long a, long long b)
+int int intGcd(int int a, int int b)
 {
-  long long tmp;
+  int int tmp;
   while (b) {
     tmp = b;
     b = a % b;
@@ -117,9 +117,9 @@ bool getIntFromDouble(NativeNumber val, NativeNumber& res)
 {
   CALL("getIntFromDouble");
 
-  if(floorl(val)==val && val<numeric_limits<long long>::max()
-      && val>numeric_limits<long long>::min()) {
-    res = static_cast<long long>(val);
+  if(floorl(val)==val && val<numeric_limits<int int>::max()
+      && val>numeric_limits<int int>::min()) {
+    res = static_cast<int int>(val);
     return true;
   }
   return false;
@@ -140,7 +140,7 @@ void reduceIntNumbers(size_t cnt, NativeNumber** vals)
   if(!getIntFromDouble(*vals[i], ival)) {
     return;
   }
-  long long gcd_val = ::abs(ival);
+  int int gcd_val = ::abs(ival);
 
   for(; i<cnt; i++) {
     if(!getIntFromDouble(*vals[i], ival)) {
@@ -195,14 +195,14 @@ int getDecimalPlaces(double dbVal)
  * @param num - numerator
  * @param den - denominator .
  */
-void doubleToRational(double dbVal, long long* num, long long* den){
+void doubleToRational(double dbVal, int int* num, int int* den){
 	int noDec;
 	noDec = getDecimalPlaces(dbVal);
 	//if the number has no values after '.' than just set the denominator to 1
 	//and the numerator to the casted value of the double
 	if (noDec == 0){
 		*den = 1;
-		*num = (long long)dbVal;
+		*num = (int int)dbVal;
 		return;
 	}
 	//this approach does not normalize the rational number. An improvement would
@@ -213,7 +213,7 @@ void doubleToRational(double dbVal, long long* num, long long* den){
 	long double temp;
 	modf(dbVal, &temp);
 	//cast and store the actual denominator
-	*num = (long long)temp;
+	*num = (int int)temp;
 }
 
 /**
@@ -222,7 +222,7 @@ void doubleToRational(double dbVal, long long* num, long long* den){
  * number
  */
 long double getDoubleNumber(double lhs, double rhs) {
-	long long numLhs, numRhs, denLhs, denRhs;
+	int int numLhs, numRhs, denLhs, denRhs;
 	//compute the rational numbers for lhs and rhs
 	doubleToRational(lhs, &numLhs, &denLhs);
 	doubleToRational(rhs, &numRhs, &denRhs);
@@ -241,9 +241,9 @@ long double getDoubleNumber(double lhs, double rhs) {
 
 	int noIntegerParts = 0;
 	//intermediate integer part
-	Array<long long> res;
+	Array<int int> res;
 	//temporary results;
-	long long tempA, tempDenA, tempB, tempDenB;
+	int int tempA, tempDenA, tempB, tempDenB;
 	do {
 		tempA = numLhs / denLhs;
 		tempDenA = numLhs % denLhs;
@@ -258,7 +258,7 @@ long double getDoubleNumber(double lhs, double rhs) {
 	if (denLhs == 0 || denRhs==0){
 		return (long double)(lhs+rhs)/2;
 	}
-	long long den = 1, num = 1;
+	int int den = 1, num = 1;
 	//we managed to find the first two different integer parts
 	//if the difference occurs on the first step just do the mean
 	if (noIntegerParts==1){
@@ -276,7 +276,7 @@ long double getDoubleNumber(double lhs, double rhs) {
 	long double result;
 	//construct the new rational number
 	for (int i = noIntegerParts - 2; i > 0; i--) {
-		long long tempDen = den;
+		int int tempDen = den;
 		den = (res[i] * den) + num;
 		num = tempDen;
 	}
@@ -288,7 +288,7 @@ long double getDoubleNumber(double lhs, double rhs) {
 }
 
 
-}
+}// namespace __Aux_Number
 
 using namespace Lib;
 using namespace __Aux_Number;
@@ -443,10 +443,10 @@ BoundNumber BoundNumber::getMagicNumber(BoundNumber& rhs){
 		*/
 		mpz_class numLhs, numRhs, denLhs, denRhs;
 		if(this->useRational()){
-			numLhs = (unsigned long)this->getRational().Numerator();
-			numRhs = (unsigned long)rhs.getRational().Numerator();
-			denLhs = (unsigned long)this->getRational().Denomination();
-			denRhs = (unsigned long)rhs.getRational().Denomination();
+			numLhs = (unsigned int)this->getRational().Numerator();
+			numRhs = (unsigned int)rhs.getRational().Numerator();
+			denLhs = (unsigned int)this->getRational().Denomination();
+			denRhs = (unsigned int)rhs.getRational().Denomination();
 		}
 		else
 			{
@@ -551,7 +551,7 @@ BoundNumber BoundNumber::getMagicNumber(BoundNumber& rhs){
 	left = getNative();
 	right = rhs.getNative();
 
-    return BoundNumber(getDoubleNumber((double)left,(double)right));
+    return BoundNumber(getDoubleNumber(<double>left,<double>right));
 }
 
 
@@ -624,5 +624,5 @@ std::ostream& operator<< (ostream& out, const BoundNumber& num)
   return out;
 }
 
-}
+}// namespace Kernel
 #endif//GNUMP

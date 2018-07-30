@@ -31,6 +31,7 @@
 #include "Theory.hpp"
 
 #include "InterpretedLiteralEvaluator.hpp"
+#include "algorithm"
 
 namespace Kernel
 {
@@ -140,7 +141,7 @@ public:
     return theory->isConversionOperation(theory->interpretFunction(func));
   }
 
-  virtual bool tryEvaluateFunc(Term* trm, TermList& res) override
+  virtual bool tryEvaluateFunc(Term* trm, TermList& res)
   {
     CALL("InterpretedLiteralEvaluator::ConversionEvaluator::tryEvaluateFunc");
     ASS(theory->isInterpretedFunction(trm));
@@ -261,7 +262,7 @@ public:
     return opSort==T::getSort();
   }
 
-  virtual bool tryEvaluateFunc(Term* trm, TermList& res) override
+  virtual bool tryEvaluateFunc(Term* trm, TermList& res)
   {
     CALL("InterpretedLiteralEvaluator::tryEvaluateFunc");
     ASS(theory->isInterpretedFunction(trm));
@@ -347,7 +348,7 @@ public:
     }
   }
 
-  virtual bool tryEvaluatePred(Literal* lit, bool& res) override
+  virtual bool tryEvaluatePred(Literal* lit, bool& res)
   {
     CALL("InterpretedLiteralEvaluator::tryEvaluatePred");
     ASS(theory->isInterpretedPredicate(lit));

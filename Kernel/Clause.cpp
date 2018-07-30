@@ -47,6 +47,7 @@
 #include "TermIterators.hpp"
 
 #include "Clause.hpp"
+#include "algorithm"
 
 #undef RSTAT_COLLECTION
 #define RSTAT_COLLECTION 1
