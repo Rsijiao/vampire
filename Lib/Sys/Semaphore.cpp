@@ -2,15 +2,16 @@
  * @file Semaphore.cpp
  * Implements class Semaphore.
  */
+#include <cerrno>
 
 #include "Lib/Portability.hpp"
 
-#include <cerrno>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/ipc.h>
-#include <sys/sem.h>
+
+#include "./stdlib.h"
+#include "./unistd.h"
+#include "./sys/types.h"
+#include "./sys/ipc.h"
+#include "./sys/sem.h"
 
 #include "Lib/Exception.hpp"
 #include "Lib/Int.hpp"
@@ -63,7 +64,7 @@ get_retry:
   }
 
   //initialize the semaphores
-  unsigned short semVals[semCnt+2];
+  unsigned int semVals[semCnt+2];
   for(int i=0;i<=semCnt;i++) {
     semVals[i]=0;
   }
@@ -437,7 +438,7 @@ void Semaphore::ensureEventHandlersInstalled()
   installed=true;
 }
 
-}
-}
+}// namespace Sys
+}// namespace Lib
 
 

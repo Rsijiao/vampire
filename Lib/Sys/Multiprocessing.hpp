@@ -7,7 +7,7 @@
 #define __Multiprocessing__
 
 #include "Forwards.hpp"
-#include <unistd.h>
+#include "./unistd.h"
 
 namespace Lib {
 namespace Sys {
@@ -38,7 +38,7 @@ private:
   VoidFuncList* _postForkChild;
 };
 
-}
-}
+}// namespace Sys
+}// namespace Lib
 
-#endif // __Multiprocessing__
+#endif  // LIB_SYS_MULTIPROCESSING_HPP_

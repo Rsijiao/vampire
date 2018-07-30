@@ -148,7 +148,7 @@ class BtrFnForIterable
 
 public:
   DECL_RETURN_TYPE(FlatteningIterator<MappingIterator<ITERATOR_TYPE(ChPntIterable),FnMapper> >);
-  BtrFnForIterable(Fn functor) : _functor(functor) {}
+  explicit BtrFnForIterable(Fn functor) : _functor(functor) {}
 
   OWN_RETURN_TYPE
   operator() (State curr, ChPntIterable cPItb) //cPItb=Choice Point ITeraBle
@@ -181,6 +181,6 @@ VirtualIterator<State> getIteratorBacktrackingOnIterable(State initState,
 
 ///@}
 
-};
+};// namespace Lib
 
-#endif /* __BacktrackIterators__ */
+#endif // LIB_BACKTRACKITERATORS_HPP_

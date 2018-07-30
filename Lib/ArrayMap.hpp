@@ -71,7 +71,7 @@ public:
   /**
    * Create the map object that can contain keys less than @b size
    */
-  ArrayMap(size_t size) : DArray<Entry>(size), _timestamp(1) {}
+  explicit ArrayMap(size_t size) : DArray<Entry>(size), _timestamp(1) {}
 
   /**
    * Make the map empty
@@ -236,7 +236,7 @@ public:
   {
   public:
     DECL_ELEMENT_TYPE(unsigned);
-    KeyIterator(const ArrayMap& parent) : _parent(parent), _idx(0) {}
+    explicit KeyIterator(const ArrayMap& parent) : _parent(parent), _idx(0) {}
 
     bool hasNext()
     {
@@ -277,7 +277,7 @@ class ArraySet : public ArrayMap<EmptyStruct>
 {
 public:
   ArraySet() {}
-  ArraySet(size_t size) : ArrayMap<EmptyStruct>(size) {}
+  explicit ArraySet(size_t size) : ArrayMap<EmptyStruct>(size) {}
 
   template<class It>
   void insertFromIterator(It it)
@@ -292,6 +292,6 @@ public:
   typedef KeyIterator Iterator;
 };
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_ARRAYMAP_HPP_

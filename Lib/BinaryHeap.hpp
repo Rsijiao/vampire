@@ -26,6 +26,7 @@
 
 #include <algorithm>
 #include <limits>
+#include <utility>
 
 #include "Debug/Assertion.hpp"
 #include "Allocator.hpp"
@@ -232,7 +233,7 @@ public:
   struct Iterator
   : public PointerIterator<T>
   {
-    Iterator(const BinaryHeap& obj)
+    explicit Iterator(const BinaryHeap& obj)
     : PointerIterator<T>(obj._data, obj._data+obj._size) {}
   };
 
@@ -382,8 +383,8 @@ private:
 
 }; // class BinaryHeap
 
-};
+};// namespace Lib
 
-#endif // __BinaryHeap__
+#endif // LIB_BINARYHEAP_HPP_
 
 

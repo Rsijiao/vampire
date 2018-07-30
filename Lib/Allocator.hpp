@@ -56,7 +56,7 @@
 #define MAX_ALLOCATORS 256
 
 /** The largest piece of memory that can be allocated at once */
-#define MAXIMAL_ALLOCATION (static_cast<unsigned long long>(VPAGE_SIZE)*MAX_PAGES)
+#define MAXIMAL_ALLOCATION (static_cast<unsigned int int>(VPAGE_SIZE)*MAX_PAGES)
 
 //this macro is undefine at the end of the file
 #if defined(__GNUC__) && !defined(__ICC) && (__GNUC__ > 4 || __GNUC__ == 4 && __GNUC_MINOR__ > 2)
@@ -316,8 +316,8 @@ private:
   static unsigned _tolerantZone;  
   friend void* ::operator new(size_t);
   friend void* ::operator new[](size_t);
-  friend void ::operator delete(void*) noexcept;
-  friend void ::operator delete[](void*) noexcept;
+  friend void ::operator delete<void*> noexcept;
+  friend void ::operator delete[]<void*> noexcept;
 #endif
 }; // class Allocator
 
@@ -473,4 +473,4 @@ std::ostream& operator<<(std::ostream& out, const Allocator::Descriptor& d);
 
 #undef ALLOC_SIZE_ATTR
 
-#endif // __Allocator__
+#endif // LIB_ALLOCATOR_HPP_

@@ -388,14 +388,14 @@ void Allocator::deallocateKnown(void* obj,size_t size)
       WATCH_ADDRESS < addr+size &&
       cp >= WATCH_FIRST &&
       cp <= WATCH_LAST) {
-    unsigned currentValue = *((unsigned*)WATCH_ADDRESS);
+    unsigned currentValue = *(<unsigned*>WATCH_ADDRESS);
     cout << "Watch! Known-size piece deallocated!\n"
 	 << "  Timestamp: " << cp << '\n'
-	 << "  Piece addresses: " << (void*)addr << '-'
-	 << (void*)(addr+size-1) << '\n';
+	 << "  Piece addresses: " << <void*>addr << '-'
+	 << <void*>(addr+size-1) << '\n';
     if (currentValue != watchAddressLastValue) {
       watchAddressLastValue = currentValue;
-      cout << "  Value: " << (void*)watchAddressLastValue << '\n';
+      cout << "  Value: " << <void*>watchAddressLastValue << '\n';
     }
     cout << "  " << *desc << '\n'
 	 << "Watch! end\n";
@@ -456,20 +456,20 @@ void Allocator::deallocateUnknown(void* obj)
   }
 
 #if WATCH_ADDRESS
-  unsigned addr = (unsigned)(void*)mem;
+  unsigned addr = (unsigned)<void*>mem;
   unsigned cp = Debug::Tracer::passedControlPoints();
   if (addr <= WATCH_ADDRESS &&
       WATCH_ADDRESS < addr+size &&
       cp >= WATCH_FIRST &&
       cp <= WATCH_LAST) {
-    unsigned currentValue = *((unsigned*)WATCH_ADDRESS);
+    unsigned currentValue = *(<unsigned*>WATCH_ADDRESS);
     cout << "Watch! Unknown-size piece deallocated!\n"
 	 << "  Timestamp: " << cp << '\n'
-	 << "  Piece addresses: " << (void*)addr << '-'
-	 << (void*)(addr+size-1) << '\n';
+	 << "  Piece addresses: " << <void*>addr << '-'
+	 << <void*>(addr+size-1) << '\n';
     if (currentValue != watchAddressLastValue) {
       watchAddressLastValue = currentValue;
-      cout << "  Value: " << (void*)watchAddressLastValue << '\n';
+      cout << "  Value: " << <void*>watchAddressLastValue << '\n';
     }
     cout << "  " << *desc << '\n'
 	 << "Watch! end\n";
@@ -663,7 +663,7 @@ Allocator::Page* Allocator::allocatePages(size_t size)
   _myPages = result;
 
 #if WATCH_ADDRESS
-  unsigned addr = (unsigned)(void*)result;
+  unsigned addr = (unsigned)<void*>result;
   unsigned cp = Debug::Tracer::passedControlPoints();
   if (addr <= WATCH_ADDRESS &&
       WATCH_ADDRESS < addr+realSize) {
@@ -671,12 +671,12 @@ Allocator::Page* Allocator::allocatePages(size_t size)
     Debug::Tracer::canWatch = true;
     if (cp >= WATCH_FIRST &&
 	cp <= WATCH_LAST) {
-      watchAddressLastValue = *((unsigned*)WATCH_ADDRESS);
+      watchAddressLastValue = *(<unsigned*>WATCH_ADDRESS);
       cout << "Watch! Page allocated!\n"
 	   << "  Timestamp: " << cp << '\n'
-	   << "  Page addresses: " << (void*)addr << '-'
-	   << (void*)(addr+realSize-1) << '\n'
-	   << "  Value: " << (void*)watchAddressLastValue << '\n'
+	   << "  Page addresses: " << <void*>addr << '-'
+	   << <void*>(addr+realSize-1) << '\n'
+	   << "  Value: " << <void*>watchAddressLastValue << '\n'
 	   << "Watch! end\n";
     }
   }
@@ -734,20 +734,20 @@ void Allocator::deallocatePages(Page* page)
   _pages[index] = page;
 
 #if WATCH_ADDRESS
-  unsigned addr = (unsigned)(void*)page;
+  unsigned addr = (unsigned)<void*>page;
   unsigned cp = Debug::Tracer::passedControlPoints();
   if (addr <= WATCH_ADDRESS &&
       WATCH_ADDRESS < addr+size &&
       cp >= WATCH_FIRST &&
       cp <= WATCH_LAST) {
-    unsigned currentValue = *((unsigned*)WATCH_ADDRESS);
+    unsigned currentValue = *(<unsigned*>WATCH_ADDRESS);
     cout << "Watch! Page deallocated!\n"
 	 << "  Timestamp: " << cp << '\n'
-	 << "  Page addresses: " << (void*)addr << '-'
-	 << (void*)(addr+size-1) << '\n';
+	 << "  Page addresses: " << <void*>addr << '-'
+	 << <void*>(addr+size-1) << '\n';
     if (currentValue != watchAddressLastValue) {
       watchAddressLastValue = currentValue;
-      cout << "  Value: " << (void*)watchAddressLastValue << '\n';
+      cout << "  Value: " << <void*>watchAddressLastValue << '\n';
     }
     cout << "Watch! end\n";
   }
@@ -789,20 +789,20 @@ void* Allocator::allocateKnown(size_t size)
 #endif
 
 #if WATCH_ADDRESS
-  unsigned addr = (unsigned)(void*)result;
+  unsigned addr = (unsigned)<void*>result;
   unsigned cp = Debug::Tracer::passedControlPoints();
   if (addr <= WATCH_ADDRESS &&
       WATCH_ADDRESS < addr+size &&
       cp >= WATCH_FIRST &&
       cp <= WATCH_LAST) {
-    unsigned currentValue = *((unsigned*)WATCH_ADDRESS);
+    unsigned currentValue = *(<unsigned*>WATCH_ADDRESS);
     cout << "Watch! Known-size piece allocated!\n"
 	 << "  Timestamp: " << cp << '\n'
-	 << "  Piece addresses: " << (void*)addr << '-'
-	 << (void*)(addr+size-1) << '\n';
+	 << "  Piece addresses: " << <void*>addr << '-'
+	 << <void*>(addr+size-1) << '\n';
     if (currentValue != watchAddressLastValue) {
       watchAddressLastValue = currentValue;
-      cout << "  Value: " << (void*)watchAddressLastValue << '\n';
+      cout << "  Value: " << <void*>watchAddressLastValue << '\n';
     }
     cout << "  " << *desc << '\n'
 	 << "Watch! end\n";
@@ -915,20 +915,20 @@ void* Allocator::allocateUnknown(size_t size)
 #endif
 
 #if WATCH_ADDRESS
-  unsigned addr = (unsigned)(void*)(result-sizeof(Known));
+  unsigned addr = (unsigned)<void*>(result-sizeof(Known));
   unsigned cp = Debug::Tracer::passedControlPoints();
   if (addr <= WATCH_ADDRESS &&
       WATCH_ADDRESS < addr+size &&
       cp >= WATCH_FIRST &&
       cp <= WATCH_LAST) {
-    unsigned currentValue = *((unsigned*)WATCH_ADDRESS);
+    unsigned currentValue = *(<unsigned*>WATCH_ADDRESS);
     cout << "Watch! Unknown-size piece allocated!\n"
 	 << "  Timestamp: " << cp << '\n'
-	 << "  Piece addresses: " << (void*)addr << '-'
-	 << (void*)(addr+size-1) << '\n';
+	 << "  Piece addresses: " << <void*>addr << '-'
+	 << <void*>(addr+size-1) << '\n';
     if (currentValue != watchAddressLastValue) {
       watchAddressLastValue = currentValue;
-      cout << "  Value: " << (void*)watchAddressLastValue << '\n';
+      cout << "  Value: " << <void*>watchAddressLastValue << '\n';
     }
     cout << "  " << *desc << '\n'
 	 << "Watch! end\n";
@@ -972,7 +972,7 @@ Allocator::Descriptor* Allocator::Descriptor::find (const void* addr)
     }
     Descriptor* oldAfterLast = afterLast;
     afterLast = map + capacity;
-    maxEntries = (int)(capacity * 0.7);
+    maxEntries = <int>(capacity * 0.7);
     noOfEntries = 0;
 
     for (Descriptor* current = oldMap;current != oldAfterLast;current++) {

@@ -373,6 +373,6 @@ private:
   List<BacktrackData*>* _bdStack;
 };
 
-};
+};// namespace Lib
 
-#endif // __Backtrackable__
+#endif // LIB_BACKTRACKABLE_HPP_

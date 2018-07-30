@@ -107,7 +107,7 @@ private:
   static PipeList* s_instances;
 };
 
-}
-}
+}// namespace Sys
+}// namespace Lib
 
-#endif // __SyncPipe__
+#endif // LIB_SYS_SYNCPIPE_HPP_

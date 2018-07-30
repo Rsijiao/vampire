@@ -46,7 +46,7 @@ public:
    * Create an array having initialCapacity.
    */
   inline
-  Array (size_t initialCapacity)
+  explicit Array (size_t initialCapacity)
     : _capacity(initialCapacity)
   {
     if(initialCapacity) {
@@ -216,7 +216,7 @@ class ZIArray
 {
 public:
   inline
-  ZIArray(size_t initialCapacity) : Array<T>(initialCapacity)
+  explicit ZIArray(size_t initialCapacity) : Array<T>(initialCapacity)
   {
     fillInterval(0, Array<T>::_capacity);
   }
@@ -237,4 +237,4 @@ public:
 
 } // namespace Lib
 
-#endif
+#endif // LIB_ARRAY_HPP_

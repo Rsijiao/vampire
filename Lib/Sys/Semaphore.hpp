@@ -64,13 +64,13 @@ private:
   union semun {
       int              val;    /* Value for SETVAL */
       struct semid_ds *buf;    /* Buffer for IPC_STAT, IPC_SET */
-      unsigned short  *array;  /* Array for GETALL, SETALL */
+      unsigned int  *array;  /* Array for GETALL, SETALL */
       struct seminfo  *__buf;  /* Buffer for IPC_INFO
                                   (Linux-specific) */
   };
 };
 
-}
-}
+}// namespace Sys
+}// namespace Lib
 
-#endif // __Semaphore__
+#endif // LIB_SYS_SEMAPHORE_HPP_

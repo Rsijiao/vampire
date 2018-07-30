@@ -3,10 +3,11 @@
  * Implements class SyncPipe.
  */
 
+#include <cerrno>
+
 #include "Lib/Portability.hpp"
 
-#include <cerrno>
-#include <unistd.h>
+#include "./unistd.h"
 
 #include "Lib/Environment.hpp"
 #include "Lib/Exception.hpp"
@@ -262,6 +263,6 @@ void SyncPipe::ensureEventHandlersInstalled()
 }
 
 
-}
-}
+}// namespace Sys
+}// namespace Lib
 

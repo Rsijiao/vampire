@@ -7,10 +7,10 @@
 
 #include "Lib/Portability.hpp"
 
-#include <signal.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "./signal.h"
+#include "./unistd.h"
+#include "./sys/types.h"
+#include "./sys/wait.h"
 
 #include "Lib/Environment.hpp"
 #include "Lib/List.hpp"
@@ -245,5 +245,5 @@ pid_t Multiprocessing::poll_children(bool &stopped, bool &exited, int &code)
   return pid;
 }
 
-}
-}
+}// namespace Sys
+}// namespace Lib
