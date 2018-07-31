@@ -40,7 +40,7 @@
 
 #include "TermSharing.hpp"
 
-#include <iostream>
+
 #if VDEBUG
 #include "Kernel/Signature.hpp"
 #include "Lib/Int.hpp"

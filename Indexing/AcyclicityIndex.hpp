@@ -24,6 +24,8 @@
 #ifndef __AcyclicityIndex__
 #define __AcyclicityIndex__
 
+#include <utility>
+
 #include "Indexing/Index.hpp"
 
 #include "Kernel/Clause.hpp"
@@ -65,7 +67,7 @@ class AcyclicityIndex
 : public Index
 {
 public:
-  AcyclicityIndex(Indexing::TermIndexingStructure* tis) :
+  explicit AcyclicityIndex(Indexing::TermIndexingStructure* tis) :
     _sIndexes(),
     _tis(tis)
   {}
@@ -93,8 +95,8 @@ private:
 
   Lib::DHMap<unsigned, SIndex*> _sIndexes;
   Indexing::TermIndexingStructure* _tis;
-};
+};// namespace Indexing
 
-}
+}// namespace Indexing
 
-#endif
+#endif // INDEXING_ACYCLICITYINDEX_HPP_

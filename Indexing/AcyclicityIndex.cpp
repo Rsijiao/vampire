@@ -474,4 +474,4 @@ namespace Indexing
 
     return pvi(CycleSearchIterator(lit, c, *this));
   }
-}
+}// namespace Indexing

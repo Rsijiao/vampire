@@ -191,6 +191,6 @@ private:
   Renaming _renaming;
 };
 
-};
+};// namespace Indexing
 
-#endif /* __ResultSubstitution__ */
+#endif // INDEXING_RESULTSUBSTITUTION_HPP_

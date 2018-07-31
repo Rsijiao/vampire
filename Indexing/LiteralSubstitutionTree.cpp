@@ -337,4 +337,4 @@ unsigned LiteralSubstitutionTree::getRootNodeIndex(Literal* t, bool complementar
 
 
 
-}
+}// namespace Indexing

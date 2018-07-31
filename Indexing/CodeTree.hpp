@@ -281,7 +281,7 @@ public:
     CodeOp landingOp;
     Kind kind;
   protected:
-    SearchStruct(Kind kind);
+    explicit SearchStruct(Kind kind);
   };
 
   struct FixedSearchStruct
@@ -297,7 +297,7 @@ public:
   struct FnSearchStruct
   : public FixedSearchStruct
   {
-    FnSearchStruct(size_t length);
+    explicit FnSearchStruct(size_t length);
     ~FnSearchStruct();
     CodeOp*& targetOp(unsigned fn);
 
@@ -312,7 +312,7 @@ public:
   struct GroundTermSearchStruct
   : public FixedSearchStruct
   {
-    GroundTermSearchStruct(size_t length);
+    explicit GroundTermSearchStruct(size_t length);
     ~GroundTermSearchStruct();
     CodeOp*& targetOp(const Term* trm);
 
@@ -548,7 +548,7 @@ public:
 
 };
 
-}
+}// namespace Indexing
 
-#endif // __CodeTree__
+#endif // INDEXING_CODETREE_HPP_
 

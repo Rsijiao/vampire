@@ -64,7 +64,7 @@ public:
   static bool equals(const Literal* l1, const Literal* l2, bool opposite=false);
 
   struct OpLitWrapper {
-    OpLitWrapper(Literal* l) : l(l) {}
+    explicit OpLitWrapper(Literal* l) : l(l) {}
     Literal* l;
   };
   inline static unsigned hash(const OpLitWrapper& w)
@@ -96,4 +96,4 @@ private:
 
 } // namespace Indexing
 
-#endif
+#endif // INDEXING_TERMSHARING_HPP_

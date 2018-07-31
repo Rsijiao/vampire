@@ -156,4 +156,4 @@ Literal* DisjunctQueryAndResultVariablesSubstitution::applyToResult(Literal* l)
 
 
 
-}
+}// namespace Indexing

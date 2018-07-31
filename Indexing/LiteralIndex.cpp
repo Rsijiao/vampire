@@ -382,4 +382,4 @@ void DismatchingLiteralIndex::addLiteral(Literal* l)
   handleLiteral(l,0,true);
 }
 
-}
+}// namespace Indexing

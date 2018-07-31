@@ -77,4 +77,4 @@ void StringFormulaIndex::remove(FormulaUnit* unit, Formula* f)
   ALWAYS(_map.removeFromKey(key, Entry(unit, f)));
 }
 
-}
+}// namespace Indexing

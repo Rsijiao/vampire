@@ -42,7 +42,7 @@ public:
   CLASS_NAME(TermSubstitutionTree);
   USE_ALLOCATOR(TermSubstitutionTree);
 
-  TermSubstitutionTree(bool useC=false);
+  explicit TermSubstitutionTree(bool useC=false);
 
   void insert(TermList t, Literal* lit, Clause* cls);
   void remove(TermList t, Literal* lit, Clause* cls);
@@ -99,6 +99,6 @@ private:
   LDSkipList _vars;
 };
 
-};
+};// namespace Indexing
 
-#endif /* __TermSubstitutionTree__ */
+#endif // INDEXING_TERMSUBSTITUTIONTREE_HPP_

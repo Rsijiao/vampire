@@ -410,4 +410,4 @@ TermQueryResultIterator TermSubstitutionTree::getAllUnifyingIterator(TermList tr
 }
 
 
-}
+}// namespace Indexing

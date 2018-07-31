@@ -475,7 +475,7 @@ ClauseSResResultIterator CodeTreeSubsumptionIndex
 }
 
 
-}
+}// namespace Indexing
 
 
 

@@ -89,7 +89,7 @@ class SubstitutionTree::SListLeaf
 {
 public:
   SListLeaf() {}
-  SListLeaf(TermList ts) : Leaf(ts) {}
+  explicit SListLeaf(TermList ts) : Leaf(ts) {}
 
   static SListLeaf* assimilate(Leaf* orig);
 
@@ -258,4 +258,4 @@ void SubstitutionTree::ensureIntermediateNodeEfficiency(IntermediateNode** inode
   }
 }
 
-}
+}// namespace Indexing

@@ -96,6 +96,6 @@ private:
   Index* create(IndexType t);
 };
 
-};
+};// namespace Indexing
 
-#endif /*__IndexManager__*/
+#endif // INDEXING_INDEXMANAGER_HPP_

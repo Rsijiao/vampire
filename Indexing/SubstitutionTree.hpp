@@ -84,7 +84,7 @@ public:
   CLASS_NAME(SubstitutionTree);
   USE_ALLOCATOR(SubstitutionTree);
 
-  SubstitutionTree(int nodes,bool useC=false);
+  explicit SubstitutionTree(int nodes,bool useC=false);
   ~SubstitutionTree();
 
   // Tags are used as a debug tool to turn debugging on for a particular instance
@@ -163,7 +163,7 @@ public:
     inline
     Node() { term.makeEmpty(); }
     inline
-    Node(TermList ts) : term(ts) { }
+    explicit Node(TermList ts) : term(ts) { }
     virtual ~Node();
     /** True if a leaf node */
     virtual bool isLeaf() const = 0;
@@ -215,7 +215,7 @@ public:
         CLASS_NAME(SubstitutionTree::ChildBySortHelper);
         USE_ALLOCATOR(ChildBySortHelper);
         
-        ChildBySortHelper(IntermediateNode* p):  _parent(p)
+        explicit ChildBySortHelper(IntermediateNode* p):  _parent(p)
         {
             bySort.ensure(Sorts::FIRST_USER_SORT);
             bySortTerms.ensure(Sorts::FIRST_USER_SORT);
@@ -283,7 +283,7 @@ public:
   public:
     /** Build a new intermediate node which will serve as the root*/
     inline
-    IntermediateNode(unsigned childVar) : childVar(childVar),_childBySortHelper(0) {}
+    explicit IntermediateNode(unsigned childVar) : childVar(childVar),_childBySortHelper(0) {}
 
     /** Build a new intermediate node */
     inline
@@ -357,7 +357,7 @@ public:
 
     struct ByTopFn
     {
-        ByTopFn(ChildBySortHelper* n) : node(n) {};
+        explicit ByTopFn(ChildBySortHelper* n) : node(n) {};
         DECL_RETURN_TYPE(Node**);
         OWN_RETURN_TYPE operator()(TermList t){
             return node->_parent->childByTop(t,false);
@@ -367,7 +367,7 @@ public:
     };
     struct NotTop
     {
-        NotTop(unsigned t) : top(t) {};
+        explicit NotTop(unsigned t) : top(t) {};
         DECL_RETURN_TYPE(bool);
         OWN_RETURN_TYPE operator()(TermList t){
             return t.term()->functor()!=top;
@@ -387,7 +387,7 @@ public:
     {}
     /** Build a new leaf */
     inline
-    Leaf(TermList ts) : Node(ts) {}
+    explicit Leaf(TermList ts) : Node(ts) {}
 
     inline
     bool isLeaf() const { return true; };
@@ -431,7 +431,7 @@ public:
   {
   public:
     inline
-    UArrIntermediateNode(unsigned childVar) : IntermediateNode(childVar), _size(0)
+    explicit UArrIntermediateNode(unsigned childVar) : IntermediateNode(childVar), _size(0)
     {
       _nodes[0]=0;
     }
@@ -486,7 +486,7 @@ public:
   : public UArrIntermediateNode
   {
   public:
-   UArrIntermediateNodeWithSorts(unsigned childVar) : UArrIntermediateNode(childVar) {
+   explicit UArrIntermediateNodeWithSorts(unsigned childVar) : UArrIntermediateNode(childVar) {
      _childBySortHelper = new ChildBySortHelper(this);
    }
    UArrIntermediateNodeWithSorts(TermList ts, unsigned childVar) : UArrIntermediateNode(ts, childVar) {
@@ -498,7 +498,7 @@ public:
   : public IntermediateNode
   {
   public:
-    SListIntermediateNode(unsigned childVar) : IntermediateNode(childVar) {}
+    explicit SListIntermediateNode(unsigned childVar) : IntermediateNode(childVar) {}
     SListIntermediateNode(TermList ts, unsigned childVar) : IntermediateNode(ts, childVar) {}
 
     ~SListIntermediateNode()
@@ -598,7 +598,7 @@ public:
   : public SListIntermediateNode
   {
    public:
-   SListIntermediateNodeWithSorts(unsigned childVar) : SListIntermediateNode(childVar) {
+   explicit SListIntermediateNodeWithSorts(unsigned childVar) : SListIntermediateNode(childVar) {
        _childBySortHelper = new ChildBySortHelper(this);
    }
    SListIntermediateNodeWithSorts(TermList ts, unsigned childVar) : SListIntermediateNode(ts, childVar) {
@@ -664,7 +664,7 @@ public:
   : public IteratorCore<Leaf*>
   {
   public:
-    LeafIterator(SubstitutionTree* st)
+   explicit LeafIterator(SubstitutionTree* st)
     : _nextRootPtr(st->_nodes.begin()), _afterLastRootPtr(st->_nodes.end()),
     _nodeIterators(8) {}
     bool hasNext();
@@ -854,4 +854,4 @@ public:
 
 } // namespace Indexing
 
-#endif
+#endif // INDEXING_SUBSTITUTIONTREE_HPP_

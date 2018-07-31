@@ -68,4 +68,4 @@ void GroundingIndex::handleClause(Clause* c, bool adding)
   //We are adding clauses into the index when performing the subsumption check
 }
 
-}
+}// namespace Indexing

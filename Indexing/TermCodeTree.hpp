@@ -103,6 +103,6 @@ public:
 
 };
 
-};
+};// namespace Indexing
 
-#endif // __TermCodeTree__
+#endif // INDEXING_TERMCODETREE_HPP_

@@ -21,6 +21,9 @@
  * Implements class ClauseVariantIndex.
  */
 
+#include <utility>
+#include <algorithm>
+
 #include "Lib/List.hpp"
 #include "Lib/Metaiterators.hpp"
 #include "Lib/SmartPtr.hpp"
@@ -311,7 +314,7 @@ ClauseIterator HashingClauseVariantIndex::retrieveVariants(Literal* const * lits
 
 struct HashingClauseVariantIndex::VariableIgnoringComparator {
   Literal* const * _lits;
-  VariableIgnoringComparator(Literal* const * lits) : _lits(lits) {}
+  explicit VariableIgnoringComparator(Literal* const * lits) : _lits(lits) {}
 
   static Comparison disagreement(Term* t1,Term* t2)
   {
@@ -370,7 +373,7 @@ struct HashingClauseVariantIndex::VariableIgnoringComparator {
     // This test can be skipped, but should lead to a more efficient code
     if (t1->ground()) {
       ASS(t2->ground());
-      return Int::compare((void *)t1,(void *)t2);
+      return Int::compare(<void *>t1,<void *>t2);
     }
 
     if(t1->functor()!=t2->functor()) {
@@ -398,7 +401,7 @@ struct HashingClauseVariantIndex::VariableIgnoringComparator {
     // This test can be skipped, but should lead to a more efficient code
     if (l1->ground()) {
       ASS(l2->ground());
-      return Int::compare((void *)l1,(void *)l2);
+      return Int::compare(<void *>l1,<void *>l2);
     }
 
     if(l1->header()!=l2->header()) {
@@ -558,4 +561,4 @@ unsigned HashingClauseVariantIndex::computeHash(Literal* const * lits, unsigned 
 }
 
 
-}
+}// namespace Indexing

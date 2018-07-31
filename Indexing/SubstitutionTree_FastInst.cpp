@@ -896,4 +896,4 @@ bool SubstitutionTree::FastInstancesIterator::enterNode(Node*& curr)
 }
 
 
-}
+}// namespace Indexing

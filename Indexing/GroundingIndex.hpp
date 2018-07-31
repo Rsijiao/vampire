@@ -42,7 +42,7 @@ public:
   CLASS_NAME(GroundingIndex);
   USE_ALLOCATOR(GroundingIndex);
 
-  GroundingIndex(const Options& opt);
+  explicit GroundingIndex(const Options& opt);
 
   SATSolverWithAssumptions& getSolver() { return *_solver; }
   GlobalSubsumptionGrounder& getGrounder() { return *_grounder; }
@@ -55,6 +55,6 @@ private:
   ScopedPtr<GlobalSubsumptionGrounder> _grounder;
 };
 
-}
+}// namespace Indexing
 
-#endif // __GroundingIndex__
+#endif // INDEXING_GROUNDINGINDEX_HPP_

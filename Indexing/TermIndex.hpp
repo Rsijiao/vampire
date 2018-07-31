@@ -48,7 +48,7 @@ public:
 	  bool retrieveSubstitutions = true);
 
 protected:
-  TermIndex(TermIndexingStructure* is) : _is(is) {}
+  explicit TermIndex(TermIndexingStructure* is) : _is(is) {}
 
   TermIndexingStructure* _is;
 };
@@ -94,7 +94,7 @@ public:
   CLASS_NAME(DemodulationSubtermIndex);
   USE_ALLOCATOR(DemodulationSubtermIndex);
 
-  DemodulationSubtermIndex(TermIndexingStructure* is)
+  explicit DemodulationSubtermIndex(TermIndexingStructure* is)
   : TermIndex(is) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -119,5 +119,5 @@ private:
   const Options& _opt;
 };
 
-};
-#endif /* __TermIndex__ */
+};// namespace Indexing
+#endif // INDEXING_TERMINDEX_HPP_

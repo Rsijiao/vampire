@@ -58,7 +58,7 @@ public:
 
 
 protected:
-  LiteralIndex(LiteralIndexingStructure* is) : _is(is) {}
+  explicit LiteralIndex(LiteralIndexingStructure* is) : _is(is) {}
 
   void handleLiteral(Literal* lit, Clause* cl, bool add);
 
@@ -72,7 +72,7 @@ public:
   CLASS_NAME(GeneratingLiteralIndex);
   USE_ALLOCATOR(GeneratingLiteralIndex);
 
-  GeneratingLiteralIndex(LiteralIndexingStructure* is)
+  explicit GeneratingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -85,7 +85,7 @@ public:
   CLASS_NAME(SimplifyingLiteralIndex);
   USE_ALLOCATOR(SimplifyingLiteralIndex);
 
-  SimplifyingLiteralIndex(LiteralIndexingStructure* is)
+  explicit SimplifyingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -98,7 +98,7 @@ public:
   CLASS_NAME(FwSubsSimplifyingLiteralIndex);
   USE_ALLOCATOR(FwSubsSimplifyingLiteralIndex);
 
-  FwSubsSimplifyingLiteralIndex(LiteralIndexingStructure* is)
+  explicit FwSubsSimplifyingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -111,7 +111,7 @@ public:
   CLASS_NAME(UnitClauseLiteralIndex);
   USE_ALLOCATOR(UnitClauseLiteralIndex);
 
-  UnitClauseLiteralIndex(LiteralIndexingStructure* is)
+  explicit UnitClauseLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -124,7 +124,7 @@ public:
   CLASS_NAME(NonUnitClauseLiteralIndex);
   USE_ALLOCATOR(NonUnitClauseLiteralIndex);
 
-  NonUnitClauseLiteralIndex(LiteralIndexingStructure* is, bool selectedOnly=false)
+  explicit NonUnitClauseLiteralIndex(LiteralIndexingStructure* is, bool selectedOnly=false)
   : LiteralIndex(is), _selectedOnly(selectedOnly) {};
 protected:
   void handleClause(Clause* c, bool adding);
@@ -164,12 +164,12 @@ public:
   CLASS_NAME(DismatchingLiteralIndex);
   USE_ALLOCATOR(DismatchingLiteralIndex);
 
-  DismatchingLiteralIndex(LiteralIndexingStructure* is)
+  explicit DismatchingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
   void handleClause(Clause* c, bool adding);
   void addLiteral(Literal* c);
 };
 
-};
+};// namespace Indexing
 
-#endif /* __LiteralIndex__ */
+#endif // INDEXING_LITERALINDEX_HPP_

@@ -161,6 +161,6 @@ private:
 };
 
 
-};
+};// namespace Indexing
 
-#endif // __ClauseCodeTree__
+#endif // INDEXING_CLAUSECODETREE_HPP_

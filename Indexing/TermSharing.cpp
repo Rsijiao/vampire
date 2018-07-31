@@ -23,6 +23,8 @@
  * @since 28/12/2007 Manchester
  */
 
+#include <utility>
+
 #include "Forwards.hpp"
 
 #include "Lib/Environment.hpp"

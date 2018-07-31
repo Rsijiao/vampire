@@ -53,6 +53,6 @@ public:
 
 };
 
-};
+};// namespace Indexing
 
-#endif /* __TermIndexingStructure__ */
+#endif // INDEXING_TERMINDEXINGSTRUCTURE_HPP_

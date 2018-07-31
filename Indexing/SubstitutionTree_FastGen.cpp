@@ -698,4 +698,4 @@ bool SubstitutionTree::FastGeneralizationsIterator::enterNode(Node*& curr)
 }
 
 
-}
+}// namespace Indexing

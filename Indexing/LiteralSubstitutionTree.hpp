@@ -37,7 +37,7 @@ public:
   CLASS_NAME(LiteralSubstitutionTree);
   USE_ALLOCATOR(LiteralSubstitutionTree);
 
-  LiteralSubstitutionTree(bool useC=false);
+  explicit LiteralSubstitutionTree(bool useC=false);
 
   void insert(Literal* lit, Clause* cls);
   void remove(Literal* lit, Clause* cls);
@@ -82,6 +82,6 @@ private:
   unsigned getRootNodeIndex(Literal* t, bool complementary=false);
 };
 
-};
+};// namespace Indexing
 
-#endif /* __LiteralSubstitutionTree__ */
+#endif // INDEXING_LITERALSUBSTITUTIONTREE_HPP_

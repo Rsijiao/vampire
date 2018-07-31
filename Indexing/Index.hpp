@@ -24,6 +24,8 @@
 #ifndef __Indexing_Index__
 #define __Indexing_Index__
 
+#include <utility>
+
 #include "Forwards.hpp"
 
 #include "Lib/Event.hpp"
@@ -96,7 +98,7 @@ struct TermQueryResult
 struct ClauseSResQueryResult
 {
   ClauseSResQueryResult() {}
-  ClauseSResQueryResult(Clause* c)
+  explicit ClauseSResQueryResult(Clause* c)
   : clause(c), resolved(false) {}
   ClauseSResQueryResult(Clause* c, unsigned rqlIndex)
   : clause(c), resolved(true), resolvedQueryLiteralIndex(rqlIndex) {}
@@ -160,7 +162,7 @@ public:
   virtual ClauseSResResultIterator getSubsumingOrSResolvingClauses(Clause* c, 
     bool subsumptionResolution)
   { NOT_IMPLEMENTED; };
-};
+};// namespace Indexing
 
-};
-#endif /*__Indexing_Index__*/
+};// namespace Indexing
+#endif // INDEXING_INDEX_HPP_

@@ -205,4 +205,4 @@ TermCodeTree::TermInfo* TermCodeTree::TermMatcher::next()
   return static_cast<TermInfo*>(op->getSuccessResult());
 }
 
-};
+};// namespace Indexing

@@ -64,9 +64,9 @@ public:
   USE_ALLOCATOR(SubstitutionTreeClauseVariantIndex);
 
   SubstitutionTreeClauseVariantIndex() : _emptyClauses(0) {}
-  virtual ~SubstitutionTreeClauseVariantIndex() override;
+  virtual ~SubstitutionTreeClauseVariantIndex();
 
-  virtual void insert(Clause* cl) override;
+  virtual void insert(Clause* cl);
 
   ClauseIterator retrieveVariants(Literal* const * lits, unsigned length) override;
 
@@ -88,9 +88,9 @@ public:
   CLASS_NAME(HashingClauseVariantIndex);
   USE_ALLOCATOR(HashingClauseVariantIndex);
 
-  virtual ~HashingClauseVariantIndex() override;
+  virtual ~HashingClauseVariantIndex();
 
-  virtual void insert(Clause* cl) override;
+  virtual void insert(Clause* cl);
 
   ClauseIterator retrieveVariants(Literal* const * lits, unsigned length) override;
 
@@ -128,6 +128,6 @@ private:
   DHMap<unsigned, ClauseList*> _entries;
 };
 
-};
+};// namespace Indexing
 
-#endif /* __ClauseVariantIndex__ */
+#endif // INDEXING_CLAUSEVARIANTINDEX_HPP_

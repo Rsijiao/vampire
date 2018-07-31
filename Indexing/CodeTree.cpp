@@ -22,6 +22,7 @@
  */
 
 #include <utility>
+#include <algorithm>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -401,7 +402,7 @@ CodeTree::SearchStruct* CodeTree::CodeOp::getSearchStruct()
   //to the standard, so we have to work around
 //  static const size_t opOfs=offsetof(SearchStruct,landingOp);
   static const size_t opOfs=reinterpret_cast<size_t>(
-	&reinterpret_cast<SearchStruct*>(8)->landingOp)-8;
+	&(reinterpret_cast<SearchStruct*>(8)->landingOp))-8;
 
   SearchStruct* res=reinterpret_cast<SearchStruct*>(
       reinterpret_cast<size_t>(this)-opOfs);
@@ -439,11 +440,11 @@ bool CodeTree::SearchStruct::getTargetOpPtr(const CodeOp& insertedOp, CodeOp**& 
   switch(kind) {
   case FN_STRUCT:
     if(!insertedOp.isCheckFun()) { return false; }
-    tgt=&static_cast<FnSearchStruct*>(this)->targetOp(insertedOp.arg());
+    tgt=&(static_cast<FnSearchStruct*>(this)->targetOp(insertedOp.arg()));
     return true;
   case GROUND_TERM_STRUCT:
     if(!insertedOp.isCheckGroundTerm()) { return false; }
-    tgt=&static_cast<GroundTermSearchStruct*>(this)->targetOp(insertedOp.getTargetTerm());
+    tgt=&(static_cast<GroundTermSearchStruct*>(this)->targetOp(insertedOp.getTargetTerm()));
     return true;
   default:
     ASSERTION_VIOLATION;
@@ -694,7 +695,7 @@ CodeTree::CodeBlock* CodeTree::firstOpToCodeBlock(CodeOp* op)
   //to the standard, so we have to work around
 //  static const size_t opOfs=offsetof(CodeBlock,_array);
   static const size_t opOfs=reinterpret_cast<size_t>(
-	&reinterpret_cast<CodeBlock*>(8)->_array[0])-8;
+	&(reinterpret_cast<CodeBlock*>(8)->_array[0]))-8;
 
   CodeBlock* res=reinterpret_cast<CodeBlock*>(
       reinterpret_cast<size_t>(op)-opOfs);
@@ -1634,4 +1635,4 @@ inline bool CodeTree::Matcher::doCheckVar()
   return true;
 }
 
-}
+}// namespace Indexing

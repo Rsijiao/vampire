@@ -75,6 +75,6 @@ private:
 };
 
 
-}
+}// namespace Indexing
 
-#endif // __FormulaIndex__
+#endif // INDEXING_FORMULAINDEX_HPP_

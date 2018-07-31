@@ -101,5 +101,5 @@ private:
   ClauseCodeTree _ct;
 };
 
-};
-#endif /*__CodeTreeInterfaces__*/
+};// namespace Indexing
+#endif  // INDEXING_CODETREEINTERFACES_HPP_

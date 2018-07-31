@@ -992,4 +992,4 @@ bool ClauseCodeTree::ClauseMatcher::existsCompatibleMatch(ILStruct* si, MatchInf
   return false;
 }
 
-}
+}// namespace Indexing
