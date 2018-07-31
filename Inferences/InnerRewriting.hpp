@@ -45,6 +45,6 @@ public:
   bool perform(Clause* cl, Clause*& replacement, ClauseIterator& premises) override;
 };
 
-};
+};// namespace Inferences
 
-#endif // __InnerRewriting__
+#endif // INFERENCES_INNERREWRITING_HPP_

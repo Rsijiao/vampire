@@ -62,7 +62,7 @@ class InductionClauseIterator
 {
 public:
   // all the work happens in the constructor!
-  InductionClauseIterator(Clause* premise);
+  explicit InductionClauseIterator(Clause* premise);
 
   CLASS_NAME(InductionClauseIterator);
   USE_ALLOCATOR(InductionClauseIterator);
@@ -90,6 +90,6 @@ private:
   Stack<Clause*> _clauses;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__Induction__*/
+#endif // INFERENCES_INDUCTION_HPP_

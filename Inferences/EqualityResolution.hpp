@@ -51,6 +51,6 @@ private:
 };
 
 
-};
+};// namespace Inferences
 
-#endif /* __EqualityResolution__ */
+#endif // INFERENCES_EQUALITYRESOLUTION_HPP_

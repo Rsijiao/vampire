@@ -20,6 +20,7 @@
  * @file ExtensionalityResolution.cpp
  * Implements class ExtensionalityResolution.
  */
+#include <utility>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -58,7 +59,7 @@ using namespace Saturation;
  */
 struct ExtensionalityResolution::ForwardPairingFn
 {
-  ForwardPairingFn (ExtensionalityClauseContainer* extClauses)
+  explicit ForwardPairingFn (ExtensionalityClauseContainer* extClauses)
   : _extClauses(extClauses) {}
   DECL_RETURN_TYPE(VirtualIterator<pair<Literal*, ExtensionalityClause> >);
   OWN_RETURN_TYPE operator()(Literal* lit)
@@ -137,7 +138,7 @@ private:
  */
 struct ExtensionalityResolution::NegEqSortFn
 {
-  NegEqSortFn (unsigned sort) : _sort(sort) {}
+  explicit NegEqSortFn (unsigned sort) : _sort(sort) {}
   DECL_RETURN_TYPE(bool);
   OWN_RETURN_TYPE operator()(Literal* lit)
   {
@@ -156,7 +157,7 @@ private:
  */
 struct ExtensionalityResolution::BackwardPairingFn
 {
-  BackwardPairingFn (unsigned sort) : _sort(sort) {}
+  explicit BackwardPairingFn (unsigned sort) : _sort(sort) {}
   DECL_RETURN_TYPE(VirtualIterator<pair<Clause*, Literal*> >);
   OWN_RETURN_TYPE operator()(Clause* cl)
   {
@@ -179,7 +180,7 @@ private:
  */
 struct ExtensionalityResolution::BackwardUnificationsFn
 {
-  BackwardUnificationsFn(Literal* extLit)
+  explicit BackwardUnificationsFn(Literal* extLit)
   : _extLit (extLit) { _subst = RobSubstitutionSP(new RobSubstitution()); }
   DECL_RETURN_TYPE(VirtualIterator<pair<pair<Clause*, Literal*>, RobSubstitution*> >);
   OWN_RETURN_TYPE operator()(pair<Clause*, Literal*> arg)

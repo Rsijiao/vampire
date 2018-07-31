@@ -52,6 +52,6 @@ private:
   DemodulationLHSIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__ForwardDemodulation__*/
+#endif // INFERENCES_FORWARDDEMODULATION_HPP_

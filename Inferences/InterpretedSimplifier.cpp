@@ -22,6 +22,8 @@
  */
 
 //TODO: replace GREATER by LESS_EQUAL, since that is the inequality predicate that the others are converted to
+#include <algorithm>
+#include <utility>
 
 #include "Lib/Comparison.hpp"
 #include "Lib/DArray.hpp"
@@ -72,7 +74,7 @@ public:
   bool deleted;
   ClauseStack premises;
 
-  ClauseSimplifier(ArithmeticIndex* ai) : _ai(ai)
+  explicit ClauseSimplifier(ArithmeticIndex* ai) : _ai(ai)
   {
     _ordering=Ordering::instance();
   }
@@ -972,7 +974,7 @@ bool InterpretedSimplifier::ClauseSimplifier::simplifyGreaterChains()
           unsigned v=arg.var();
           if(!forbiddenVars.find(v)) {
             LitPair* lp;
-            varLits.getValuePtr(v, lp, make_pair((Literal*)0,(Literal*)0));
+            varLits.getValuePtr(v, lp, make_pair(<Literal*>0,<Literal*>0));
             Literal** ltgt;
             Literal** lOther;
             if( (argIndex==0) ^ l->isPositive() ) {
@@ -1122,7 +1124,7 @@ void InterpretedSimplifier::perform(Clause* cl, ForwardSimplificationPerformer* 
 
 #endif
 
-}
+}// namespace Inferences
 
 
 

@@ -50,5 +50,5 @@ private:
   UnitClauseLiteralIndex* _index;
 };
 
-};
-#endif /* __RefutationSeekerFSE__ */
+};// namespace Inferences
+#endif // INFERENCES_REFUTATIONSEEKERFSE_HPP_

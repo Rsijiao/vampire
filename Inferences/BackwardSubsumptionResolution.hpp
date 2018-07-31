@@ -38,7 +38,7 @@ public:
   CLASS_NAME(BackwardSubsumptionResolution);
   USE_ALLOCATOR(BackwardSubsumptionResolution);
 
-  BackwardSubsumptionResolution(bool byUnitsOnly) : _byUnitsOnly(byUnitsOnly) {}
+  explicit BackwardSubsumptionResolution(bool byUnitsOnly) : _byUnitsOnly(byUnitsOnly) {}
 
   void attach(SaturationAlgorithm* salg);
   void detach();
@@ -52,6 +52,6 @@ private:
   SimplifyingLiteralIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __BackwardSubsumptionResolution__ */
+#endif // INFERENCES_BACKWARDSUBSUMPTIONRESOLUTION_HPP_

@@ -45,7 +45,7 @@ public:
   CLASS_NAME(GlobalSubsumption);
   USE_ALLOCATOR(GlobalSubsumption);
 
-  GlobalSubsumption(const Options& opts) : _index(0),
+  explicit GlobalSubsumption(const Options& opts) : _index(0),
       _uprOnly(opts.globalSubsumptionSatSolverPower()==Options::GlobalSubsumptionSatSolverPower::PROPAGATION_ONLY),
       _explicitMinim(opts.globalSubsumptionExplicitMinim()!=Options::GlobalSubsumptionExplicitMinim::OFF),
       _randomizeMinim(opts.globalSubsumptionExplicitMinim()==Options::GlobalSubsumptionExplicitMinim::RANDOMIZED),
@@ -128,6 +128,6 @@ protected:
   }
 };
 
-};
+};// namespace Inferences
 
-#endif // __GlobalSubsumption__
+#endif // INFERENCES_GLOBALSUBSUMPTION_HPP_

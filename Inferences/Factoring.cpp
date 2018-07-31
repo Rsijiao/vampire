@@ -205,4 +205,4 @@ ClauseIterator Factoring::generateClauses(Clause* premise)
   return pvi( it4 );
 }
 
-}
+}// namespace Inferences

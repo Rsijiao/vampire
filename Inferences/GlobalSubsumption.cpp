@@ -298,4 +298,4 @@ bool GlobalSubsumption::perform(Clause* cl, Clause*& replacement, ClauseIterator
   return true;
 }
 
-}
+}// namespace Inferences

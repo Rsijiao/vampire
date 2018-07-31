@@ -131,4 +131,4 @@ bool DistinctEqualitySimplifier::canSimplify(Clause* cl)
   return false;
 }
 
-}
+}// namespace Inferences

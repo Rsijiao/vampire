@@ -153,7 +153,7 @@ struct GeneratingFunctor
 {
   DECL_RETURN_TYPE(ClauseIterator);
 
-  GeneratingFunctor(Clause* cl) : cl(cl) {}
+  explicit GeneratingFunctor(Clause* cl) : cl(cl) {}
   OWN_RETURN_TYPE operator() (GeneratingInferenceEngine* gie)
   { return gie->generateClauses(cl); }
   Clause* cl;
@@ -335,4 +335,4 @@ Clause* TrivialInequalitiesRemovalISE::simplify(Clause* c)
   return d;
 }
 
-}
+}// namespace Inferences

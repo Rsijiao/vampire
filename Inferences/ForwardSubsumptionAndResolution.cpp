@@ -21,6 +21,7 @@
  * Implements class ForwardSubsumptionAndResolution.
  */
 
+#include <algorithm>
 
 #include "Lib/VirtualIterator.hpp"
 #include "Lib/DArray.hpp"
@@ -87,7 +88,7 @@ private:
   ClauseMatches(const ClauseMatches&);
   ClauseMatches& operator=(const ClauseMatches&);
 public:
-  ClauseMatches(Clause* cl) : _cl(cl), _zeroCnt(cl->length())
+  explicit ClauseMatches(Clause* cl) : _cl(cl), _zeroCnt(cl->length())
   {
     unsigned clen=_cl->length();
     _matches=static_cast<LiteralList**>(ALLOC_KNOWN(clen*sizeof(void*), "Inferences::ClauseMatches"));
@@ -136,7 +137,7 @@ public:
   class ZeroMatchLiteralIterator
   {
   public:
-    ZeroMatchLiteralIterator(ClauseMatches* cm)
+    explicit ZeroMatchLiteralIterator(ClauseMatches* cm)
     : _lits(cm->_cl->literals()), _mlists(cm->_matches), _remaining(cm->_cl->length())
     {
       if(!cm->_zeroCnt) {
@@ -403,4 +404,4 @@ fin:
   return result;
 }
 
-}
+}// namespace Inferences

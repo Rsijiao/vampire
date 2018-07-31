@@ -43,6 +43,6 @@ private:
   static bool canSimplify(Clause* cl);
 };
 
-}
+}// namespace Inferences
 
-#endif // __DistinctEqualitySimplifier__
+#endif // INFERENCES_DISTINCTEQUALITYSIMPLIFIER_HPP_

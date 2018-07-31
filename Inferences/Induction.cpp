@@ -674,4 +674,4 @@ bool InductionClauseIterator::notDone(Literal* lit, Term* term)
   return true;
 }
 
-}
+}// namespace Inferences

@@ -20,6 +20,7 @@
  * @file TautologyDeletionISE.cpp
  * Implements class TautologyDeletionISE.
  */
+#include <algorithm>
 
 #include "Lib/Random.hpp"
 #include "Lib/Environment.hpp"

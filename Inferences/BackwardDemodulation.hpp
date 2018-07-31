@@ -54,6 +54,6 @@ private:
   DemodulationSubtermIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __BackwardDemodulation__ */
+#endif // INFERENCES_BACKWARDDEMODULATION_HPP_

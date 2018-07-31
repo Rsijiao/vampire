@@ -21,6 +21,9 @@
  * Implements class BinaryResolution.
  */
 
+#include <algorithm>
+#include <utility>
+
 #include "Debug/RuntimeStatistics.hpp"
 
 #include "Lib/Environment.hpp"
@@ -350,6 +353,6 @@ ClauseIterator BinaryResolution::generateClauses(Clause* premise)
   auto it5 = getTimeCountedIterator(it4,TC_RESOLUTION);
 
   return pvi(it5);
-}
+}// namespace Inferences
 
-}
+}// namespace Inferences

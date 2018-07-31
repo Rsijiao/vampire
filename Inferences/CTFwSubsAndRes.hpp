@@ -41,7 +41,7 @@ public:
   CLASS_NAME(CTFwSubsAndRes);
   USE_ALLOCATOR(CTFwSubsAndRes);
 
-  CTFwSubsAndRes(bool subsumptionResolution)
+  explicit CTFwSubsAndRes(bool subsumptionResolution)
   : _subsumptionResolution(subsumptionResolution) {}
   
   void attach(SaturationAlgorithm* salg) override;
@@ -54,6 +54,6 @@ private:
   ClauseSubsumptionIndex* _index;
 };
 
-}
+}// namespace Inferences
 
-#endif // __CTFwSubsAndRes__
+#endif // INFERENCES_CTFWSUBSANDRES_HPP_

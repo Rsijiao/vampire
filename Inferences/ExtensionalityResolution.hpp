@@ -64,6 +64,6 @@ private:
   struct BackwardResultFn;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__ExtensionalityResolution__*/
+#endif // INFERENCES_EXTENSIONALITYRESOLUTION_HPP_

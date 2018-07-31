@@ -25,6 +25,8 @@
 #ifndef __TautologyDeletionISE__
 #define __TautologyDeletionISE__
 
+#include <algorithm>
+
 #include "Forwards.hpp"
 #include "InferenceEngine.hpp"
 
@@ -37,7 +39,7 @@ public:
   CLASS_NAME(TautologyDeletionISE);
   USE_ALLOCATOR(TautologyDeletionISE);
 
-  TautologyDeletionISE(bool deleteEqTautologies=true) : _deleteEqTautologies(deleteEqTautologies) {}
+  explicit TautologyDeletionISE(bool deleteEqTautologies=true) : _deleteEqTautologies(deleteEqTautologies) {}
   Clause* simplify(Clause* cl);
 private:
   int compare(Literal* l1,Literal* l2);
@@ -46,6 +48,6 @@ private:
   bool _deleteEqTautologies;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __TautologyDeletionISE__ */
+#endif // INFERENCES_TAUTOLOGYDELETIONISE_HPP_

@@ -50,6 +50,6 @@ private:
   RewriteRuleIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __ForwardLiteralRewriting__ */
+#endif // INFERENCES_FORWARDLITERALREWRITING_HPP_

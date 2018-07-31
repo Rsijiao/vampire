@@ -52,6 +52,6 @@ private:
 };
 
 
-};
+};// namespace Inferences
 
-#endif /* __EqualityFactoring__ */
+#endif // INFERENCES_EQUALITYFACTORING_HPP_

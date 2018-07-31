@@ -53,6 +53,6 @@ private:
   InterpretedLiteralEvaluator* _simpl;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __InterpretedEvaluation__ */
+#endif // INFERENCES_INTERPRETEDEVALUATION_HPP_

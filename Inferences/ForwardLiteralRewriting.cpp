@@ -20,6 +20,7 @@
  * @file ForwardLiteralRewriting.cpp
  * Implements class ForwardLiteralRewriting.
  */
+#include <algorithm>
 
 #include "Lib/Int.hpp"
 
@@ -136,4 +137,4 @@ bool ForwardLiteralRewriting::perform(Clause* cl, Clause*& replacement, ClauseIt
   return false;
 }
 
-};
+};// namespace Inferences

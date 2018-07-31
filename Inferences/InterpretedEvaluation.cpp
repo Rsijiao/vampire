@@ -142,4 +142,4 @@ Clause* InterpretedEvaluation::simplify(Clause* cl)
   return res;
 }
 
-}
+}// namespace Inferences

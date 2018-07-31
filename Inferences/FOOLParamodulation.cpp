@@ -137,4 +137,4 @@ ClauseIterator FOOLParamodulation::generateClauses(Clause* premise) {
   return pvi(getSingletonIterator(conclusion));
 }
 
-}
+}// namespace Inferences

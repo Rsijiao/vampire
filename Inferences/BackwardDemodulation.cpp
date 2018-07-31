@@ -21,6 +21,8 @@
  * Implements class SLQueryBackwardSubsumption.
  */
 
+#include <utility>
+#include <algorithm>
 
 #include "Lib/DHMultiset.hpp"
 #include "Lib/Environment.hpp"
@@ -267,4 +269,4 @@ void BackwardDemodulation::perform(Clause* cl,
   simplifications=getPersistentIterator(replacementIterator);
 }
 
-}
+}// namespace Inferences

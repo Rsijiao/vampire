@@ -63,7 +63,7 @@ struct EqualityResolution::IsNegativeEqualityFn
 
 struct EqualityResolution::ResultFn
 {
-  ResultFn(Clause* cl, bool afterCheck = false, Ordering* ord = nullptr)
+  explicit ResultFn(Clause* cl, bool afterCheck = false, Ordering* ord = nullptr)
       : _afterCheck(afterCheck), _ord(ord), _cl(cl), _cLen(cl->length()) {}
   DECL_RETURN_TYPE(Clause*);
   Clause* operator() (Literal* lit)
@@ -157,4 +157,4 @@ Clause* EqualityResolution::tryResolveEquality(Clause* cl, Literal* toResolve)
   return ResultFn(cl)(toResolve);
 }
 
-}
+}// namespace Inferences

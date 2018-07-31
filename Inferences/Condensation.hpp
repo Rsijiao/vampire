@@ -49,6 +49,6 @@ public:
   Clause* simplify(Clause* cl);
 };
 
-};
+};// namespace Inferences
 
-#endif /*__Condensation__*/
+#endif // INFERENCES_CONDENSATION_HPP_

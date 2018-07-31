@@ -38,7 +38,7 @@ public:
   CLASS_NAME(SLQueryBackwardSubsumption);
   USE_ALLOCATOR(SLQueryBackwardSubsumption);
 
-  SLQueryBackwardSubsumption(bool byUnitsOnly) : _byUnitsOnly(byUnitsOnly), _index(0) {}
+  explicit SLQueryBackwardSubsumption(bool byUnitsOnly) : _byUnitsOnly(byUnitsOnly), _index(0) {}
 
   /**
    * Create SLQueryBackwardSubsumption rule with explicitely provided index,
@@ -47,7 +47,7 @@ public:
    * For objects created by this constructor, methods  @c attach()
    * and @c detach() must not be called.
    */
-  SLQueryBackwardSubsumption(SimplifyingLiteralIndex* index, bool byUnitsOnly=false) : _byUnitsOnly(byUnitsOnly), _index(index) {}
+  explicit SLQueryBackwardSubsumption(SimplifyingLiteralIndex* index, bool byUnitsOnly=false) : _byUnitsOnly(byUnitsOnly), _index(index) {}
 
   void attach(SaturationAlgorithm* salg);
   void detach();
@@ -61,6 +61,6 @@ private:
   SimplifyingLiteralIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __SLQueryBackwardSubsumption__ */
+#endif // INFERENCES_SLQUERYBACKWARDSUBSUMPTION_HPP_

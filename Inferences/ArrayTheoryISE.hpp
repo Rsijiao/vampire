@@ -62,6 +62,6 @@ private:
   ArrayTermTransformer _transformer;
 };
 
-};
+};// namespace Inferences
 
-#endif /* __ArrayTheoryISE__ */
+#endif // INFERENCES_ARRAYTHEORYISE_HPP_

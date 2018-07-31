@@ -439,4 +439,4 @@ void BackwardSubsumptionResolution::perform(Clause* cl,
   return;
 }
 
-}
+}// namespace Inferences

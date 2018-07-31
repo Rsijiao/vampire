@@ -21,6 +21,7 @@
  * Implements class CTFwSubsAndRes.
  */
 
+#include <algorithm>
 
 #include "Kernel/Inference.hpp"
 #include "Kernel/ColorHelper.hpp"
@@ -133,4 +134,4 @@ bool CTFwSubsAndRes::perform(Clause* cl, Clause*& replacement, ClauseIterator& p
 }
 
 
-}
+}// namespace Inferences

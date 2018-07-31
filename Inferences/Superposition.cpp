@@ -20,6 +20,8 @@
  * @file Superposition.cpp
  * Implements class Superposition.
  */
+#include <algorithm>
+#include <utility>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -107,7 +109,7 @@ private:
 
 struct Superposition::RewriteableSubtermsFn
 {
-  RewriteableSubtermsFn(Ordering& ord) : _ord(ord) {}
+  explicit RewriteableSubtermsFn(Ordering& ord) : _ord(ord) {}
 
   DECL_RETURN_TYPE(VirtualIterator<pair<Literal*, TermList> >);
   OWN_RETURN_TYPE operator()(Literal* lit)

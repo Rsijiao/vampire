@@ -146,4 +146,4 @@ Clause* FastCondensation::simplify(Clause* cl)
   return cl;
 }
 
-}
+}// namespace Inferences

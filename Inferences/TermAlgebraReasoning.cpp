@@ -19,6 +19,7 @@
 /**
  * @file TermAlgebraReasoning.cpp
  */
+#include <cstring>
 
 #include "Kernel/Inference.hpp"
 #include "Kernel/Ordering.hpp"
@@ -38,7 +39,7 @@
 
 #include "TermAlgebraReasoning.hpp"
 
-#include <cstring>
+
 
 using namespace Kernel;
 using namespace Lib;
@@ -217,7 +218,7 @@ namespace Inferences {
 
   struct InjectivityGIE::SubtermEqualityFn
   {
-    SubtermEqualityFn(Clause* premise)
+    explicit SubtermEqualityFn(Clause* premise)
       : _premise(premise) {}
     DECL_RETURN_TYPE(VirtualIterator<Clause*>);
     OWN_RETURN_TYPE operator()(Literal* lit)
@@ -548,7 +549,7 @@ namespace Inferences {
 
   struct AcyclicityGIE1::SubtermDisequalityFn
   {
-    SubtermDisequalityFn(Clause* premise)
+    explicit SubtermDisequalityFn(Clause* premise)
       : _premise(premise) {}
     DECL_RETURN_TYPE(VirtualIterator<Clause*>);
     OWN_RETURN_TYPE operator()(Literal* lit)
@@ -563,7 +564,7 @@ namespace Inferences {
 
   struct AcyclicityGIE1::LiteralIterator
   {
-    LiteralIterator(Clause *clause)
+    explicit LiteralIterator(Clause *clause)
       :
       _index(0),
       _length(clause->length()),
@@ -593,4 +594,4 @@ namespace Inferences {
     return pvi(it3);
   }
  
-}
+}// namespace Inferences

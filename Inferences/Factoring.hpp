@@ -49,6 +49,6 @@ private:
 };
 
 
-};
+};// namespace Inferences
 
-#endif /* __Factoring__ */
+#endif // INFERENCES_FACTORING_HPP_

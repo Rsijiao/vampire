@@ -20,6 +20,8 @@
  * @file URResolution.cpp
  * Implements class URResolution.
  */
+#include <algorithm>
+#include <utility>
 
 #include "Lib/DArray.hpp"
 #include "Lib/Environment.hpp"
@@ -388,4 +390,4 @@ ClauseIterator URResolution::generateClauses(Clause* cl)
   return getPersistentIterator(ClauseList::DestructiveIterator(res));
 }
 
-}
+}// namespace Inferences

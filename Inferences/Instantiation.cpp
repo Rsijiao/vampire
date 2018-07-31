@@ -21,6 +21,7 @@
  * Implements class Instantiation.
  * @author Giles
  */
+#include <utility>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -314,7 +315,7 @@ private:
 
 struct Instantiation::ResultFn
 {
-  ResultFn(Clause* cl) : _cl(cl) {}
+  explicit ResultFn(Clause* cl) : _cl(cl) {}
   DECL_RETURN_TYPE(Clause*);
   OWN_RETURN_TYPE operator()(Substitution sub)
   {
@@ -361,4 +362,4 @@ ClauseIterator Instantiation::generateClauses(Clause* premise)
 
 }
 
-}
+}// namespace Inferences

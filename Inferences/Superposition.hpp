@@ -79,6 +79,6 @@ private:
 };
 
 
-};
+};// namespace Inferences
 
-#endif /* __Superposition__ */
+#endif // INFERENCES_SUPERPOSITION_HPP_

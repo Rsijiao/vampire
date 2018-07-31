@@ -293,4 +293,4 @@ void SLQueryBackwardSubsumption::perform(Clause* cl,
   return;
 }
 
-}
+}// namespace Inferences

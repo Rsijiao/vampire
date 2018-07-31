@@ -60,6 +60,6 @@ private:
   bool _unificationWithAbstraction;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__BinaryResolution__*/
+#endif // INFERENCES_BINARYRESOLUTION_HPP_

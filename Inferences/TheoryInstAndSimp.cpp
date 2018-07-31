@@ -919,6 +919,6 @@ ClauseIterator TheoryInstAndSimp::generateClauses(Clause* premise,bool& premiseR
   return pvi(it4);
 }
 
-}
+}// namespace Inferences
 
 #endif

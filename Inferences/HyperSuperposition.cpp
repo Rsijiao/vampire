@@ -22,6 +22,7 @@
  */
 
 #include <algorithm>
+#include <utility>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -577,4 +578,4 @@ bool HyperSuperposition::perform(Clause* cl, Clause*& replacement, ClauseIterato
   return tryUnifyingToResolveSimpl(cl, replacement, premises);
 }
 
-}
+}// namespace Inferences

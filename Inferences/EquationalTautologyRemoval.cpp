@@ -101,4 +101,4 @@ Clause* EquationalTautologyRemoval::simplify(Clause* cl)
   }
 }
 
-}
+}// namespace Inferences

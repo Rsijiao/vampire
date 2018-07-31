@@ -64,7 +64,7 @@ struct EqualityFactoring::IsPositiveEqualityFn
 };
 struct EqualityFactoring::IsDifferentPositiveEqualityFn
 {
-  IsDifferentPositiveEqualityFn(Literal* lit) : _lit(lit) {}
+  explicit IsDifferentPositiveEqualityFn(Literal* lit) : _lit(lit) {}
   DECL_RETURN_TYPE(bool);
   bool operator()(Literal* l2)
   { return l2->isEquality() && l2->polarity() && l2!=_lit; }
@@ -74,7 +74,7 @@ private:
 
 struct EqualityFactoring::FactorablePairsFn
 {
-  FactorablePairsFn(Clause* cl) : _cl(cl) {}
+  explicit FactorablePairsFn(Clause* cl) : _cl(cl) {}
   DECL_RETURN_TYPE(VirtualIterator<pair<pair<Literal*,TermList>,pair<Literal*,TermList> > >);
   OWN_RETURN_TYPE operator() (pair<Literal*,TermList> arg)
   {
@@ -201,4 +201,4 @@ ClauseIterator EqualityFactoring::generateClauses(Clause* premise)
   return pvi( it6 );
 }
 
-}
+}// namespace Inferences

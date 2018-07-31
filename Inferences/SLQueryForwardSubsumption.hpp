@@ -52,6 +52,6 @@ private:
   SimplifyingLiteralIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__SLQueryForwardSubsumption__*/
+#endif // INFERENCES_SLQUERYFORWARDSUBSUMPTION_HPP_

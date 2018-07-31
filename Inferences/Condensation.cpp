@@ -20,6 +20,7 @@
  * @file Condensation.cpp
  * Implements class Condensation.
  */
+#include <utility>
 
 #include "Lib/DArray.hpp"
 #include "Lib/Int.hpp"
@@ -160,4 +161,4 @@ Clause* Condensation::simplify(Clause* cl)
   return cl;
 }
 
-}
+}// namespace Inferences

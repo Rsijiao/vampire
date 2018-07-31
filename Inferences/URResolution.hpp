@@ -68,6 +68,6 @@ private:
   NonUnitClauseLiteralIndex* _nonUnitIndex;
 };
 
-};
+};// namespace Inferences
 
-#endif // __URResolution__
+#endif // INFERENCES_URRESOLUTION_HPP_

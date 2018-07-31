@@ -91,4 +91,4 @@ bool InnerRewriting::perform(Clause* cl, Clause*& replacement, ClauseIterator& p
 }
 
 
-}
+}// namespace Inferences

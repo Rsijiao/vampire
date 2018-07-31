@@ -39,4 +39,4 @@ class FOOLParamodulation : public GeneratingInferenceEngine {
 
 }
 
-#endif
+#endif // INFERENCES_FOOLPARAMODULATION_HPP_

@@ -148,7 +148,7 @@ public:
 struct BwSimplificationRecord
 {
   BwSimplificationRecord() {}
-  BwSimplificationRecord(Clause* toRemove)
+  explicit BwSimplificationRecord(Clause* toRemove)
   : toRemove(toRemove), replacement(0) {}
   BwSimplificationRecord(Clause* toRemove, Clause* replacement)
   : toRemove(toRemove), replacement(replacement) {}
@@ -284,6 +284,6 @@ public:
   Clause* simplify(Clause* cl);
 };
 
-};
+};// namespace Inferences
 
-#endif /*__InferenceEngine__*/
+#endif // INFERENCES_INFERENCEENGINE_HPP_

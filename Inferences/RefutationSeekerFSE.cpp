@@ -21,6 +21,7 @@
  * Implements class RefutationSeekerFSE.
  */
 
+#include <algorithm>
 
 #include "Lib/VirtualIterator.hpp"
 #include "Lib/Metaiterators.hpp"

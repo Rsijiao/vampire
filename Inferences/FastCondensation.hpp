@@ -60,6 +60,6 @@ private:
   struct CondensationBinder;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__FastCondensation__*/
+#endif // INFERENCES_FASTCONDENSATION_HPP_

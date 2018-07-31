@@ -42,7 +42,7 @@ public:
   CLASS_NAME(ForwardSubsumptionAndResolution);
   USE_ALLOCATOR(ForwardSubsumptionAndResolution);
 
-  ForwardSubsumptionAndResolution(bool subsumptionResolution=true)
+  explicit ForwardSubsumptionAndResolution(bool subsumptionResolution=true)
   : _subsumptionResolution(subsumptionResolution) {}
 
   void attach(SaturationAlgorithm* salg) override;
@@ -59,6 +59,6 @@ private:
 };
 
 
-};
+};// namespace Inferences
 
-#endif /* __ForwardSubsumptionAndResolution__ */
+#endif // INFERENCES_FORWARDSUBSUMPTIONANDRESOLUTION_HPP_

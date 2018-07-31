@@ -50,6 +50,6 @@ private:
   ArithmeticIndex* _ai;
 };
 #endif
-}
+}// namespace Inferences
 
-#endif // __InterpretedSimplifier__
+#endif // INFERENCES_INTERPRETEDSIMPLIFIER_HPP_

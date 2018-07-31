@@ -66,6 +66,6 @@ private:
 
 };
 
-};
+};// namespace Inferences
 
-#endif /*__Instantiation__*/
+#endif // INFERENCES_INSTANTIATION_HPP_

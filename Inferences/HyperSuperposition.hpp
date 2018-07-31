@@ -25,6 +25,8 @@
 #ifndef __HyperSuperposition__
 #define __HyperSuperposition__
 
+#include <utility>
+
 #include "Forwards.hpp"
 
 #include "InferenceEngine.hpp"
@@ -102,6 +104,6 @@ private:
   UnitClauseLiteralIndex* _index;
 };
 
-};
+};// namespace Inferences
 
-#endif /*__HyperSuperposition__*/
+#endif // INFERENCES_HYPERSUPERPOSITION_HPP_

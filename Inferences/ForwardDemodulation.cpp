@@ -20,6 +20,7 @@
  * @file ForwardDemodulation.cpp
  * Implements class ForwardDemodulation.
  */
+#include <algorithm>
 
 #include "Debug/RuntimeStatistics.hpp"
 
@@ -227,4 +228,4 @@ bool ForwardDemodulation::perform(Clause* cl, Clause*& replacement, ClauseIterat
   return false;
 }
 
-}
+}// namespace Inferences

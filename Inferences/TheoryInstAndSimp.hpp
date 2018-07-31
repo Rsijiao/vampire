@@ -38,7 +38,7 @@ using namespace Kernel;
 using namespace Saturation;
 
 struct Solution{
-  Solution(bool s) : status(s) {}
+  explicit Solution(bool s) : status(s) {}
   const bool status;
   Substitution subst;
 };
@@ -106,8 +106,8 @@ private:
 
 };
 
-};
+};// namespace Inferences
 
 #endif
 
-#endif /*__TheoryInstAndSimp__*/
+#endif // INFERENCES_THEORYINSTANDSIMP_HPP_

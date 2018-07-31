@@ -45,6 +45,6 @@ private:
   DP::SimpleCongruenceClosure _cc;
 };
 
-}
+}// namespace Inferences
 
-#endif // __EquationalTautologyRemoval__
+#endif // INFERENCES_EQUATIONALTAUTOLOGYREMOVAL_HPP_

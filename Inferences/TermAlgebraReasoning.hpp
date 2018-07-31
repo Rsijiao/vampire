@@ -151,6 +151,6 @@ private:
   struct SubtermDisequalityIterator;
 };
   
-};
+};// namespace Inferences
 
-#endif
+#endif // INFERENCES_TERMALGEBRAREASONING_HPP_
