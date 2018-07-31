@@ -94,10 +94,10 @@ class UserErrorException
   : public Exception
 {
  public:
-  UserErrorException (const char* msg)
+  explicit UserErrorException (const char* msg)
     : Exception(msg)
   {}
-  UserErrorException (const vstring msg)
+  explicit UserErrorException (const vstring msg)
     : Exception(msg)
   {}
   void cry (ostream&);
@@ -127,7 +127,7 @@ public:
 //  MemoryLimitExceededException ()
 //  : Exception("The memory limit exceeded")
 //  {}
-  MemoryLimitExceededException (bool badAlloc=false)
+  explicit MemoryLimitExceededException (bool badAlloc=false)
   : Exception(badAlloc?"bad_alloc received":"The memory limit exceeded")
   {}
 }; // MemoryLimitExceededException
@@ -164,10 +164,10 @@ class InvalidOperationException
   : public Exception
 {
  public:
-   InvalidOperationException (const char* msg)
+   explicit InvalidOperationException (const char* msg)
     : Exception(msg)
   {}
-   InvalidOperationException (const vstring msg)
+   explicit InvalidOperationException (const vstring msg)
     : Exception(msg)
   {}
   void cry (ostream&);
@@ -203,7 +203,7 @@ class NotImplementedException
 }; // InvalidOperationException
 
 
-}
+}// namespace Lib
 
 #define VAMPIRE_EXCEPTION \
   throw Lib::Exception(__FILE__,__LINE__)
@@ -216,7 +216,7 @@ class NotImplementedException
 #define NOT_IMPLEMENTED \
   throw Lib::NotImplementedException(__FILE__, __LINE__)
 
-#endif // __Exception__
+#endif // LIB_EXCEPTION_HPP_
 
 
 

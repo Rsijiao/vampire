@@ -48,7 +48,7 @@ public:
    * Create a @b BucketSorter object that is able to contain buckets less
    * than @b bucketCnt
    */
-  BucketSorter(size_t bucketCnt)
+  explicit BucketSorter(size_t bucketCnt)
   : _bucketCnt(bucketCnt), _size(0), _minOccupied(bucketCnt)
   {
     CALL("BucketSorter::BucketSorter");
@@ -117,6 +117,6 @@ private:
   size_t _minOccupied;
 };
 
-};
+};// namespace Lib
 
-#endif /* __BucketSorter__ */
+#endif // LIB_BUCKETSORTER_HPP_

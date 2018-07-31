@@ -45,7 +45,7 @@
  */
 
 #ifndef __list__
-#  define __list__
+#define __list__
 
 
 #include "Forwards.hpp"
@@ -487,11 +487,11 @@ public:
     inline Iterator() : _lst (0) {}
 
     inline explicit
-    Iterator(List* l)
+    explicit Iterator(List* l)
       : _lst (l)
     {}
     inline explicit
-    Iterator(const List* l)
+    explicit Iterator(const List* l)
       : _lst (const_cast<List*>(l))
     {}
 
@@ -536,11 +536,11 @@ public:
      DECL_ELEMENT_TYPE(C&);
 
     inline explicit
-    RefIterator(List* l)
+    explicit RefIterator(List* l)
       : _lst (l)
     {}
     inline explicit
-    RefIterator(const List* l)
+    explicit RefIterator(const List* l)
       : _lst (const_cast<List*>(l))
     {}
 
@@ -573,7 +573,7 @@ public:
     
     DECL_ELEMENT_TYPE(C*);
     inline
-    PtrIterator(List* lst) : _l(lst) {}
+    explicit PtrIterator(List* lst) : _l(lst) {}
     inline bool hasNext()
     { return _l->isNonEmpty(); }
 
@@ -595,7 +595,7 @@ public:
      USE_ALLOCATOR(List::DelIterator);
      
     DECL_ELEMENT_TYPE(C);
-    inline DelIterator (List*& l)
+    explicit inline DelIterator (List*& l)
       :
       _lst(l),
       _prev(0),
@@ -734,7 +734,7 @@ public:
     DECL_ELEMENT_TYPE(C);
 
     inline explicit
-    DestructiveIterator(List* l)
+    explicit DestructiveIterator(List* l)
       : _lst (l)
     {}
 
@@ -869,8 +869,8 @@ std::ostream& operator<< (ostream& out, const List<T*>& lstr )
 
 #endif
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_LIST_HPP_
 
 

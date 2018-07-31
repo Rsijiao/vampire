@@ -58,6 +58,6 @@ public:
 private:
   Lib::SkipList<PriorityPair<T>, PriorityPairComparator<T>> _underlying;
 };
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_PRIORITYQUEUE_HPP_

@@ -27,6 +27,7 @@
 
 #include <utility>
 #include <functional>
+#include <algorithm>
 
 #include "Forwards.hpp"
 
@@ -68,7 +69,7 @@ class InfiniteArrayIterator
 {
 public:
   DECL_ELEMENT_TYPE(El);
-  InfiniteArrayIterator(const El* ptr) : _nextPtr(ptr) {}
+  explicit InfiniteArrayIterator(const El* ptr) : _nextPtr(ptr) {}
   inline bool hasNext() { return true; }
   inline OWN_ELEMENT_TYPE next() { return *(_nextPtr++); }
 private:
@@ -98,7 +99,7 @@ class ArrayishObjectIterator
 {
 public:
   DECL_ELEMENT_TYPE(ELEMENT_TYPE(Arr));
-  ArrayishObjectIterator(Arr& arr) : _arr(arr),
+  explicit ArrayishObjectIterator(Arr& arr) : _arr(arr),
   _index(0), _size(_arr.size()) {}
   ArrayishObjectIterator(Arr& arr, size_t size) : _arr(arr),
   _index(0), _size(size) {}
@@ -297,7 +298,7 @@ struct identity
 template<typename Out,typename In>
 struct Lambda
 {
-  Lambda(typename identity<std::function<Out(In)>>::type f) : _lambda(f) {}
+  explicit Lambda(typename identity<std::function<Out(In)>>::type f) : _lambda(f) {}
   DECL_RETURN_TYPE(Out);
   Out operator()(In obj){ return _lambda(obj); }
   std::function<Out(In)> _lambda;
@@ -333,7 +334,7 @@ struct NonzeroFn
 template<typename T>
 struct NonequalFn
 {
-  NonequalFn(T forbidden) : _forbidden(forbidden) {}
+  explicit NonequalFn(T forbidden) : _forbidden(forbidden) {}
   DECL_RETURN_TYPE(bool);
   bool operator()(T obj)
   {
@@ -1513,7 +1514,7 @@ template<typename Inner>
 struct NegPred
 {
   DECL_RETURN_TYPE(bool);
-  NegPred(const Inner& inner) : _inner(inner) {}
+  explicit NegPred(const Inner& inner) : _inner(inner) {}
   template<typename Arg>
   bool operator()(Arg a) { return !_inner(a); }
 private:
@@ -1529,7 +1530,7 @@ template<typename T>
 struct ConstEqPred
 {
   DECL_RETURN_TYPE(bool);
-  ConstEqPred(const T& val) : _val(val) {}
+  explicit ConstEqPred(const T& val) : _val(val) {}
   template<typename Arg>
   bool operator()(Arg a) { return a==_val; }
 private:
@@ -1581,6 +1582,6 @@ struct GetSecondOfPair {
 
 ///@}
 
-}
+}// namespace Lib
 
-#endif /* __Metaiterators__ */
+#endif // LIB_METAITERATORS_HPP_

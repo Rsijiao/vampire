@@ -93,10 +93,10 @@ public:
   class Iterator : public SelSet::Iterator
   {
   public:
-    Iterator(const ImplicationSetClosure& parent) : DHSet<T>::Iterator(parent._selected) {}
+    explicit Iterator(const ImplicationSetClosure& parent) : DHSet<T>::Iterator(parent._selected) {}
   };
 };
 
-}
+}// namespace Lib
 
-#endif // __ImplicationSetClosure__
+#endif // LIB_IMPLICATIONSETCLOSURE_HPP_

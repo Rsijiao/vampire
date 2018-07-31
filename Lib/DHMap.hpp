@@ -703,7 +703,7 @@ private:
   class IteratorBase {
   public:
     /** Create a new IteratorBase */
-    inline IteratorBase(const DHMap& map)
+    explicit inline IteratorBase(const DHMap& map)
     : _next(map._entries), _last(map._afterLast),
     _timestamp(map._timestamp) {}
 
@@ -748,7 +748,7 @@ private:
   : public IteratorCore<Key> {
   public:
     /** Create a new iterator */
-    inline DomainIteratorCore(const DHMap& map) : _base(map) {}
+    explicit inline DomainIteratorCore(const DHMap& map) : _base(map) {}
     /** True if there exists next element */
     inline bool hasNext() { return _base.hasNext(); }
 
@@ -765,7 +765,7 @@ private:
     : public IteratorCore<Val> {
     public:
         /** Create a new iterator */
-        inline RangeIteratorCore(const DHMap& map) : _base(map) {}
+        explicit inline RangeIteratorCore(const DHMap& map) : _base(map) {}
         /** True if there exists next element */
         inline bool hasNext() { return _base.hasNext(); }
         
@@ -795,7 +795,7 @@ private:
   : public IteratorCore<Item> {
   public:
     /** Create a new iterator */
-    inline ItemIteratorCore(const DHMap& map) : _base(map) {}
+    explicit inline ItemIteratorCore(const DHMap& map) : _base(map) {}
     /** True if there exists next element */
     inline bool hasNext() { return _base.hasNext(); }
 
@@ -825,7 +825,7 @@ public:
   class Iterator {
   public:
     /** Create a new iterator */
-    inline Iterator(const DHMap& map) : _base(map) {}
+    explicit inline Iterator(const DHMap& map) : _base(map) {}
 
     /** True if there exists next element */
     bool hasNext() { return _base.hasNext(); }
@@ -877,7 +877,7 @@ public:
   class DelIterator {
   public:
     /** Create a new iterator */
-    inline DelIterator(DHMap& map) : _base(map), _map(map) {}
+    explicit inline DelIterator(DHMap& map) : _base(map), _map(map) {}
 
     /** True if there exists next element */
     bool hasNext() { return _base.hasNext(); }
@@ -933,7 +933,7 @@ public:
 
 }; // class DHMap
 
-}
+}// namespace Lib
 
-#endif // __DHMap__
+#endif // LIB_DHMAP_HPP_
 

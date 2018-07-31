@@ -118,8 +118,8 @@ private:
   void expandToFit(int v);
 }; // class MultiCounter
 
-}
+}// namespace Lib
 
-#endif // __MultiCounter__
+#endif // LIB_MULTICOUNTER_HPP_
 
 

@@ -139,6 +139,6 @@ private:
   T* _obj;
 };
 
-}
+}// namespace Lib
 
-#endif // __RCPtr__
+#endif // LIB_RCPTR_HPP_

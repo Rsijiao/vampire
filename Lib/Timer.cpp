@@ -22,8 +22,10 @@
  */
 
 #include <ctime>
-#include <unistd.h>
-#include <sys/types.h>
+#include <cerrno>
+
+#include "./unistd.h"
+#include "./sys/types.h"
 
 #include "Debug/Assertion.hpp"
 #include "Debug/Tracer.hpp"
@@ -49,20 +51,20 @@ bool Timer::s_timeLimitEnforcement = true;
 
 #if UNIX_USE_SIGALRM
 
-#include <cerrno>
-#include <unistd.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <sys/time.h>
-#include <sys/times.h>
+
+
+#include "./stdlib.h"
+#include "./signal.h"
+#include "./sys/time.h"
+#include "./sys/times.h"
 
 #include "Lib/Sys/Multiprocessing.hpp"
 
-#include "Shell/UIHelper.hpp"
+
 
 int timer_sigalrm_counter=-1;
 
-long Timer::s_ticksPerSec;
+int Timer::s_ticksPerSec;
 int Timer::s_initGuarantedMiliseconds;
 
 
@@ -144,7 +146,7 @@ int Lib::Timer::guaranteedMilliseconds()
   if(ticks==((clock_t)-1)) {
     return -1;
   }
-  return static_cast<long long>(ticks)*1000/s_ticksPerSec;
+  return static_cast<int int>(ticks)*1000/s_ticksPerSec;
 }
 
 void Lib::Timer::suspendTimerBeforeFork()
@@ -359,7 +361,7 @@ Timer* Timer::instance()
   return inst.ptr();
 }
 
-};
+};// namespace Lib
 
 //#include <iostream>
 //

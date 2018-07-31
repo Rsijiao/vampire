@@ -24,6 +24,8 @@
 #ifndef __SharedSet__
 #define __SharedSet__
 
+#include <algorithm>
+
 #include "Forwards.hpp"
 
 #include "Debug/Assertion.hpp"
@@ -48,7 +50,7 @@ class SharedSet {
 public:
   DECL_ELEMENT_TYPE(T);
 
-  SharedSet(size_t sz) : _size(sz) {}
+  explicit SharedSet(size_t sz) : _size(sz) {}
 
   /** Return the size of the set */
   inline unsigned size() const {
@@ -566,7 +568,7 @@ public:
   class Iterator : public PointerIterator<T>
   {
   public:
-    Iterator(const SharedSet& s) : PointerIterator<T>(s._items, s._items+s.size()) {}
+    explicit Iterator(const SharedSet& s) : PointerIterator<T>(s._items, s._items+s.size()) {}
   };
 
 };
@@ -585,6 +587,6 @@ std::ostream& operator<< (ostream& out, const SharedSet<T>& s )
 }
 
 
-}
+}// namespace Lib
 
-#endif // __SharedSet__
+#endif // LIB_SHAREDSET_HPP_

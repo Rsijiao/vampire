@@ -24,8 +24,8 @@
 
 #include "Portability.hpp"
 
-#include <stdlib.h>
-#  include <unistd.h>
+#include "./stdlib.h"
+#include "./unistd.h"
 #  if !__APPLE__ && !__CYGWIN__
 #    include <sys/prctl.h>
 #  endif
@@ -55,16 +55,16 @@
 
 #include "System.hpp"
 
-#include <unistd.h>
 
-long long Lib::System::getSystemMemory()
+
+int int Lib::System::getSystemMemory()
 {
 #if __APPLE__ || __CYGWIN__
   NOT_IMPLEMENTED;
 #else
-  long pages = sysconf(_SC_PHYS_PAGES);
-  long page_size = sysconf(_SC_PAGE_SIZE);
-  return static_cast<long long>(pages) * page_size;
+  int pages = sysconf(_SC_PHYS_PAGES);
+  int page_size = sysconf(_SC_PAGE_SIZE);
+  return static_cast<int int>(pages) * page_size;
 #endif
 }
 
@@ -570,4 +570,4 @@ int System::executeCommand(vstring command, vstring input, Stack<vstring>& outpu
   }
 }
 
-};
+};// namespace Lib

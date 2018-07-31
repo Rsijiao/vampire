@@ -77,6 +77,6 @@ private:
   Counter* _counter;
 };
 
-};
+};// namespace Lib
 
-#endif /* __ReferenceCounter__ */
+#endif // LIB_REFERENCECOUNTER_HPP_

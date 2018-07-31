@@ -97,6 +97,6 @@ private:
   }
 };
 
-};
+};// namespace Lib
 
-#endif /*__Recycler__*/
+#endif // LIB_RECYCLER_HPP_

@@ -27,6 +27,7 @@
 #define __Stack__
 
 #include <cstdlib>
+#include <utility>
 
 #include "Forwards.hpp"
 
@@ -697,7 +698,7 @@ protected:
     CLASS_NAME(Stack::PushBacktrackObject);
     USE_ALLOCATOR(Stack::PushBacktrackObject);
     
-    PushBacktrackObject(Stack* st) : st(st) {}
+    explicit PushBacktrackObject(Stack* st) : st(st) {}
     void backtrack() { st->pop(); }
   };
 public:
@@ -749,6 +750,6 @@ void swap(Lib::Stack<T>& s1, Lib::Stack<T>& s2)
   swap(s1._stack, s2._stack);
 }
 
-}
+}// namespace std
 
-#endif
+#endif // LIB_STACK_HPP_

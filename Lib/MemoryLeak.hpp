@@ -62,4 +62,4 @@ private:
 } // namespace Lib
 
 #endif // CHECK_LEAKS
-#endif // __MemoryLeak__
+#endif // LIB_MEMORYLEAK_HPP_

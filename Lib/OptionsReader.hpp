@@ -170,6 +170,6 @@ private:
   DHMap<vstring,EnumReaderBase> _enumOptVals;
 };
 
-}
+}// namespace Lib
 
-#endif // __OptionsReader__
+#endif // LIB_OPTIONSREADER_HPP_

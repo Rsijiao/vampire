@@ -109,6 +109,6 @@ private:
   T* _obj;
 };
 
-}
+}// namespace Lib
 
-#endif // __ScopedPtr__
+#endif // LIB_SCOPEDPTR_HPP_

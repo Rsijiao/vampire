@@ -24,12 +24,15 @@
 #ifndef __fdstream__
 #define __fdstream__
 
-#include "Portability.hpp"
-
-#include <unistd.h>
 #include <cerrno>
 #include <iostream>
 #include <streambuf>
+#include <string>
+
+#include "Portability.hpp"
+
+#include "./unistd.h"
+
 
 #include "Forwards.hpp"
 
@@ -52,7 +55,7 @@ public:
 
   typedef basic_fdbuf <char_type, traits_type> this_type;
 
-  basic_fdbuf( int fd ) : _fd( fd ), _preRead(-1)
+  explicit basic_fdbuf( int fd ) : _fd( fd ), _preRead(-1)
   { }
 
   ~basic_fdbuf()
@@ -161,7 +164,7 @@ struct basic_fdstream: public std::basic_iostream <CharType, CharTraits>
   typedef basic_fdstream   <char_type, traits_type>  this_type;
   typedef std::basic_iostream <char_type, traits_type>  base_type;
 
-  basic_fdstream( int fd ):
+  explicit basic_fdstream( int fd ):
     base_type( new sbuf_type( fd ) )
   { }
 
@@ -177,6 +180,6 @@ struct basic_fdstream: public std::basic_iostream <CharType, CharTraits>
 typedef basic_fdbuf    <char> fdbuf;
 typedef basic_fdstream <char> fdstream;
 
-}
+}// namespace Lib
 
-#endif // __fdstream__
+#endif // LIB_FDSTREAM_HPP_

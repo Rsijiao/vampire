@@ -22,6 +22,7 @@
  */
 
 #include <algorithm>
+#include <utility>
 
 #include "Allocator.hpp"
 
@@ -156,4 +157,4 @@ int IntUnionFind::getComponentCount()
 }
 
 
-}
+}// namespace Lib

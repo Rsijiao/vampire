@@ -199,4 +199,4 @@ bool StringUtils::readEqualities(const char* str, char delimiter, char eqChar, D
   return true;
 }
 
-}
+}// namespace Lib

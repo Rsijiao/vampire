@@ -42,7 +42,7 @@ public:
   typedef T Node;
   typedef VirtualIterator<T> NodeIterator;
 
-  MapToLIFOGraph(const Map& m) : _m(m)
+  explicit MapToLIFOGraph(const Map& m) : _m(m)
   {
     CALL("MapToLIFOGraph::MapToLIFOGraph");
 
@@ -93,7 +93,7 @@ public:
 
   struct Filter
   {
-    Filter(DHSet<Node>& forbidden) : _forbidden(forbidden) {}
+    explicit Filter(DHSet<Node>& forbidden) : _forbidden(forbidden) {}
     bool operator()(Node n) const { return !_forbidden.find(n); }
   private:
     DHSet<Node>& _forbidden;
@@ -150,7 +150,7 @@ public:
   typedef typename Graph::Node Node;
   typedef Stack<Node> NodeStack;
 
-  SCCAnalyzer(const Graph& gr)
+  explicit SCCAnalyzer(const Graph& gr)
   {
     CALL("SCCAnalyzer::SCCAnalyzer");
     analyze(gr);
@@ -238,6 +238,6 @@ private:
   Stack<NodeStack> _components;
 };
 
-}
+}// namespace Lib
 
-#endif // __SCCAnalyzer__
+#endif // LIB_SCCANALYZER_HPP_

@@ -59,6 +59,6 @@ private:
   DataContainer* _curr;
 };
 
-};
+};// namespace Lib
 
-#endif /* __InPlaceStack__ */
+#endif // LIB_INPLACESTACK_HPP_

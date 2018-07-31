@@ -65,7 +65,7 @@ bool canExpandToBytes(size_t sz)
   return sz<(MAXIMAL_ALLOCATION/2) && sz<(env.options->memoryLimit()-Allocator::getUsedMemory());
 }
 
-}
+}// namespace __Cache_AUX
 
 using namespace __Cache_AUX;
 
@@ -249,6 +249,6 @@ private:
 #endif
 };
 
-}
+}// namespace Lib
 
-#endif // __Cache__
+#endif // LIB_CACHE_HPP_

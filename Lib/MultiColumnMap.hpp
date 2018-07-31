@@ -110,6 +110,6 @@ private:
   DHMap<Key,char*> _data;
 };
 
-};
+};// namespace Lib
 
-#endif /* __MultiColumnMap__ */
+#endif // LIB_MULTICOLUMNMAP_HPP_

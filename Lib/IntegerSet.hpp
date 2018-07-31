@@ -52,4 +52,4 @@ private:
 
 } // namespace Lib
 
-#endif
+#endif // LIB_INTEGERSET_HPP_

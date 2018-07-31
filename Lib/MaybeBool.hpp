@@ -42,8 +42,8 @@ public:
   };
 
   MaybeBool() : _value(UNKNOWN) {}
-  MaybeBool(bool val) : _value(val ? TRUE : FALSE) {}
-  MaybeBool(Value val) : _value(val) {}
+  explicit MaybeBool(bool val) : _value(val ? TRUE : FALSE) {}
+  explicit MaybeBool(Value val) : _value(val) {}
 
   bool known() const { return _value!=UNKNOWN; }
   bool isTrue() const { return _value==TRUE; }
@@ -73,6 +73,6 @@ std::ostream& operator<< (std::ostream& out, const MaybeBool& u )
 }
 
 
-}
+}// namespace Lib
 
-#endif // __MaybeBool__
+#endif // LIB_MAYBEBOOL_HPP_

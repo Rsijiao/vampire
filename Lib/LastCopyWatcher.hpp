@@ -85,6 +85,6 @@ private:
   mutable const LastCopyWatcher* _previous;
 };
 
-};
+};// namespace Lib
 
-#endif /* __LastCopyWatcher__ */
+#endif // LIB_LASTCOPYWATCHER_HPP_

@@ -85,4 +85,4 @@ typedef std::basic_string<char,std::char_traits<char>,STLAllocator<char> > vstri
 
 } // namespace Lib
 
-#endif // __VString__
+#endif // LIB_VSTRING_HPP_

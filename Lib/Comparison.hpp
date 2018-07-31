@@ -81,7 +81,7 @@ template<class Comp1, class Comp2>
 class CompositeComaprator
 {
 public:
-  CompositeComaprator(Comp1 c1=Comp1(), Comp2 c2=Comp2())
+  explicit CompositeComaprator(Comp1 c1=Comp1(), Comp2 c2=Comp2())
   : _c1(c1), _c2(c2) {}
 
   template<typename T>
@@ -114,6 +114,6 @@ private:
 //};
 
 
-}
+}// namespace Lib
 
-#endif
+#endif  // LIB_COMPARISON_HPP_

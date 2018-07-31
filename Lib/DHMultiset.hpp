@@ -443,7 +443,7 @@ public:
   class SetIterator {
   public:
     /** Create a new iterator */
-    inline SetIterator(const DHMultiset& set)
+    explicit inline SetIterator(const DHMultiset& set)
     : _next(set._entries), _afterLast(set._afterLast)
     {
     }
@@ -505,7 +505,7 @@ public:
   class Iterator {
   public:
     /** Create a new iterator */
-    inline Iterator(const DHMultiset& set)
+    explicit inline Iterator(const DHMultiset& set)
     : _next(set._entries), _afterLast(set._afterLast), _nextIndex(0)
     {
     }
@@ -561,7 +561,7 @@ public:
 
 }; // class DHMultiset
 
-}
+}// namespace Lib
 
-#endif // __DHMultiset__
+#endif // LIB_DHMULTISET_HPP_
 

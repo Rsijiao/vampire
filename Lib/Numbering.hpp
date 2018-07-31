@@ -99,6 +99,6 @@ private:
   unsigned _nextNum;
 };
 
-};
+};// namespace Lib
 
-#endif /* __Numbering__ */
+#endif // LIB_NUMBERING_HPP_

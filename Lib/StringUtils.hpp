@@ -43,6 +43,6 @@ public:
   static bool readEqualities(const char* str, char delimiter, char eqChar, DHMap<vstring,vstring>& pairs);
 };
 
-}
+}// namespace Lib
 
-#endif // __StringUtils__
+#endif // LIB_STRINGUTILS_HPP_

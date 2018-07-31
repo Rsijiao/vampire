@@ -59,4 +59,4 @@ int IntNameTable::insert (const vstring& str)
 } // IntNameTable::insert
 
 
-}
+}// namespace Lib

@@ -27,6 +27,8 @@
 #ifndef __DArray__
 #define __DArray__
 
+#include <algorithm>
+
 #include "Forwards.hpp"
 #include "Debug/Assertion.hpp"
 
@@ -63,7 +65,7 @@ public:
    * @since 30/12/2007 Manchester
    */
   inline
-  DArray (size_t size=0)
+  explicit DArray (size_t size=0)
     : _size(size), _capacity(size)
   {
     CALL("DArray::DArray");
@@ -442,7 +444,7 @@ public:
   public:
     DECL_ELEMENT_TYPE(C);
     inline Iterator() : _next(0), _afterLast(0) {}
-    inline Iterator(DArray& arr) : _next(arr._array),
+    explicit inline Iterator(DArray& arr) : _next(arr._array),
     _afterLast(arr._array+arr._size) {}
     inline bool hasNext() { return _next!=_afterLast; }
     inline C next() { return *(_next++); }
@@ -455,7 +457,7 @@ public:
   public:
     DECL_ELEMENT_TYPE(C);
     inline ConstIterator() : _next(0), _afterLast(0) {}
-    inline ConstIterator(const DArray& arr) : _next(arr._array),
+    explicit inline ConstIterator(const DArray& arr) : _next(arr._array),
     _afterLast(arr._array+arr._size) {}
     inline bool hasNext() { return _next!=_afterLast; }
     inline const C& next() { return *(_next++); }
@@ -467,7 +469,7 @@ public:
   {
   public:
     DECL_ELEMENT_TYPE(C);
-    inline ReversedIterator(DArray& arr) : _curr(arr._array+arr._size),
+    explicit inline ReversedIterator(DArray& arr) : _curr(arr._array+arr._size),
     _first(arr._array) {}
     inline bool hasNext() { return _curr!=_first; }
     inline C next() { return *(--_curr); }
@@ -485,4 +487,4 @@ VirtualIterator<T> getContentIterator(DArray<T>& arr)
 
 } // namespace Lib
 
-#endif
+#endif // LIB_DARRAY_HPP_

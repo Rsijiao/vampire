@@ -168,4 +168,4 @@ void OptionsReader::printOptionValues(ostream& out, OptionsReader* defOpts, vstr
   }
 }
 
-}
+}// namespace Lib

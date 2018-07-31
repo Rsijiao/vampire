@@ -104,4 +104,4 @@ unsigned Hash::combineHashes(unsigned h1, unsigned h2){
   return (h1* 16777619u) ^ ( h2 + 2166136261u);
 }
 
-}
+}// namespace Lib

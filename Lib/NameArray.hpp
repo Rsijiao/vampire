@@ -53,6 +53,6 @@ private:
   const char** _array;
 }; // class NameArray
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_NAMEARRAY_HPP_

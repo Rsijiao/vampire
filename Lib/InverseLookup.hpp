@@ -69,6 +69,6 @@ private:
   DHMap<T*,size_t,PtrIdentityHash> _data;
 };
 
-};
+};// namespace Lib
 
-#endif /* __InverseLookup__ */
+#endif // LIB_INVERSELOOKUP_HPP_

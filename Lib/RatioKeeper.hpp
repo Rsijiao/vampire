@@ -83,6 +83,6 @@ private:
   int _balance;
 };
 
-}
+}// namespace Lib
 
-#endif // __RatioKeeper__
+#endif // LIB_RATIOKEEPER_HPP_

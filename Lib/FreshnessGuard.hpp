@@ -62,6 +62,6 @@ private:
   bool _fresh;
 };
 
-}
+}// namespace Lib
 
-#endif // __FreshnessGuard__
+#endif // LIB_FRESHNESSGUARD_HPP_

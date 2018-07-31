@@ -31,6 +31,7 @@
 #define __STLAllocator__
 
 #include <limits>
+#include <memory>
 
 #include "Lib/Allocator.hpp"
 
@@ -56,7 +57,7 @@ public :
     };
 
 public : 
-    inline explicit STLAllocator() {}
+    inline STLAllocator() {}
     inline ~STLAllocator() {}
     inline explicit STLAllocator(STLAllocator const&) {}
     template<typename U>
@@ -92,4 +93,4 @@ extern const STLAllocator<void> global_stl_allocator;
 
 } // namespace Lib
 
-#endif // __STLAllocator__
+#endif // LIB_STLALLOCATOR_HPP_

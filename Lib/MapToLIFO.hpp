@@ -168,7 +168,7 @@ public:
   public:
     DECL_ELEMENT_TYPE(K);
 
-    KeyIterator(const MapToLIFO& m) : it(m._data) {}
+    explicit KeyIterator(const MapToLIFO& m) : it(m._data) {}
 
     bool hasNext()
     {
@@ -185,7 +185,7 @@ public:
 private:
   struct KeyToIterFn
   {
-    KeyToIterFn(const MapToLIFO& parent) : _par(parent) {}
+    explicit KeyToIterFn(const MapToLIFO& parent) : _par(parent) {}
     DECL_RETURN_TYPE(typename ValList::Iterator);
     OWN_RETURN_TYPE operator() (K key)
     {
@@ -207,8 +207,8 @@ private:
   InnerMap _data;
 };
 
-}
+}// namespace Lib
 
 
 
-#endif /* __MapToLIFO__ */
+#endif // LIB_MAPTOLIFO_HPP_

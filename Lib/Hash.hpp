@@ -235,6 +235,6 @@ struct FirstHashTypeInfo<Stack<T> > {
   typedef StackHash< typename FirstHashTypeInfo<T>::Type > Type;
 };
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_HASH_HPP_

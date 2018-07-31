@@ -89,4 +89,4 @@ void NotImplementedException::cry (ostream& str)
 } // NotImplementedException::cry
 
 
-}
+}// namespace Lib

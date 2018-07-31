@@ -50,8 +50,8 @@ public:
 }; // class Enumerator
 
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_ENUMERATOR_HPP_
 
 

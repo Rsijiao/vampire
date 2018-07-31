@@ -88,6 +88,6 @@ MappingArray<Arr,Functor> getMappingArray(Arr arr, Functor func)
 }
 
 
-};
+};// namespace Lib
 
-#endif /* __Metaarrays__ */
+#endif // LIB_METAARRAYS_HPP_

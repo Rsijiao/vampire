@@ -389,7 +389,7 @@ protected:
     _entries = array_new<Entry>(mem, _capacity);
 
     _afterLast = _entries + _capacity;
-    _maxEntries = (int)(_capacity * 0.8);
+    _maxEntries = <int>(_capacity * 0.8);
     // experiments using (a) random numbers (b) consecutive numbers
     // and (1) int->int 20M allocations (2) string->int 10M allocations
     // and 30,000,000 allocations
@@ -425,7 +425,7 @@ public:
   class Iterator {
   public:
     /** Create a new iterator */
-    inline Iterator(const Map& map)
+    explicit inline Iterator(const Map& map)
       : _next(map._entries), _last(map._afterLast)
     {
     } // Map::Iterator
@@ -483,5 +483,5 @@ public:
 
 } // namespace Lib
 
-#endif // __Map__
+#endif // LIB_MAP_HPP_
 

@@ -24,6 +24,8 @@
  * @since 06/01/2004, Manchester
  */
 
+#include <algorithm>
+
 #include "Debug/Tracer.hpp"
 
 #include "MultiCounter.hpp"

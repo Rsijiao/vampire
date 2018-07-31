@@ -25,6 +25,8 @@
 #ifndef __TriangularArray__
 #define __TriangularArray__
 
+#include <algorithm>
+
 #include "Allocator.hpp"
 #include "BitUtils.hpp"
 
@@ -43,7 +45,7 @@ private:
   TriangularArray(const TriangularArray&);
   TriangularArray& operator=(const TriangularArray&);
 public:
-  TriangularArray(size_t side)
+  explicit TriangularArray(size_t side)
   : _2sideMinus1(2*side-1), _data(0)
   {
     ASS_G(side,0);
@@ -111,6 +113,6 @@ private:
   T* _data;
 };
 
-};
+};// namespace Lib
 
-#endif /* __TriangularArray__ */
+#endif // LIB_TRIANGULARARRAY_HPP_

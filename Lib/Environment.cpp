@@ -212,4 +212,4 @@ void Environment::setPriorityOutput(ostream* stm)
 
 }
 
-}
+}// namespace Lib

@@ -27,11 +27,15 @@
 #ifndef __INT__
 #define __INT__
 
+#include <iostream>
+#include <algorithm>
+#include <limits>
+
 #include "Comparison.hpp"
 #include "Portability.hpp"
 #include "VString.hpp"
 
-#include <iostream>
+
 
 using namespace std;
 
@@ -52,10 +56,10 @@ class Int
  public:
   static vstring toString(int i);
   static vstring toString(unsigned i);
-  static vstring toString(unsigned long i);
-  static vstring toString(long l);
+  static vstring toString(unsigned int i);
+  static vstring toString(int l);
   /** Return the vstring representation of a float */
-  static vstring toString(float f) { return toString((double)f); }
+  static vstring toString(float f) { return toString(<double>f); }
   static vstring toString(double d);
 
   static vstring toHexString(size_t i);
@@ -71,10 +75,10 @@ class Int
   inline static Comparison compare (unsigned i1, unsigned i2)
   { return i1 < i2 ? LESS : i1 == i2 ? EQUAL : GREATER; }
   /** Compare two long integers */
-  inline static Comparison compare (long i1, long i2)
+  inline static Comparison compare (int i1, int i2)
   { return i1 < i2 ? LESS : i1 == i2 ? EQUAL : GREATER; }
   /** Compare two unsigned long integers */
-  inline static Comparison compare (unsigned long i1, unsigned long i2)
+  inline static Comparison compare (unsigned int i1, unsigned int i2)
   { return i1 < i2 ? LESS : i1 == i2 ? EQUAL : GREATER; }
   /** Compare two pointers */
   inline static Comparison compare (const void* p1, const void* p2)
@@ -85,9 +89,9 @@ class Int
   /** Compare two doubles */
   inline static Comparison compare (double f1, double f2)
   { return f1 < f2 ? LESS : f1 == f2 ? EQUAL : GREATER; }
-  static bool stringToLong(const char*,long& result);
-  static bool stringToUnsignedLong(const char*,unsigned long& result);
-  static bool stringToLong(const vstring& str,long& result) {
+  static bool stringToLong(const char*,int& result);
+  static bool stringToUnsignedLong(const char*,unsigned int& result);
+  static bool stringToLong(const vstring& str,int& result) {
     return stringToLong(str.c_str(),result);
   }
   static bool stringToInt(const vstring& str,int& result);
@@ -97,10 +101,10 @@ class Int
   static bool stringToDouble(const char*,double& result);
   static bool stringToDouble(const vstring& str,double& result) { return stringToDouble(str.c_str(), result); }
   static bool stringToFloat(const char*,float& result);
-  static bool stringToUnsigned64(const vstring& str,long long unsigned& result);
-  static bool stringToUnsigned64(const char* str,long long unsigned& result);
+  static bool stringToUnsigned64(const vstring& str,int int unsigned& result);
+  static bool stringToUnsigned64(const char* str,int int unsigned& result);
   static int sign(int i);
-  static int sign(long i);
+  static int sign(int i);
   static int sign(double);
   static int max(int i,int j);
   static int min(int i,int j);
@@ -261,7 +265,7 @@ int Int::sign(int i)
  * @since 22/04/2005 Manchester
  */
 inline
-int Int::sign(long l)
+int Int::sign(int l)
 {
   return l < 0 ? -1 :
          l == 0 ? 0 :
@@ -302,7 +306,7 @@ int Int::min (int i,int j)
 }
 
 
-}
+}// namespace Lib
 
-#endif  // __INT__
+#endif  // LIB_INT_HPP_
 

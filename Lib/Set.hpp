@@ -327,7 +327,7 @@ private:
 
     _entries = array_new<Cell>(mem, newCapacity);
     _afterLast = _entries + newCapacity;
-    _maxEntries = (int)(newCapacity * 0.8);
+    _maxEntries = <int>(newCapacity * 0.8);
     size_t oldCapacity = _capacity;
     _capacity = newCapacity;
 
@@ -439,7 +439,7 @@ public:
 }; // class Set
 
 
-}
+}// namespace Lib
 
-#endif // __Set__
+#endif // LIB_SET_HPP_
 

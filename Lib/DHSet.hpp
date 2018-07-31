@@ -170,7 +170,7 @@ public:
   class Iterator
   {
   public:
-    Iterator(const DHSet& parent) : _mit(parent._map) {}
+    explicit Iterator(const DHSet& parent) : _mit(parent._map) {}
 
     bool hasNext() { return _mit.hasNext(); }
     Val next() { return _mit.nextKey(); }
@@ -181,7 +181,7 @@ public:
   class DelIterator
   {
   public:
-    DelIterator(DHSet& parent) : _mit(parent._map) {}
+    explicit DelIterator(DHSet& parent) : _mit(parent._map) {}
 
     bool hasNext() { return _mit.hasNext(); }
     Val next() { return _mit.nextKey(); }
@@ -192,7 +192,7 @@ public:
   };
 }; // class DHSet
 
-}
+}// namespace Lib
 
-#endif // __DHSet__
+#endif // LIB_DHSET_HPP_
 

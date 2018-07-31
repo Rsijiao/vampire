@@ -138,7 +138,7 @@ public:
   public:
     DECL_ELEMENT_TYPE(C);
 
-    DestructiveIterator(Vector& v)
+    explicit DestructiveIterator(Vector& v)
     : cur(v._array), afterLast(v._array+v.length()), vec(&v)
     {
       if (cur==afterLast) {
@@ -177,7 +177,7 @@ private:
   /** declared but not defined to prevent its use */
   void* operator new(size_t,size_t length);
   /** not used, will cause an assertion violation */
-  void operator delete(void*)
+  void operator delete<void*>
   {
     ASSERTION_VIOLATION
   }
@@ -187,4 +187,4 @@ private:
 
 } // namespace Lib
 
-#endif
+#endif // LIB_VECTOR_HPP_

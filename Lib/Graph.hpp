@@ -133,6 +133,6 @@ private:
   IGClass _ig;
 };
 
-};
+};// namespace Lib
 
-#endif /* __IntGraph__ */
+#endif // LIB_GRAPH_HPP_

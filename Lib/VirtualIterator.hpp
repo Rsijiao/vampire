@@ -40,7 +40,7 @@ namespace Lib {
 ///@{
 
 template<typename T>
-  class VirtualIterator;
+class VirtualIterator;
 
 /**
  * Base class of objects that provide the "virtual" core of
@@ -350,8 +350,8 @@ VirtualIterator<ELEMENT_TYPE(Inner)> pvi(Inner it)
 
 
 
-///@}�
+///@}
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_VIRTUALITERATOR_HPP_

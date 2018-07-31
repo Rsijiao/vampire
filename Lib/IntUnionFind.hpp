@@ -31,7 +31,7 @@ namespace Lib {
 
 class IntUnionFind {
 public:
-  IntUnionFind(int cnt);
+  explicit IntUnionFind(int cnt);
   ~IntUnionFind();
   bool doUnion(int c1, int c2);
   int root(int c) const;
@@ -112,7 +112,7 @@ public:
      * this constructor is called (and if the @b doUnion is called
      * later, the @b evalComponents has to be called again).
      */
-    ComponentIterator(const IntUnionFind& obj)
+    explicit ComponentIterator(const IntUnionFind& obj)
     : _cit(obj._components), _data(obj._data)
     {
       CALL("IntUnionFind::ComponentIterator::ComponentIterator");
@@ -127,6 +127,6 @@ public:
   };
 };
 
-}
+}// namespace Lib
 
-#endif /* __IntUnionFind__ */
+#endif // LIB_INTUNIONFIND_HPP_

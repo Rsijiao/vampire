@@ -53,6 +53,6 @@ class IntNameTable
   int _nextNumber;
 }; // class NameTable
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_INTNAMETABLE_HPP_

@@ -130,6 +130,6 @@ private:
   RefCounter* _refCnt;
 };
 
-};
+};// namespace Lib
 
-#endif /*__SmartPtr__*/
+#endif // LIB_SMARTPTR_HPP_

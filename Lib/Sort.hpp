@@ -26,7 +26,9 @@
 
 
 #ifndef __Sort__
-#  define __Sort__
+#define __Sort__
+
+#include <algorithm>
 
 #include "Debug/Assertion.hpp"
 #include "Debug/Tracer.hpp"
@@ -343,6 +345,6 @@ class Sort
 
 } // namespace Lib
 
-#endif
+#endif // LIB_SORT_HPP_
 
 

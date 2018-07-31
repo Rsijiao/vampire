@@ -50,7 +50,7 @@ namespace Lib {
 template<typename Arg, typename Res, class Worker>
 struct SafeRecursion
 {
-  SafeRecursion(Worker w) : w(w) {}
+  explicit SafeRecursion(Worker w) : w(w) {}
 
   Res operator()(Arg obj0)
   {
@@ -107,7 +107,7 @@ struct SafeRecursion
 private:
   struct ChildCallback
   {
-    ChildCallback(SafeRecursion& parent) : parent(parent) {}
+    explicit ChildCallback(SafeRecursion& parent) : parent(parent) {}
     void operator()(Arg child) {
       parent.children.push(child);
     }
@@ -122,6 +122,6 @@ private:
   Stack<Res> results;
 };
 
-}
+}// namespace Lib
 
-#endif // __SafeRecursion__
+#endif // LIB_SAFERECURSION_HPP_

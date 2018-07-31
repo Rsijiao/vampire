@@ -242,6 +242,6 @@ protected:
 };
 
 
-};
+};// namespace Lib
 
-#endif /*__Event__*/
+#endif // LIB_EVENT_HPP_

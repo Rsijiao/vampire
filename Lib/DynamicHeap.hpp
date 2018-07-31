@@ -25,6 +25,7 @@
 #define __DynamicHeap__
 
 #include <algorithm>
+#include <utility>
 
 #include "Forwards.hpp"
 
@@ -44,7 +45,7 @@ using namespace std;
 template<class T, class Comparator, class ElMap = DHMap<T,size_t>, class TArg = T >
 class DynamicHeap {
 public:
-  DynamicHeap(Comparator cmp=Comparator()) : _heap(0), _cmp(cmp) {}
+  explicit DynamicHeap(Comparator cmp=Comparator()) : _heap(0), _cmp(cmp) {}
 
   /**
    * Add @c obj to the end of the heap 
@@ -259,6 +260,6 @@ private:
   Comparator _cmp;
 };
 
-}
+}// namespace Lib
 
-#endif // __DynamicHeap__
+#endif // LIB_DYNAMICHEAP_HPP_

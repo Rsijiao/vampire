@@ -108,9 +108,9 @@ private:
 
 extern Environment env;
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_ENVIRONMENT_HPP_
 
 
 

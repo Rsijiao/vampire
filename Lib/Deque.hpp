@@ -499,6 +499,6 @@ protected:
 
 };
 
-}
+}// namespace Lib
 
-#endif // __Deque__
+#endif // LIB_DEQUE_HPP_

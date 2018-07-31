@@ -113,7 +113,7 @@ enum TimeCounterUnit
 class TimeCounter
 {
 public:
-  inline TimeCounter(TimeCounterUnit tcu)
+  inline explicit TimeCounter(TimeCounterUnit tcu)
   {
     if(!s_measuring) return;
     startMeasuring(tcu);
@@ -203,6 +203,6 @@ private:
   static int s_measureInitTimes[];
 };
 
-};
+};// namespace Lib
 
-#endif /* __TimeCounter__ */
+#endif // LIB_TIMECOUNTER_HPP_

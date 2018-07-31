@@ -120,4 +120,4 @@ ASS_STATIC(sizeof(char)==1);
 # define HASH_BIG_ENDIAN 0
 #endif
 
-#endif /*__Portability__*/
+#endif // LIB_PORTABILITY_HPP_

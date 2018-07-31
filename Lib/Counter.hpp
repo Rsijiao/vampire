@@ -54,8 +54,8 @@ private:
   int _value;
 }; // class Counter
 
-}
+}// namespace Lib
 
-#endif
+#endif // LIB_COUNTER_HPP_
 
 

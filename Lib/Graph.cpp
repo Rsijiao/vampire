@@ -71,4 +71,4 @@ IntSubgraph* IntSubgraph::getEmpty()
 }
 
 
-}
+}// namespace Lib

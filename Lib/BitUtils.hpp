@@ -143,6 +143,6 @@ public:
 
 };
 
-};
+};// namespace Lib
 
-#endif /* __BitUtils__ */
+#endif // LIB_BITUTILS_HPP_

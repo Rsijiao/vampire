@@ -93,4 +93,4 @@ const unsigned DHMapTableNextExpansions[]={
 
 };
 
-};
+};// namespace Lib

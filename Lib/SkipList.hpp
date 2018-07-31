@@ -25,7 +25,7 @@
 
 
 #ifndef __SkipList__
-#  define __SkipList__
+#define __SkipList__
 
 #include "Debug/Assertion.hpp"
 #include "Debug/Tracer.hpp"
@@ -524,7 +524,7 @@ public:
     if(_left->nodes[0]) {
       ASS_EQ(reinterpret_cast<List<Value>*&>(_left->nodes[0])->headPtr(), &_left->nodes[0]->value);
       ASS_EQ((void*)&(reinterpret_cast<List<Value>*&>(_left->nodes[0])->tailReference()),
-	      (void*)&_left->nodes[0]->nodes[0]);
+	      <void*>&_left->nodes[0]->nodes[0]);
     }
 
     return reinterpret_cast<List<Value>*&>(_left->nodes[0]);
@@ -630,7 +630,7 @@ public:
      DECL_ELEMENT_TYPE(Value);
 
     inline explicit
-    Iterator(const SkipList& l)
+    explicit Iterator(const SkipList& l)
       : _cur (l._left) {}
 
     /** return the next element */
@@ -655,7 +655,7 @@ public:
   public:
     DECL_ELEMENT_TYPE(Value&);
     inline explicit
-    RefIterator(const SkipList& l)
+    explicit RefIterator(const SkipList& l)
       : _cur (l._left) {}
 
     /** return the next element */
@@ -684,7 +684,7 @@ public:
     DECL_ELEMENT_TYPE(Value*);
 
     inline explicit
-    PtrIterator(const SkipList& l)
+    explicit PtrIterator(const SkipList& l)
       : _cur (l._left)
     {}
 
@@ -712,6 +712,6 @@ public:
 
 
 } // namespace Lib
-#endif
+#endif // LIB_SKIPLIST_HPP_
 
 

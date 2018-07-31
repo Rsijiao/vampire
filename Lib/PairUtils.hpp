@@ -21,6 +21,7 @@
  * Defines class PairUtils.
  */
 
+#include <utility>
 
 #ifndef __PairUtils__
 #define __PairUtils__
@@ -48,7 +49,7 @@ template<typename C, typename D>
 struct PairRightPushingFn
 {
   DECL_RETURN_TYPE(pair<C,D>);
-  PairRightPushingFn(C c) : _c(c) {}
+  explicit PairRightPushingFn(C c) : _c(c) {}
   pair<C,D> operator()(D d) { return pair<C,D>(_c,d); }
 private:
   C _c;
@@ -58,7 +59,7 @@ template<typename C, class D>
 struct PairLeftPushingFn
 {
   DECL_RETURN_TYPE(pair<C,D>);
-  PairLeftPushingFn(D d): _d(d) {}
+  explicit PairLeftPushingFn(D d): _d(d) {}
   OWN_RETURN_TYPE operator()(C c) { return pair<C,D>(c,_d); }
 private:
   D _d;
@@ -94,7 +95,7 @@ class RightPushedPair
 public:
   DECL_ELEMENT_TYPE(pair<C,ELEMENT_TYPE(D)>);
   DECL_ITERATOR_TYPE(MappingIterator<ITERATOR_TYPE(D),PairRightPushingFn<C,ELEMENT_TYPE(D)> >);
-  RightPushedPair(pair<C,D> p) : _p(p) {}
+  explicit RightPushedPair(pair<C,D> p) : _p(p) {}
   pair<C,D> get() { return _p; }
 private:
   pair<C,D> _p;
@@ -196,6 +197,6 @@ PairsPushingArray<Arr1,Arr2> pushPairIntoArrays(Arr1 arr1,Arr2 arr2)
 }
 
 
-};
+};// namespace Lib
 
-#endif /* __PairUtils__ */
+#endif // LIB_PAIRUTILS_HPP_

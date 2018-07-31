@@ -45,7 +45,7 @@ using namespace Lib;
 vstring Int::toString (int i)
 {
   char tmp [20];
-  sprintf(tmp,"%d",i);
+  snprintf(tmp,"%d",i);
   vstring result(tmp);
 
   return result;
@@ -61,7 +61,7 @@ vstring Int::toString (int i)
 vstring Int::toString(double d)
 {
   char tmp [256];
-  sprintf(tmp,"%g",d);
+  snprintf(tmp,"%g",d);
   vstring result(tmp);
 
   return result;
@@ -74,10 +74,10 @@ vstring Int::toString(double d)
  * @param l the long
  * @since 10/02/2004 Manchester
  */
-vstring Int::toString(long l)
+vstring Int::toString(int l)
 {
   char tmp [256];
-  sprintf(tmp,"%ld",l);
+  snprintf(tmp,"%ld",l);
   vstring result(tmp);
 
   return result;
@@ -91,7 +91,7 @@ vstring Int::toString(long l)
 vstring Int::toString(unsigned i)
 {
   char tmp [256];
-  sprintf(tmp,"%d",i);
+  snprintf(tmp,"%d",i);
   vstring result(tmp);
 
   return result;
@@ -100,10 +100,10 @@ vstring Int::toString(unsigned i)
 /**
  * Return the string representation of an unsigned integer.
  */
-vstring Int::toString(unsigned long i)
+vstring Int::toString(unsigned int i)
 {
   char tmp [256];
-  sprintf(tmp,"%lu",i);
+  snprintf(tmp,"%lu",i);
   vstring result(tmp);
 
   return result;
@@ -112,7 +112,7 @@ vstring Int::toString(unsigned long i)
 vstring Int::toHexString(size_t i)
 {
   char tmp [256];
-  sprintf(tmp,"0x%zx",i);
+  snprintf(tmp,"0x%zx",i);
   vstring result(tmp);
 
   return result;
@@ -125,7 +125,7 @@ vstring Int::toHexString(size_t i)
  * @since 15/11/2004 Manchester, changed to check for overflow
  * @since 27/09/2005 Redmond, check on empty string added
  */
-bool Int::stringToLong (const char* str,long& result)
+bool Int::stringToLong (const char* str,int& result)
 {
   CALL("Int::stringToLong");
 
@@ -191,12 +191,12 @@ bool Int::stringToUnsignedInt (const char* str,unsigned& result)
  */
 bool Int::stringToInt (const char* str,int& result)
 {
-  long ln;
+  int ln;
   bool converted = stringToLong(str,ln);
   if (! converted || ln > INT_MAX || ln < INT_MIN) {
     return false;
   }
-  result = (int)ln;
+  result = <int>ln;
   return true;
 } // Int::stringToInt
 
@@ -238,7 +238,7 @@ bool Int::stringToFloat (const char* str,float& result)
   if (! converted) {
     return false;
   }
-  result = (float)d;
+  result = <float>d;
   return true;
 } // Int::stringToInt
 
@@ -248,7 +248,7 @@ bool Int::stringToFloat (const char* str,float& result)
  *
  * @since 30/11/2006 Haifa
  */
-bool Int::stringToUnsigned64 (const char* str,long long unsigned& result)
+bool Int::stringToUnsigned64 (const char* str,int int unsigned& result)
 {
   result = 0;
   if (! *str) { // empty string
@@ -274,7 +274,7 @@ bool Int::stringToUnsigned64 (const char* str,long long unsigned& result)
  *
  * @since 30/11/2006 Haifa
  */
-bool Int::stringToUnsigned64 (const vstring& str,long long unsigned& result)
+bool Int::stringToUnsigned64 (const vstring& str,int int unsigned& result)
 {
   return stringToUnsigned64(str.c_str(),result);
 } // Int::stringToUnsigned64
@@ -303,7 +303,7 @@ bool Int::isInteger(const char* str)
 		}
 		str++;
 	}
-	while (*str);
+	while (*str) {};
 
 	return true;
 } // Int::isInteger

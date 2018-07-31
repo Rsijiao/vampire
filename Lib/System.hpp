@@ -90,7 +90,7 @@ public:
   /**
    * Return the size of system physical memory in bytes
    */
-  static long long getSystemMemory();
+  static int int getSystemMemory();
 
   /**
    * Return number of CPU cores
@@ -131,6 +131,6 @@ private:
   static const char* s_argv0;
 };
 
-}
+}// namespace Lib
 
-#endif /* __System__ */
+#endif // LIB_SYSTEM_HPP_

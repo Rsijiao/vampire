@@ -59,7 +59,7 @@ public:
   XMLAttribute(const XMLAttribute& attr);
   XMLAttribute(const vstring& name,const vstring& value);
   XMLAttribute(const vstring& name,int value);
-  XMLAttribute(const vstring& name,long value);
+  XMLAttribute(const vstring& name, int value);
   XMLAttribute(const vstring& name,double value);
   XMLAttribute(const vstring& name,unsigned value);
   ~XMLAttribute();
@@ -120,11 +120,11 @@ public:
   XMLElement() : _data(0) {}
   /** true if the element is not initialised */
   bool isNull() const { return _data == 0; }
-  XMLElement(const vstring& name);  // deep element
+  explicit XMLElement(const vstring& name);  // deep element
   XMLElement(const vstring& name,bool dummy);  // empty element
   XMLElement(const vstring& name,const vstring& text);  // text element
   XMLElement(const vstring& name,int content);         // integer element
-  XMLElement(const vstring& name,long content);        // long element
+  XMLElement(const vstring& name,int content);        // long element
   XMLElement(const vstring& name,float content);       // floating point element
   XMLElement(const vstring& name,double content);
   XMLElement(const XMLElement& elem);
@@ -134,7 +134,7 @@ public:
   void addAttribute(const vstring& name,const vstring& value);
   void addAttribute(const vstring& name,int value);
   void addAttribute(const vstring& name,unsigned value);
-  void addAttribute(const vstring& name,long value);
+  void addAttribute(const vstring& name,int value);
   void addAttribute(const vstring& name,double value);
   void addChild(const XMLElement& element);
   const vstring& name() const;
@@ -183,4 +183,4 @@ private:
 
 } // namespace Lib
 
-#endif
+#endif // LIB_XML_HPP_

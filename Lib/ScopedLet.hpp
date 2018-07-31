@@ -45,6 +45,6 @@ private:
   T _originalValue;
 };
 
-}
+}// namespace Lib
 
-#endif // __ScopedLet__
+#endif // LIB_SCOPEDLET_HPP_

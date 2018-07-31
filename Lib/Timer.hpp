@@ -59,7 +59,7 @@ using namespace std;
  */
 class Timer
 {
-  Timer(bool mustIncludeChildren=false)
+  explicit Timer(bool mustIncludeChildren=false)
     :
     _mustIncludeChildren(mustIncludeChildren),
     _running(false),
@@ -149,7 +149,7 @@ private:
 
   static int guaranteedMilliseconds();
 
-  static long s_ticksPerSec;
+  static int s_ticksPerSec;
   static int s_initGuarantedMiliseconds;
 #endif
 
@@ -163,4 +163,4 @@ private:
 
 } // namespace Lib
 
-#endif /* __Timer__ */
+#endif // LIB_TIMER_HPP_
