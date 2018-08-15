@@ -52,18 +52,18 @@ public:
   }
 
   inline
-  NodeAlgorithm algorithm() const { return UNSORTED_LIST; }
+  NodeAlgorithm algorithm() const override { return UNSORTED_LIST; }
   inline
-  bool isEmpty() const { return !_children; }
+  bool isEmpty() const override { return !_children; }
   inline
-  int size() const { return _size; }
+  int size() const override { return _size; }
   inline
   LDIterator allChildren()
   {
     return pvi( LDList::RefIterator(_children) );
   }
   inline
-  void insert(LeafData ld)
+  void insert(LeafData ld) override
   {
     LDList::push(ld, _children);
     _size++;
@@ -94,19 +94,19 @@ public:
   static SListLeaf* assimilate(Leaf* orig);
 
   inline
-  NodeAlgorithm algorithm() const { return SKIP_LIST; }
+  NodeAlgorithm algorithm() const override { return SKIP_LIST; }
   inline
-  bool isEmpty() const { return _children.isEmpty(); }
+  bool isEmpty() const override { return _children.isEmpty(); }
 #if VDEBUG
   inline
-  int size() const { return _children.size(); }
+  int size() const override { return _children.size(); }
 #endif
   inline
   LDIterator allChildren()
   {
     return pvi( LDSkipList::RefIterator(_children) );
   }
-  void insert(LeafData ld) { _children.insert(ld); }
+  void insert(LeafData ld) override { _children.insert(ld); }
   void remove(LeafData ld) { _children.remove(ld); }
 
   CLASS_NAME(SubstitutionTree::SListLeaf);

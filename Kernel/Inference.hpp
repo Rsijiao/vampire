@@ -409,10 +409,10 @@ public:
     if(_rule == EVALUATION){ _maxDepth = premise->inference()->maxDepth(); }
   }
 
-  virtual void destroy();
-  virtual Iterator iterator();
-  virtual bool hasNext(Iterator& it);
-  virtual Unit* next(Iterator& it);
+  virtual void destroy() override;
+  virtual Iterator iterator() override;
+  virtual bool hasNext(Iterator& it) override;
+  virtual Unit* next(Iterator& it) override;
 
   CLASS_NAME(Inference1);
   USE_ALLOCATOR(Inference1);
@@ -433,10 +433,10 @@ public:
   InferenceMany(Rule rule,UnitList* premises);
   virtual ~InferenceMany() { UnitList::destroy(_premises); }
 
-  virtual void destroy();
-  virtual Iterator iterator();
-  virtual bool hasNext(Iterator& it);
-  virtual Unit* next(Iterator& it);
+  virtual void destroy() override;
+  virtual Iterator iterator() override;
+  virtual bool hasNext(Iterator& it) override;
+  virtual Unit* next(Iterator& it) override;
 
   CLASS_NAME(InferenceMany);
   USE_ALLOCATOR(InferenceMany);
@@ -464,10 +464,10 @@ public:
     _maxDepth = max(premise1->inference()->maxDepth(),premise2->inference()->maxDepth())+1;
   }
 
-  virtual void destroy();
-  virtual Iterator iterator();
-  virtual bool hasNext(Iterator& it);
-  virtual Unit* next(Iterator& it);
+  virtual void destroy() override;
+  virtual Iterator iterator() override;
+  virtual bool hasNext(Iterator& it) override;
+  virtual Unit* next(Iterator& it) override;
 
   CLASS_NAME(Inference2);
   USE_ALLOCATOR(Inference2);

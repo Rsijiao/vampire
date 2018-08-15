@@ -95,7 +95,7 @@ class TermTransformingFormulaTransformer : public FormulaTransformer
 public:
   TermTransformingFormulaTransformer(TermTransformer& termTransformer) : _termTransformer(termTransformer) {}
 protected:
-  virtual Formula* applyLiteral(Formula* f);
+  virtual Formula* applyLiteral(Formula* f) override;
 
   TermTransformer& _termTransformer;
 };
@@ -106,7 +106,7 @@ class TermTransformerTransformTransformedFormulaTransformer : public FormulaTran
     TermTransformerTransformTransformedFormulaTransformer(TermTransformerTransformTransformed& termTransformer)
       : _termTransformer(termTransformer) {}
   protected:
-    virtual Formula* applyLiteral(Formula* f);
+    virtual Formula* applyLiteral(Formula* f) override;
 
     TermTransformerTransformTransformed& _termTransformer;
 };
@@ -119,11 +119,11 @@ public:
 protected:
   PolarityAwareFormulaTransformer();
 
-  virtual Formula* applyNot(Formula* f);
+  virtual Formula* applyNot(Formula* f) override;
 
-  virtual Formula* applyImp(Formula* f);
+  virtual Formula* applyImp(Formula* f) override;
 
-  virtual Formula* applyBinary(Formula* f);
+  virtual Formula* applyBinary(Formula* f) override;
 
   int polarity() const { return _polarity; }
 
@@ -219,8 +219,8 @@ protected:
    */
   virtual Literal* apply(Literal* l, UnitStack& premAcc) = 0;
 
-  virtual bool apply(FormulaUnit* unit, Unit*& res);
-  virtual bool apply(Clause* cl, Unit*& res);
+  virtual bool apply(FormulaUnit* unit, Unit*& res) override;
+  virtual bool apply(Clause* cl, Unit*& res) override;
 
 private:
   struct LitFormulaTransformer;

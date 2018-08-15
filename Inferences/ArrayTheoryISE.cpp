@@ -39,7 +39,6 @@
 #include "Shell/Statistics.hpp"
 
 namespace Inferences
-{
 
 using namespace Lib;
 using namespace Kernel;
@@ -61,7 +60,7 @@ TermList ArrayTermTransformer::transformSubterm(TermList trm)
   Interpretation interp = theory->interpretFunction(term->functor());
   if(!theory->isArrayOperation(interp)) return trm;
 
-  switch(theory->convertToStructured(interp){
+  switch(theory->convertToStructured(interp)){
 
   case StructuredStoreInterpretation::ARRAY_SELECT :
     TermList* array = term->nthArgument(0);

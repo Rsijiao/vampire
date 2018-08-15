@@ -50,12 +50,12 @@ public:
   Literal* applyToResult(Literal* l)
   { return _subst->apply(l,_resultBank); }
 
-  virtual size_t getQueryApplicationWeight(TermList t) { return _subst->getApplicationResultWeight(t, _queryBank); }
-  virtual size_t getQueryApplicationWeight(Literal* l) { return _subst->getApplicationResultWeight(l, _queryBank); }
-  virtual size_t getResultApplicationWeight(TermList t) { return _subst->getApplicationResultWeight(t, _resultBank); }
-  virtual size_t getResultApplicationWeight(Literal* l) { return _subst->getApplicationResultWeight(l, _resultBank); }
+  virtual size_t getQueryApplicationWeight(TermList t) override { return _subst->getApplicationResultWeight(t, _queryBank); }
+  virtual size_t getQueryApplicationWeight(Literal* l) override { return _subst->getApplicationResultWeight(l, _queryBank); }
+  virtual size_t getResultApplicationWeight(TermList t) override { return _subst->getApplicationResultWeight(t, _resultBank); }
+  virtual size_t getResultApplicationWeight(Literal* l) override { return _subst->getApplicationResultWeight(l, _resultBank); }
 
-  RobSubstitution* tryGetRobSubstitution() { return _subst; }
+  RobSubstitution* tryGetRobSubstitution() override { return _subst; }
 
 #if VDEBUG
   vstring toStringDeref(bool deref){ return _subst->toString(deref); }

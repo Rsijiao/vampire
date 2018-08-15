@@ -51,10 +51,10 @@ public:
 
 class StringFormulaIndex : public FormulaIndex {
 public:
-  virtual FormulaQueryResultIterator getEquivalent(Formula* f);
+  virtual FormulaQueryResultIterator getEquivalent(Formula* f) override;
 
-  virtual void insert(FormulaUnit* unit, Formula* f);
-  virtual void remove(FormulaUnit* unit, Formula* f);
+  virtual void insert(FormulaUnit* unit, Formula* f) override;
+  virtual void remove(FormulaUnit* unit, Formula* f) override;
 private:
   vstring getKey(Formula* f);
 

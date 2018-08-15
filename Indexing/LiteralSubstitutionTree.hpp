@@ -39,30 +39,30 @@ public:
 
   explicit LiteralSubstitutionTree(bool useC=false);
 
-  void insert(Literal* lit, Clause* cls);
+  void insert override(Literal* lit, Clause* cls);
   void remove(Literal* lit, Clause* cls);
   void handleLiteral(Literal* lit, Clause* cls, bool insert);
 
-  SLQueryResultIterator getAll();
+  SLQueryResultIterator getAll() override;
 
   SLQueryResultIterator getUnifications(Literal* lit,
-	  bool complementary, bool retrieveSubstitutions);
+	  bool complementary, bool retrieveSubstitutions) override;
 
   SLQueryResultIterator getUnificationsWithConstraints(Literal* lit,
-          bool complementary, bool retrieveSubstitutions);
+          bool complementary, bool retrieveSubstitutions) override;
 
   SLQueryResultIterator getGeneralizations(Literal* lit,
-	  bool complementary, bool retrieveSubstitutions);
+	  bool complementary, bool retrieveSubstitutions) override;
 
   SLQueryResultIterator getInstances(Literal* lit,
-	  bool complementary, bool retrieveSubstitutions);
+	  bool complementary, bool retrieveSubstitutions) override;
 
   SLQueryResultIterator getVariants(Literal* lit,
-	  bool complementary, bool retrieveSubstitutions);
+	  bool complementary, bool retrieveSubstitutions) override;
 
 #if VDEBUG
-  virtual void markTagged(){ SubstitutionTree::markTagged();}
-  vstring toString() {return SubstitutionTree::toString();}
+  virtual void markTagged() override { SubstitutionTree::markTagged();}
+  vstring toString() override {return SubstitutionTree::toString();}
 #endif
 
 private:

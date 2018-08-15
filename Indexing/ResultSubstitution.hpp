@@ -50,10 +50,10 @@ class ResultSubstitution
 {
 public:
   virtual ~ResultSubstitution() {}
-  virtual TermList applyToQuery(TermList t) { NOT_IMPLEMENTED; }
-  virtual Literal* applyToQuery(Literal* l) { NOT_IMPLEMENTED; }
-  virtual TermList applyToResult(TermList t) { NOT_IMPLEMENTED; }
-  virtual Literal* applyToResult(Literal* l) { NOT_IMPLEMENTED; }
+  virtual override TermList applyToQuery(TermList t) { NOT_IMPLEMENTED; }
+  virtual override Literal* applyToQuery(Literal* l) { NOT_IMPLEMENTED; }
+  virtual override TermList applyToResult(TermList t) { NOT_IMPLEMENTED; }
+  virtual override Literal* applyToResult(Literal* l) { NOT_IMPLEMENTED; }
 
   /** if implementation cannot easily give result for this, zero is returned */
   virtual size_t getQueryApplicationWeight(TermList t) { return 0; }
@@ -114,7 +114,7 @@ public:
    * term through the @b applyToBoundResult function, the corresponding
    * substitution for query terms is identity.
    */
-  virtual bool isIdentityOnQueryWhenResultBound() {return false;}
+  virtual bool override isIdentityOnQueryWhenResultBound() {return false;}
 
 
   /**
@@ -143,7 +143,7 @@ public:
 //  static ResultSubstitutionSP fromSubstitution(EGSubstitution* s,
 //	  int queryBank, int resultBank);
 #if VDEBUG
-  virtual vstring toString(){ NOT_IMPLEMENTED; }
+  virtual override vstring toString(){ NOT_IMPLEMENTED; }
 #endif
 };
 

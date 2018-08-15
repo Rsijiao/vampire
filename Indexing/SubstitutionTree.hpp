@@ -174,7 +174,7 @@ public:
      *
      * Descendant classes should override this method.
      */
-    virtual int size() const { NOT_IMPLEMENTED; }
+    virtual int size() const  { NOT_IMPLEMENTED; }
     virtual NodeAlgorithm algorithm() const = 0;
 
     /**
@@ -194,7 +194,7 @@ public:
     /** term at this node */
     TermList term;
 
-    virtual void print(unsigned depth=0){
+    virtual void override print(unsigned depth=0){
        printDepth(depth);
        cout <<  "[" + term.toString() + "]" << endl;
     }
@@ -290,10 +290,10 @@ public:
     IntermediateNode(TermList ts, unsigned childVar) : Node(ts), childVar(childVar),_childBySortHelper(0) {}
 
     inline
-    bool isLeaf() const { return false; };
+    bool isLeaf() const override { return false; };
 
-    virtual NodeIterator allChildren() = 0;
-    virtual NodeIterator variableChildren() = 0;
+    virtual NodeIterator allChildren() = 0 override;
+    virtual NodeIterator variableChildren() = 0 override;
     /**
      * Return pointer to pointer to child node with top symbol
      * of @b t. This pointer to node can be changed.
@@ -306,7 +306,7 @@ public:
      * If canCreate is false, null pointer is returned in case
      * suitable child does not exist.
      */
-    virtual Node** childByTop(TermList t, bool canCreate) = 0;
+    virtual Node** childByTop(TermList t, bool canCreate) = 0 override;
 
 
     /**
@@ -318,11 +318,11 @@ public:
     /**
      * Remove all children of the node without destroying them.
      */
-    virtual void removeAllChildren() = 0;
+    virtual void removeAllChildren() = 0 override;
 
     void destroyChildren();
 
-    void makeEmpty()
+    void makeEmpty()override
     {
       Node::makeEmpty();
       removeAllChildren();
@@ -390,7 +390,7 @@ public:
     explicit Leaf(TermList ts) : Node(ts) {}
 
     inline
-    bool isLeaf() const { return true; };
+    bool isLeaf() const override { return true; };
     virtual LDIterator allChildren() = 0;
     virtual void insert(LeafData ld) = 0;
     virtual void remove(LeafData ld) = 0;
@@ -448,15 +448,15 @@ public:
       }
     }
 
-    void removeAllChildren()
+    void override removeAllChildren()
     {
       _size=0;
       _nodes[0]=0;
     }
 
-    NodeAlgorithm algorithm() const { return UNSORTED_LIST; }
-    bool isEmpty() const { return !_size; }
-    int size() const { return _size; }
+    NodeAlgorithm algorithm() const override { return UNSORTED_LIST; }
+    bool isEmpty() const override { return !_size; }
+    int size() const override { return _size; }
     NodeIterator allChildren()
     { return pvi( PointerPtrIterator<Node*>(&_nodes[0],&_nodes[_size]) ); }
 
@@ -469,7 +469,7 @@ public:
     void remove(TermList t);
 
 #if VDEBUG
-    virtual void assertValid() const
+    virtual void assertValid() const override
     {
       ASS_ALLOC_TYPE(this,"SubstitutionTree::UArrIntermediateNode");
     }
@@ -518,12 +518,12 @@ public:
     static IntermediateNode* assimilate(IntermediateNode* orig);
 
     inline
-    NodeAlgorithm algorithm() const { return SKIP_LIST; }
+    NodeAlgorithm algorithm() const override { return SKIP_LIST; }
     inline
-    bool isEmpty() const { return _nodes.isEmpty(); }
-    int size() const { return _nodes.size(); }
+    bool isEmpty() const override { return _nodes.isEmpty(); }
+    int size() const override { return _nodes.size(); }
 #if VDEBUG
-    virtual void assertValid() const
+    virtual void assertValid() const override
     {
       ASS_ALLOC_TYPE(this,"SubstitutionTree::SListIntermediateNode");
     }

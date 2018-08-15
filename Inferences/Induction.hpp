@@ -54,7 +54,7 @@ public:
   USE_ALLOCATOR(Induction);
 
   Induction() {}
-  ClauseIterator generateClauses(Clause* premise);
+  ClauseIterator generateClauses(Clause* premise) override;
 
 };
 

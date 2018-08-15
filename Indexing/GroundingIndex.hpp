@@ -48,7 +48,7 @@ public:
   GlobalSubsumptionGrounder& getGrounder() { return *_grounder; }
 
 protected:
-  virtual void handleClause(Clause* c, bool adding);
+  virtual void handleClause(Clause* c, bool adding) override;
 
 private:
   ScopedPtr<SATSolverWithAssumptions> _solver;

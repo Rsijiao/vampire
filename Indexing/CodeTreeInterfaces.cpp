@@ -60,13 +60,13 @@ public:
   CLASS_NAME(CodeTreeSubstitution);
   USE_ALLOCATOR(CodeTreeSubstitution);
 
-  TermList applyToBoundResult(TermList t)
+  TermList applyToBoundResult(TermList t) override
   {
     CALL("CodeTreeSubstitution::applyToBoundResult(TermList)");
     return SubstHelper::apply(t, *getApplicator());
   }
 
-  Literal* applyToBoundResult(Literal* lit)
+  Literal* applyToBoundResult(Literal* lit) override
   {
     CALL("CodeTreeSubstitution::applyToBoundResult(Literal*)");
     return SubstHelper::apply(lit, *getApplicator());

@@ -141,7 +141,7 @@ public:
     return theory->isConversionOperation(theory->interpretFunction(func));
   }
 
-  virtual bool tryEvaluateFunc(Term* trm, TermList& res)
+  virtual bool tryEvaluateFunc(Term* trm, TermList& res) override
   {
     CALL("InterpretedLiteralEvaluator::ConversionEvaluator::tryEvaluateFunc");
     ASS(theory->isInterpretedFunction(trm));
@@ -262,7 +262,7 @@ public:
     return opSort==T::getSort();
   }
 
-  virtual bool tryEvaluateFunc(Term* trm, TermList& res)
+  virtual bool tryEvaluateFunc(Term* trm, TermList& res) override
   {
     CALL("InterpretedLiteralEvaluator::tryEvaluateFunc");
     ASS(theory->isInterpretedFunction(trm));
@@ -348,7 +348,7 @@ public:
     }
   }
 
-  virtual bool tryEvaluatePred(Literal* lit, bool& res)
+  virtual bool tryEvaluatePred(Literal* lit, bool& res) override
   {
     CALL("InterpretedLiteralEvaluator::tryEvaluatePred");
     ASS(theory->isInterpretedPredicate(lit));
@@ -427,12 +427,12 @@ class InterpretedLiteralEvaluator::IntEvaluator : public TypedEvaluator<IntegerC
 protected:
 
   virtual bool isZero(IntegerConstantType arg){ return arg.toInner()==0;}
-  virtual TermList getZero(){ return TermList(theory->representConstant(IntegerConstantType(0))); }
+  virtual TermList getZero() override{ return TermList(theory->representConstant(IntegerConstantType(0))); }
   virtual bool isOne(IntegerConstantType arg){ return arg.toInner()==1;}
 
-  virtual bool isAddition(Interpretation interp){ return interp==Theory::INT_PLUS; }
-  virtual bool isProduct(Interpretation interp){ return interp==Theory::INT_MULTIPLY;}
-  virtual bool isDivision(Interpretation interp){ 
+  virtual bool isAddition(Interpretation interp) override{ return interp==Theory::INT_PLUS; }
+  virtual bool isProduct(Interpretation interp) override{ return interp==Theory::INT_MULTIPLY;}
+  virtual bool isDivision(Interpretation interp) override{
     return interp==Theory::INT_QUOTIENT_E || interp==Theory::INT_QUOTIENT_T || 
            interp==Theory::INT_QUOTIENT_F; 
   }
@@ -540,12 +540,12 @@ class InterpretedLiteralEvaluator::RatEvaluator : public TypedEvaluator<Rational
 {
 protected:
   virtual bool isZero(RationalConstantType arg){ return arg.isZero();}
-  virtual TermList getZero(){ return TermList(theory->representConstant(RationalConstantType(0,1))); }
+  virtual TermList getZero() override{ return TermList(theory->representConstant(RationalConstantType(0,1))); }
   virtual bool isOne(RationalConstantType arg) { return arg.numerator()==arg.denominator();}
 
-  virtual bool isAddition(Interpretation interp){ return interp==Theory::RAT_PLUS; }
-  virtual bool isProduct(Interpretation interp){ return interp==Theory::RAT_MULTIPLY;}
-  virtual bool isDivision(Interpretation interp){ 
+  virtual bool isAddition(Interpretation interp) override{ return interp==Theory::RAT_PLUS; }
+  virtual bool isProduct(Interpretation interp) override{ return interp==Theory::RAT_MULTIPLY;}
+  virtual bool isDivision(Interpretation interp) override{
     return interp==Theory::RAT_QUOTIENT || interp==Theory::RAT_QUOTIENT_E || 
            interp==Theory::RAT_QUOTIENT_T || interp==Theory::RAT_QUOTIENT_F;
   }
@@ -661,12 +661,12 @@ class InterpretedLiteralEvaluator::RealEvaluator : public TypedEvaluator<RealCon
 {
 protected:
   virtual bool isZero(RealConstantType arg){ return arg.isZero();}
-  virtual TermList getZero(){ return TermList(theory->representConstant(RealConstantType(RationalConstantType(0, 1)))); }
+  virtual TermList getZero() override{ return TermList(theory->representConstant(RealConstantType(RationalConstantType(0, 1)))); }
   virtual bool isOne(RealConstantType arg) { return arg.numerator()==arg.denominator();}
 
-  virtual bool isAddition(Interpretation interp){ return interp==Theory::REAL_PLUS; }
-  virtual bool isProduct(Interpretation interp){ return interp==Theory::REAL_MULTIPLY;}
-  virtual bool isDivision(Interpretation interp){ 
+  virtual bool isAddition(Interpretation interp) override{ return interp==Theory::REAL_PLUS; }
+  virtual bool isProduct(Interpretation interp) override{ return interp==Theory::REAL_MULTIPLY;}
+  virtual bool isDivision(Interpretation interp) override{
     return interp==Theory::REAL_QUOTIENT || interp==Theory::REAL_QUOTIENT_E ||
            interp==Theory::REAL_QUOTIENT_T || interp==Theory::REAL_QUOTIENT_F;
   }

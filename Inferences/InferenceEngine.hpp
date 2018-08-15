@@ -180,7 +180,7 @@ public:
   CLASS_NAME(DummyGIE);
   USE_ALLOCATOR(DummyGIE);
 
-  ClauseIterator generateClauses(Clause* premise)
+  ClauseIterator generateClauses(Clause* premise) override
   {
     return ClauseIterator::getEmpty();
   }
@@ -226,9 +226,9 @@ public:
   CompositeISE() : _inners(0) {}
   virtual ~CompositeISE();
   void addFront(ImmediateSimplificationEngine* fse);
-  Clause* simplify(Clause* cl);
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  Clause* simplify(Clause* cl) override;
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
 private:
   typedef List<ImmediateSimplificationEngine*> ISList;
   ISList* _inners;
@@ -259,9 +259,9 @@ public:
   CompositeGIE() : _inners(0) {}
   virtual ~CompositeGIE();
   void addFront(GeneratingInferenceEngine* fse);
-  ClauseIterator generateClauses(Clause* premise);
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  ClauseIterator generateClauses(Clause* premise) override;
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
 private:
   typedef List<GeneratingInferenceEngine*> GIList;
   GIList* _inners;
@@ -274,14 +274,14 @@ public:
   CLASS_NAME(DuplicateLiteralRemovalISE);
   USE_ALLOCATOR(DuplicateLiteralRemovalISE);
 
-  Clause* simplify(Clause* cl);
+  Clause* simplify(Clause* cl) override;
 };
 
 class TrivialInequalitiesRemovalISE
 : public ImmediateSimplificationEngine
 {
 public:
-  Clause* simplify(Clause* cl);
+  Clause* simplify(Clause* cl) override;
 };
 
 };// namespace Inferences

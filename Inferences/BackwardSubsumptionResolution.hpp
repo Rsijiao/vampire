@@ -40,10 +40,10 @@ public:
 
   explicit BackwardSubsumptionResolution(bool byUnitsOnly) : _byUnitsOnly(byUnitsOnly) {}
 
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
 
-  void perform(Clause* premise, BwSimplificationRecordIterator& simplifications);
+  void perform(Clause* premise, BwSimplificationRecordIterator& simplifications) override;
 private:
   struct ClauseExtractorFn;
   struct ClauseToBwSimplRecordFn;

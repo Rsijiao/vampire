@@ -750,7 +750,7 @@ private:
     /** Create a new iterator */
     explicit inline DomainIteratorCore(const DHMap& map) : _base(map) {}
     /** True if there exists next element */
-    inline bool hasNext() { return _base.hasNext(); }
+    inline bool hasNext() override { return _base.hasNext(); }
 
     /**
      * Return the next key
@@ -767,7 +767,7 @@ private:
         /** Create a new iterator */
         explicit inline RangeIteratorCore(const DHMap& map) : _base(map) {}
         /** True if there exists next element */
-        inline bool hasNext() { return _base.hasNext(); }
+        inline bool hasNext() override { return _base.hasNext(); }
         
         /**
          * Return the next key
@@ -797,7 +797,7 @@ private:
     /** Create a new iterator */
     explicit inline ItemIteratorCore(const DHMap& map) : _base(map) {}
     /** True if there exists next element */
-    inline bool hasNext() { return _base.hasNext(); }
+    inline bool hasNext() override { return _base.hasNext(); }
 
     /**
      * Return the next key

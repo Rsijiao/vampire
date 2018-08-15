@@ -100,7 +100,7 @@ class UserErrorException
   explicit UserErrorException (const vstring msg)
     : Exception(msg)
   {}
-  void cry (ostream&);
+  void cry (ostream&) override;
 }; // UserErrorException
 
 /**
@@ -170,7 +170,7 @@ class InvalidOperationException
    explicit InvalidOperationException (const vstring msg)
     : Exception(msg)
   {}
-  void cry (ostream&);
+  void cry (ostream&) override;
 }; // InvalidOperationException
 
 /**
@@ -181,7 +181,7 @@ class SystemFailException
 {
 public:
   SystemFailException (const vstring msg, int err);
-  void cry (ostream&);
+  void cry (ostream&) override;
 
   int err;
 }; // InvalidOperationException
@@ -196,7 +196,7 @@ class NotImplementedException
    NotImplementedException (const char* file,int line)
     : Exception(""), file(file), line(line)
   {}
-   void cry (ostream&);
+   void cry (ostream&) override;
  private:
    const char* file;
    int line;

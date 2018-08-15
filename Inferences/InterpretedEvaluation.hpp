@@ -46,7 +46,7 @@ public:
   InterpretedEvaluation();
   virtual ~InterpretedEvaluation();
 
-  Clause* simplify(Clause* cl);
+  Clause* simplify(Clause* cl) override;
 private:
   bool simplifyLiteral(Literal* lit, bool& constant, Literal*& res, bool& constantTrue,Stack<Literal*>& sideConditions);
 

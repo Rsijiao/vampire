@@ -42,8 +42,8 @@ public:
   CLASS_NAME(RefutationSeekerFSE);
   USE_ALLOCATOR(RefutationSeekerFSE);
 
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
   void perform(Clause* cl, ForwardSimplificationPerformer* simplPerformer);
 private:
   /** Simplification unit index */

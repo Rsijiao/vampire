@@ -75,7 +75,7 @@ public:
   explicit GeneratingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 };
 
 class SimplifyingLiteralIndex
@@ -88,7 +88,7 @@ public:
   explicit SimplifyingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 };
 
 class FwSubsSimplifyingLiteralIndex
@@ -101,7 +101,7 @@ public:
   explicit FwSubsSimplifyingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 };
 
 class UnitClauseLiteralIndex
@@ -114,7 +114,7 @@ public:
   explicit UnitClauseLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 };
 
 class NonUnitClauseLiteralIndex
@@ -127,7 +127,7 @@ public:
   explicit NonUnitClauseLiteralIndex(LiteralIndexingStructure* is, bool selectedOnly=false)
   : LiteralIndex(is), _selectedOnly(selectedOnly) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 private:
   bool _selectedOnly;
 };
@@ -146,7 +146,7 @@ public:
     return _counterparts.get(c);
   }
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
   Literal* getGreater(Clause* c);
 
 private:
@@ -166,7 +166,7 @@ public:
 
   explicit DismatchingLiteralIndex(LiteralIndexingStructure* is)
   : LiteralIndex(is) {};
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
   void addLiteral(Literal* c);
 };
 

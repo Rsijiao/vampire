@@ -42,7 +42,7 @@ public:
   CLASS_NAME(EqualityResolution);
   USE_ALLOCATOR(EqualityResolution);
 
-  ClauseIterator generateClauses(Clause* premise);
+  ClauseIterator generateClauses(Clause* premise) override;
   static Clause* tryResolveEquality(Clause* cl, Literal* toResolve);
 private:
   struct ResultFn;

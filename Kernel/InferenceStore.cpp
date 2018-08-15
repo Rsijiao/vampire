@@ -449,7 +449,7 @@ struct InferenceStore::ProofPropertyPrinter
     last_one = false;
   }
 
-  void print()
+  void print() override
   {
     ProofPrinter::print();
     for(unsigned i=0;i<11;i++){ out << buckets[i] << " ";}
@@ -460,7 +460,7 @@ struct InferenceStore::ProofPropertyPrinter
 
 protected:
 
-  void printStep(Unit* us)
+  void printStep(Unit* us) override
   {
     static unsigned lastP = Unit::getLastParsingNumber();
     static float chunk = lastP / 10.0;
@@ -533,7 +533,7 @@ struct InferenceStore::TPTPProofPrinter
     splitPrefix = Saturation::Splitter::splPrefix; 
   }
 
-  void print()
+  void print() override
   {
     UIHelper::outputSortDeclarations(env.out());
     UIHelper::outputSymbolDeclarations(env.out());
@@ -690,7 +690,7 @@ protected:
     return getNewSymbols(origin, SymbolStack::ConstIterator(syms));
   }
 
-  void printStep(Unit* us)
+  void printStep(Unit* us) override
   {
     CALL("InferenceStore::TPTPProofPrinter::printStep");
 
@@ -901,7 +901,7 @@ struct InferenceStore::ProofCheckPrinter
   : ProofPrinter(out, is) {}
 
 protected:
-  void printStep(Unit* cs)
+  void printStep(Unit* cs) override
   {
     CALL("InferenceStore::ProofCheckPrinter::printStep");
     Inference::Rule rule;
@@ -931,7 +931,7 @@ protected:
   }
 
 
-  bool hideProofStep(Inference::Rule rule)
+  bool hideProofStep(Inference::Rule rule) override
   {
     switch(rule) {
     case Inference::INPUT:
@@ -965,7 +965,7 @@ protected:
     }
   }
 
-  void print()
+  void print() override
   {
     ProofPrinter::print();
     out << "%#\n";

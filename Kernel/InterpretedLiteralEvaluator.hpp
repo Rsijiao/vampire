@@ -55,7 +55,7 @@ protected:
   class RealEvaluator;
 
   typedef Stack<Evaluator*> EvalStack;
-  virtual TermList transformSubterm(TermList trm);
+  virtual TermList transformSubterm(TermList trm) override;
   Evaluator* getFuncEvaluator(unsigned func);
   Evaluator* getPredEvaluator(unsigned pred);
   EvalStack _evals;

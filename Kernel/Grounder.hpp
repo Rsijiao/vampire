@@ -85,7 +85,7 @@ public:
   GlobalSubsumptionGrounder(SATSolver* satSolver, bool doNormalization=true) 
           : Grounder(satSolver), _doNormalization(doNormalization) {}
 protected:
-  virtual void normalize(unsigned cnt, Literal** lits);
+  virtual void normalize(unsigned cnt, Literal** lits) override;
 };
 
 class IGGrounder : public Grounder {
@@ -97,7 +97,7 @@ public:
 private:
   TermList _tgtTerm;
 protected:
-  virtual void normalize(unsigned cnt, Literal** lits);
+  virtual void normalize(unsigned cnt, Literal** lits) override;
 private:
   class CollapsingApplicator;
   Literal* collapseVars(Literal* lit);

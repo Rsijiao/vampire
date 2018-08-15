@@ -44,26 +44,26 @@ public:
 
   explicit TermSubstitutionTree(bool useC=false);
 
-  void insert(TermList t, Literal* lit, Clause* cls);
+  void insert(TermList t, Literal* lit, Clause* cls) override;
   void remove(TermList t, Literal* lit, Clause* cls);
 
-  bool generalizationExists(TermList t);
+  bool generalizationExists(TermList t) override;
 
 
   TermQueryResultIterator getUnifications(TermList t,
-	  bool retrieveSubstitutions);
+	  bool retrieveSubstitutions) override;
 
   TermQueryResultIterator getUnificationsWithConstraints(TermList t,
-          bool retrieveSubstitutions);
+          bool retrieveSubstitutions) override;
 
   TermQueryResultIterator getGeneralizations(TermList t,
-	  bool retrieveSubstitutions);
+	  bool retrieveSubstitutions) override;
 
   TermQueryResultIterator getInstances(TermList t,
-	  bool retrieveSubstitutions);
+	  bool retrieveSubstitutions) override;
 
 #if VDEBUG
-  virtual void markTagged(){ SubstitutionTree::markTagged();}
+  virtual void markTagged() override{ SubstitutionTree::markTagged();}
 #endif
 
 private:

@@ -63,7 +63,7 @@ public:
   SuperpositionSubtermIndex(TermIndexingStructure* is, Ordering& ord)
   : TermIndex(is), _ord(ord) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 private:
   Ordering& _ord;
 };
@@ -78,7 +78,7 @@ public:
   SuperpositionLHSIndex(TermIndexingStructure* is, Ordering& ord, const Options& opt)
   : TermIndex(is), _ord(ord), _opt(opt) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 private:
   Ordering& _ord;
   const Options& _opt;
@@ -97,7 +97,7 @@ public:
   explicit DemodulationSubtermIndex(TermIndexingStructure* is)
   : TermIndex(is) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 };
 
 /**
@@ -113,7 +113,7 @@ public:
   DemodulationLHSIndex(TermIndexingStructure* is, Ordering& ord, const Options& opt)
   : TermIndex(is), _ord(ord), _opt(opt) {};
 protected:
-  void handleClause(Clause* c, bool adding);
+  void handleClause(Clause* c, bool adding) override;
 private:
   Ordering& _ord;
   const Options& _opt;

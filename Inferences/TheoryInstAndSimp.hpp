@@ -52,10 +52,10 @@ public:
   USE_ALLOCATOR(TheoryInstAndSimp);
 
   TheoryInstAndSimp() : _splitter(0) {}
-  void attach(SaturationAlgorithm* salg);
+  void attach(SaturationAlgorithm* salg) override;
 
   ClauseIterator generateClauses(Clause* premise, bool& premiseRedundant);
-  ClauseIterator generateClauses(Clause* premise){
+  ClauseIterator generateClauses(Clause* premise) override {
     bool r;
     return generateClauses(premise,r);
   }

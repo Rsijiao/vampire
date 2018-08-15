@@ -45,8 +45,8 @@ public:
   CLASS_NAME(SLQueryForwardSubsumption);
   USE_ALLOCATOR(SLQueryForwardSubsumption);
 
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
   void perform(Clause* cl, ForwardSimplificationPerformer* simplPerformer);
 private:
   SimplifyingLiteralIndex* _index;

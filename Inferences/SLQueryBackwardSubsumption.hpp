@@ -49,10 +49,10 @@ public:
    */
   explicit SLQueryBackwardSubsumption(SimplifyingLiteralIndex* index, bool byUnitsOnly=false) : _byUnitsOnly(byUnitsOnly), _index(index) {}
 
-  void attach(SaturationAlgorithm* salg);
-  void detach();
+  void attach(SaturationAlgorithm* salg) override;
+  void detach() override;
 
-  void perform(Clause* premise, BwSimplificationRecordIterator& simplifications);
+  void perform(Clause* premise, BwSimplificationRecordIterator& simplifications) override;
 private:
   struct ClauseExtractorFn;
   struct ClauseToBwSimplRecordFn;

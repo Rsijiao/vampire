@@ -66,7 +66,7 @@ public:
   SubstitutionTreeClauseVariantIndex() : _emptyClauses(0) {}
   virtual ~SubstitutionTreeClauseVariantIndex();
 
-  virtual void insert(Clause* cl);
+  virtual void insert(Clause* cl) override;
 
   ClauseIterator retrieveVariants(Literal* const * lits, unsigned length) override;
 
@@ -90,7 +90,7 @@ public:
 
   virtual ~HashingClauseVariantIndex();
 
-  virtual void insert(Clause* cl);
+  virtual void insert(Clause* cl) override;
 
   ClauseIterator retrieveVariants(Literal* const * lits, unsigned length) override;
 
