@@ -57,7 +57,7 @@ namespace Inferences {
                                      inf);
 
     unsigned i = 0;
-    while ((*c)[i] != a) { i++; }
+    while ((*c)[i] != a && i <= length) { i++; }
     std::memcpy(res->literals(), c->literals(), length * sizeof(Literal*));
     (*res)[i] = b;
 
@@ -316,7 +316,7 @@ namespace Inferences {
                                                   *lit->nthArgument(1)->term()->nthArgument(0),
                                                   type->arg(0));
         unsigned i = 0;
-        while ((*c)[i] != lit) { i++; }
+        while ((*c)[i] != lit && i <= newLength) { i++; }
         std::memcpy(res->literals(), c->literals(), length * sizeof(Literal*));
         (*res)[i] = newLit;
         
