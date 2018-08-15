@@ -43,14 +43,14 @@ void MaximalLiteralSelector::doSelection(Clause* c, unsigned eligible)
   LiteralList* sel=0;
   bool anyNegative=false;
 
-  for(int li=(<int>eligible)-1; li>=0; li--) {
+  for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
     Literal* lit=(*c)[li];
     if(isNegativeForSelection(lit)) {
       anyNegative=true;
       break;
     }
   }
-  for(int li=(<int>eligible)-1; li>=0; li--) {
+  for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
     Literal* lit=(*c)[li];
     if(!anyNegative || isNegativeForSelection(lit)) {
       LiteralList::push(lit,sel);

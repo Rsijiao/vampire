@@ -253,7 +253,7 @@ vstring Formula::toString (Connective c)
     { "", "&", "|", "=>", "<=>", "<~>", "~", "!", "?", "$var", "$false", "$true", "",""};
   ASS_EQ(sizeof(names)/sizeof(vstring), NOCONN+1);
 
-  return names[<int>c];
+  return names[static_cast<int>(c)];
 } // Formula::toString (Connective c)
 
 /**

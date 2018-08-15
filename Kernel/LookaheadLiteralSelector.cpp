@@ -287,7 +287,7 @@ void LookaheadLiteralSelector::doSelection(Clause* c, unsigned eligible)
   selectable.reset();
 
   if(_completeSelection) {
-    for(int li=(<int>eligible)-1; li>=0; li--) {
+    for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
       Literal* lit=(*c)[li];
       if(isNegativeForSelection(lit)) {
 	selectable.push(lit);
@@ -295,7 +295,7 @@ void LookaheadLiteralSelector::doSelection(Clause* c, unsigned eligible)
     }
 
     //figure out which are the maximal literals
-    for(int li=(<int>eligible)-1; li>=0; li--) {
+    for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
       Literal* lit=(*c)[li];
       LiteralList::push(lit,maximals);
     }

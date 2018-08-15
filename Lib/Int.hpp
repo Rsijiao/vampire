@@ -59,7 +59,7 @@ class Int
   static vstring toString(unsigned int i);
   static vstring toString(int l);
   /** Return the vstring representation of a float */
-  static vstring toString(float f) { return toString(<double>f); }
+  static vstring toString(float f) { return toString(static_cast<double>(f)); }
   static vstring toString(double d);
 
   static vstring toHexString(size_t i);

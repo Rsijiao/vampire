@@ -41,7 +41,7 @@ LiteralList* ELiteralSelector::getMaximalsInOrder(Clause* c, unsigned eligible)
 
   LiteralList* res = LiteralList::empty();
 
-  for(int li=(<int>eligible)-1; li>=0; li--) {
+  for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
     LiteralList::push((*c)[li],res);
   }
 
@@ -83,7 +83,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
 
   switch (_value) {
     case SelectNegativeLiterals: {
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit)) {
           LiteralList::push(lit,sel);
@@ -92,7 +92,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
       break;
     }
     case SelectPureVarNegLiterals: {
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit) && lit->isTwoVarEquality()) {
           singleSel = lit;
@@ -102,7 +102,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
       break;
     }
     case SelectSmallestNegLit: {
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit)) {
           if (!singleSel || singleSel->weight() > lit->weight()) {
@@ -114,7 +114,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
     }
     case SelectDiffNegLit: {
       unsigned bestVal = 0;
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit)) {
           unsigned val = lit_sel_diff_weight(lit);
@@ -128,7 +128,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
     }
     case SelectGroundNegLit: {
       unsigned bestVal = 0;
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit) && lit->ground()) {
           unsigned val = lit_sel_diff_weight(lit);
@@ -143,7 +143,7 @@ void ELiteralSelector::doSelection(Clause* c, unsigned eligible)
     case SelectOptimalLit: {
       unsigned bestVal = 0;
       bool bestGround = false;
-      for(int li=(<int>eligible)-1; li>=0; li--) {
+      for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
         Literal* lit=(*c)[li];
         if(isNegativeForSelection(lit) && (!bestGround || lit->ground())) {
           unsigned val = lit_sel_diff_weight(lit);

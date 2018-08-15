@@ -41,7 +41,7 @@ LiteralList* SpassLiteralSelector::getMaximalsInOrder(Clause* c, unsigned eligib
 
   LiteralList* res = LiteralList::empty();
 
-  for(int li=(<int>eligible)-1; li>=0; li--) {
+  for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
     LiteralList::push((*c)[li],res);
   }
 
@@ -67,7 +67,7 @@ void SpassLiteralSelector::doSelection(Clause* c, unsigned eligible)
       (_value != IFSEVERALMAXIMAL || LiteralList::isNonEmpty(maximals->tail()))) {
 
     // look for a negative literal of maximal weight
-    for(int li=(<int>eligible)-1; li>=0; li--) {
+    for(int li=(static_cast<int>(eligible))-1; li>=0; li--) {
       Literal* lit=(*c)[li];
       if(isNegativeForSelection(lit)) {
         if (!singleSel || singleSel->weight() < lit->weight()) {

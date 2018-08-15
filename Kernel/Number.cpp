@@ -551,7 +551,7 @@ BoundNumber BoundNumber::getMagicNumber(BoundNumber& rhs){
 	left = getNative();
 	right = rhs.getNative();
 
-    return BoundNumber(getDoubleNumber(<double>left,<double>right));
+    return BoundNumber(getDoubleNumber(static_cast<double>(left), static_cast<double>(right)));
 }
 
 

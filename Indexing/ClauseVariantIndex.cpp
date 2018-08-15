@@ -373,7 +373,7 @@ struct HashingClauseVariantIndex::VariableIgnoringComparator {
     // This test can be skipped, but should lead to a more efficient code
     if (t1->ground()) {
       ASS(t2->ground());
-      return Int::compare(<void *>t1,<void *>t2);
+      return Int::compare(reinterpret_cast<void *>(t1), reinterpret_cast<void *>(t2));
     }
 
     if(t1->functor()!=t2->functor()) {
@@ -401,7 +401,7 @@ struct HashingClauseVariantIndex::VariableIgnoringComparator {
     // This test can be skipped, but should lead to a more efficient code
     if (l1->ground()) {
       ASS(l2->ground());
-      return Int::compare(<void *>l1,<void *>l2);
+      return Int::compare(reinterpret_cast<void *>(l1), reinterpret_cast<void *>(l2));
     }
 
     if(l1->header()!=l2->header()) {
